@@ -89,7 +89,8 @@ module Rdc
         end
         doc.css("text").each do |text|
           next if text.text.empty?
-          text["textLength"] = (text.text.length * RR::CHAR_WIDTH).to_s
+          width = text["class"].to_s.split.include?("comment") ? RR::COMMENT_CHAR_WIDTH : RR::CHAR_WIDTH
+          text["textLength"] = (text.text.length * width).to_s
           text["lengthAdjust"] = "spacingAndGlyphs"
         end
       end

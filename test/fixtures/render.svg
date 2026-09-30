@@ -1,0 +1,9 @@
+<svg class="rr railroad-diagram" height="71" viewBox="0 0 307.5 71" width="307.5" xmlns="http://www.w3.org/2000/svg" role="group" aria-labelledby="h-r-rule">
+<g transform="translate(0.5 0.5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20"/></g><g>
+<path d="M40 31h20"/><g class="alt alt-added" data-alt="0">
+<g class="terminal " data-term="TOKEN&lt;&amp;">
+<rect height="22" rx="10" ry="10" width="88" x="60" y="20"/><text x="104" y="35" textLength="68" lengthAdjust="spacingAndGlyphs">&lt;value&gt;&amp;</text><title>TOKEN&lt;&amp;</title></g><path d="M148 31h10"/><path d="M158 31h10"/><a href="#r-other~3C~26" class="rr-nt" data-rule="other&lt;&amp;" aria-label="Go to rule other&lt;&amp;"><g class="non-terminal ">
+<rect height="22" width="79.5" x="168" y="20"/><text x="208" y="35" textLength="59.5" lengthAdjust="spacingAndGlyphs">other&lt;&amp;</text></g></a></g><path d="M247.5 31h20"/><path d="M40 31a10 10 0 0 1 10 10a10 10 0 0 0 10 10"/><g class="alt alt-removed" data-alt="1">
+<path d="M60 51h187.5"/></g><path d="M247.5 51a10 10 0 0 0 10 -10a10 10 0 0 1 10 -10"/></g><path d="M 267.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"/></g></svg>

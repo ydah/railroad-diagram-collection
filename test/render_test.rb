@@ -33,6 +33,7 @@ class RenderTest < Minitest::Test
     assert_equal 1, doc.css(".alt-removed").size
     refute_match(/[hv]-?0(?:\.0+)?(?:[A-Za-z ]|$)/, svg)
     assert_equal svg, Rdc::Render::SVG.new(@ir).render(@expr, heading_id: "h-r-rule", alt_classes: ["alt-added", "alt-removed"])
+    assert_equal File.read(File.join(__dir__, "fixtures/render.svg")), svg
   end
 
   def test_raw_render_uses_internal_terminal_names
@@ -54,6 +55,7 @@ class RenderTest < Minitest::Test
       svg = Rdc::Render::SVG.new(@ir).render(expr, heading_id: "heading")
       assert Nokogiri::XML(svg) { |c| c.strict }.root
     end
-    assert_includes Rdc::Render::SVG.new(@ir).render({ "t" => "note", "text" => "! predicate" }, heading_id: "heading"), "! predicate"
+    annotation = Nokogiri::XML(Rdc::Render::SVG.new(@ir).render({ "t" => "note", "text" => "! predicate" }, heading_id: "heading"))
+    assert_in_delta 77, annotation.at_css("text")["textLength"].to_f
   end
 end

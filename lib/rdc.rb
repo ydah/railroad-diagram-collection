@@ -12,7 +12,7 @@ module Rdc
   def self.write(path, text)
     FileUtils.mkdir_p(File.dirname(path))
     temporary = "#{path}.tmp"
-    File.write(temporary, text, encoding: "UTF-8")
+    File.binwrite(temporary, text)
     File.rename(temporary, path)
   end
 end

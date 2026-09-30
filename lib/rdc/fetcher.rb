@@ -20,7 +20,7 @@ module Rdc
     def fetch(language, version)
       lock = File.exist?(LOCK) ? YAML.safe_load_file(LOCK, aliases: false) : {}
       previous = lock.dig(language.id, version.id)
-      pinned = previous && previous["ref"] == version.ref ? previous["commit"] : nil
+      pinned = previous && previous["ref"] == version.ref && (!previous["repo"] || previous["repo"] == language.repo) ? previous["commit"] : nil
       directory = File.join(CACHE, language.id, version.id)
       checkout(language, version, directory, pinned)
       original = File.join(directory, language.grammar)
@@ -33,7 +33,7 @@ module Rdc
                           commit: self.class.capture!("git", "-C", directory, "rev-parse", "HEAD").strip,
                           sha256: checksum, prepared_sha256: Digest::SHA256.file(grammar).hexdigest,
                           committed_at: self.class.capture!("git", "-C", directory, "show", "-s", "--format=%cI", "HEAD").strip)
-      record = { "ref" => version.ref, "commit" => result.commit, "sha256" => checksum,
+      record = { "repo" => language.repo, "ref" => version.ref, "commit" => result.commit, "sha256" => checksum,
                  "prepared_sha256" => result.prepared_sha256, "committed_at" => result.committed_at,
                  "fetched_at" => previous&.fetch("fetched_at", nil) || Time.now.utc.iso8601 }
       lock[language.id] ||= {}
@@ -50,11 +50,16 @@ module Rdc
         self.class.capture!("git", "init", "--quiet", directory)
         self.class.capture!("git", "-C", directory, "remote", "add", "origin", language.repo)
       end
+      origin = self.class.capture!("git", "-C", directory, "remote", "get-url", "origin").strip
+      raise "cached repository differs from manifest: #{directory}; use a fresh cache" unless origin == language.repo
       current = self.class.capture!("git", "-C", directory, "rev-parse", "--verify", "HEAD") rescue nil
-      return if pinned && current&.strip == pinned
+      paths = Array(language.sparse) + ["/#{language.grammar}", "/#{language.license.fetch('path')}"]
+      if pinned && current&.strip == pinned
+        self.class.capture!("git", "-C", directory, "sparse-checkout", "set", "--no-cone", *paths.uniq)
+        return
+      end
       target = pinned || version.ref
       self.class.capture!("git", "-C", directory, "fetch", "--quiet", "--depth", "1", "origin", target)
-      paths = Array(language.sparse) + ["/#{language.grammar}", "/#{language.license.fetch('path')}"]
       self.class.capture!("git", "-C", directory, "sparse-checkout", "set", "--no-cone", *paths.uniq)
       self.class.capture!("git", "-c", "advice.detachedHead=false", "-C", directory, "checkout", "--quiet", "--detach", "FETCH_HEAD")
       commit = self.class.capture!("git", "-C", directory, "rev-parse", "HEAD").strip

@@ -81,9 +81,26 @@ module Rdc
     def serve(options)
       raise ArgumentError, "port must be 1–65535" unless (1..65_535).cover?(options[:port])
       require "webrick"
+      require "zlib"
       root = File.expand_path(options[:out])
       raise ArgumentError, "build #{root} first" unless File.file?(File.join(root, "index.html"))
-      server = WEBrick::HTTPServer.new(Port: options[:port], BindAddress: "127.0.0.1", DocumentRoot: root)
+      server = WEBrick::HTTPServer.new(Port: options[:port], BindAddress: "127.0.0.1", DocumentRoot: root, AccessLog: [], Logger: WEBrick::Log.new($stderr, WEBrick::Log::WARN))
+      handler = Class.new(WEBrick::HTTPServlet::FileHandler) do
+        def do_GET(request, response)
+          super
+          response["Cache-Control"] = "public, max-age=31536000, immutable" if request.path.match?(%r{\A/assets/.+\.[0-9a-f]{12}\.(css|js)\z})
+          return unless response.status == 200 && request["accept-encoding"].to_s.split(/,\s*/).any? { |value| value.match?(/\Agzip(?:;q=(?!0(?:\.0*)?\z)[0-9.]+)?\z/) }
+          return unless response["content-type"].to_s.match?(/(?:text\/|javascript|json|xml)/)
+          body = response.body
+          content = body.respond_to?(:read) ? body.read : body.to_s
+          body.close if body.respond_to?(:close)
+          response.body = Zlib.gzip(content)
+          response["Content-Encoding"] = "gzip"
+          response["Vary"] = "Accept-Encoding"
+          response["Content-Length"] = response.body.bytesize.to_s
+        end
+      end
+      server.mount("/", handler, root)
       trap("INT") { server.shutdown }
       trap("TERM") { server.shutdown }
       server.start
