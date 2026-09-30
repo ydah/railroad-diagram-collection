@@ -3,3 +3,8 @@
 /tmp/
 /node_modules/
 /dist/
+/.cache/
+/.bundle/
+/test-results/
+/playwright-report/
+/.lighthouseci/
