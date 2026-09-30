@@ -1,0 +1,7 @@
+---
+expr: |
+  <?php
+  $result = (1 + 2) * 3;
+statement: |
+  <?php
+  if (true) { echo "hello"; }

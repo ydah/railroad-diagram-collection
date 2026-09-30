@@ -1,0 +1,145 @@
+---
+ruby:
+  '4.0':
+    repo: https://github.com/ruby/ruby.git
+    ref: v4.0.0
+    commit: 553f1675f3a9cece340b90f374a4245dccac2272
+    sha256: c279ac5b08b17abdf02ce28ccdc7e2c9ae80f16346deb1214c998d0ebf9d6a73
+    prepared_sha256: 21a1de4c58bb506f20e1901cfa50e293d552f54810203a2ea1fc67b0de3cab3e
+    committed_at: '2025-12-25T12:20:40+09:00'
+    fetched_at: '2026-09-30T05:58:35Z'
+  '3.4':
+    repo: https://github.com/ruby/ruby.git
+    ref: v3_4_0
+    commit: f45010833071b953744658842369e3496dfacb48
+    sha256: e61980759d6aafe014cbd1eae5e423938874487c28e90cb7a72dab2653a0dd5f
+    prepared_sha256: d96c82bf894be9dbc4aee18a29ab1e867cbe10ca790cda3e2fa978e8698dd9fe
+    committed_at: '2024-12-24T20:50:41-08:00'
+    fetched_at: '2026-09-30T05:58:41Z'
+php:
+  '8.5':
+    repo: https://github.com/php/php-src.git
+    ref: php-8.5.0
+    commit: 685e99655ae97c667950f7f7d176985958718f56
+    sha256: 2cc2c362823a2fcaff661a69b597884548ae88bdc9f1845132d8f1b8236a972b
+    prepared_sha256: 2cc2c362823a2fcaff661a69b597884548ae88bdc9f1845132d8f1b8236a972b
+    committed_at: '2025-11-18T00:02:20-08:00'
+    fetched_at: '2026-09-30T05:58:47Z'
+  '8.4':
+    repo: https://github.com/php/php-src.git
+    ref: php-8.4.0
+    commit: b437f2b32eb364c9496d24abcc734272e5c9c980
+    sha256: 53bf84957214b7d02f62acb8b1f3088c38289377b1a00a0a240ea4f7bb31e5c1
+    prepared_sha256: 53bf84957214b7d02f62acb8b1f3088c38289377b1a00a0a240ea4f7bb31e5c1
+    committed_at: '2024-11-20T02:13:14+09:00'
+    fetched_at: '2026-09-30T05:58:53Z'
+perl:
+  '5.44':
+    repo: https://github.com/Perl/perl5.git
+    ref: v5.44.0
+    commit: e634cc838fb1785dfafb5d13b52807ea16b5c52c
+    sha256: 783af8ff7ff42fd7313d85df8bbde58d7480e4964bb41ce7b92a5039a7286074
+    prepared_sha256: 783af8ff7ff42fd7313d85df8bbde58d7480e4964bb41ce7b92a5039a7286074
+    committed_at: '2026-07-13T17:18:45+02:00'
+    fetched_at: '2026-09-30T05:59:00Z'
+  '5.42':
+    repo: https://github.com/Perl/perl5.git
+    ref: v5.42.0
+    commit: 5551b97c3be30b899397b99d57993a39d13294f1
+    sha256: 57ef509d481a8f100fca417b83deb7d66655912f27495b2f6daa0699748ea44f
+    prepared_sha256: 57ef509d481a8f100fca417b83deb7d66655912f27495b2f6daa0699748ea44f
+    committed_at: '2025-07-02T09:05:08+02:00'
+    fetched_at: '2026-09-30T05:59:05Z'
+jq:
+  1.8.1:
+    repo: https://github.com/jqlang/jq.git
+    ref: jq-1.8.1
+    commit: 4467af7068b1bcd7f882defff6e7ea674c5357f4
+    sha256: 9b2d3de25ae605e74ff3bd16a65cc1c3b769ce533a98d71efe31fa1993421cc6
+    prepared_sha256: 0af933378ad8d93add9a2965b3cd767a2a0459cdab179a0f5f7d6476edec26d9
+    committed_at: '2025-07-01T19:36:14+09:00'
+    fetched_at: '2026-09-30T05:59:06Z'
+  1.7.1:
+    repo: https://github.com/jqlang/jq.git
+    ref: jq-1.7.1
+    commit: 71c2ab509a8628dbbad4bc7b3f98a64aa90d3297
+    sha256: 4b0196e114ebded32ec464c5ff874d1fcd859698b0ece987cc4dfd888d8075ed
+    prepared_sha256: 4bb6756ab24ec28bc9e0a504bdb3b1c31e8015e0ec6f7b3fefc1d60c2d52a762
+    committed_at: '2023-12-13T20:20:22+01:00'
+    fetched_at: '2026-09-30T05:59:08Z'
+  1.8.2:
+    repo: https://github.com/jqlang/jq.git
+    ref: jq-1.8.2
+    commit: 34f7186b86743a083a589741b6cea95293524108
+    sha256: 803aa7c0b1acba2228e52d1de392fb51e60a7bbe23e42870aea1d62c43360c60
+    prepared_sha256: 0af933378ad8d93add9a2965b3cd767a2a0459cdab179a0f5f7d6476edec26d9
+    committed_at: '2026-06-20T20:58:06+09:00'
+    fetched_at: '2026-09-30T06:36:13Z'
+postgresql:
+  '18':
+    repo: https://github.com/postgres/postgres.git
+    ref: REL_18_0
+    commit: 3d6a828938a5fa0444275d3d2f67b64ec3199eb7
+    sha256: 7e548b673a1e03eb3a56c5eb9ad92d8e11095fac76e14cb258ca851f58274724
+    prepared_sha256: 187e393512de115de7730d347c39e7c10a56cd762ecd2eb687fe4cca34646843
+    committed_at: '2025-09-22T16:11:33-04:00'
+    fetched_at: '2026-09-30T05:59:16Z'
+  '17':
+    repo: https://github.com/postgres/postgres.git
+    ref: REL_17_0
+    commit: d7ec59a63d745ba74fba0e280bbf85dc6d1caa3e
+    sha256: c90376ede0678ee5ffadbf801bfbee701f74d38cda4b701e1c7363745f554c1a
+    prepared_sha256: 8e0d972264b1486f84a019897cf4b5d05bbe1a8c737a2d4ad95210c1a90d7951
+    committed_at: '2024-09-23T16:02:53-04:00'
+    fetched_at: '2026-09-30T05:59:24Z'
+mruby:
+  '4.0':
+    repo: https://github.com/mruby/mruby.git
+    ref: 4.0.0
+    commit: 831da26b9021de0369d17b71b5667e2941a1a32d
+    sha256: 55a1234828ee815c89d7bc1e41eda7d007beebd055b6cc67e55d060c2ab6d4c1
+    prepared_sha256: 55a1234828ee815c89d7bc1e41eda7d007beebd055b6cc67e55d060c2ab6d4c1
+    committed_at: '2026-04-20T17:43:06+09:00'
+    fetched_at: '2026-09-30T05:59:25Z'
+  '3.4':
+    repo: https://github.com/mruby/mruby.git
+    ref: 3.4.0
+    commit: a309524d0bc90eef077a24634db2495a6f68e318
+    sha256: 1e5324befe49ac625817f1d287c2b4ec3360a4fc27c610575b420c882d751ae1
+    prepared_sha256: 1e5324befe49ac625817f1d287c2b4ec3360a4fc27c610575b420c882d751ae1
+    committed_at: '2025-04-20T13:08:22+09:00'
+    fetched_at: '2026-09-30T05:59:27Z'
+java:
+  2026-09:
+    repo: https://github.com/antlr/grammars-v4.git
+    ref: 8c7680c4d28a2c84c8a1077a8b3dad4b37b300df
+    commit: 8c7680c4d28a2c84c8a1077a8b3dad4b37b300df
+    sha256: 15f52ab9ddaaefcb0c75b7b716fcfb0181be2610225a79aa37513fe13feabd52
+    prepared_sha256: cddc200bd82be0ce917bd2c25745ebc74efc950d52b3f16f0fb92432712b2b60
+    committed_at: '2026-09-20T08:49:33-04:00'
+    fetched_at: '2026-09-30T05:59:34Z'
+  2026-07:
+    repo: https://github.com/antlr/grammars-v4.git
+    ref: 7d16f6dd457301340d0ae11e7d9d03269f682afd
+    commit: 7d16f6dd457301340d0ae11e7d9d03269f682afd
+    sha256: 2a40776fbb3d6d30a90989e794bea5fa7488ecbe515253334847a62046fe9a09
+    prepared_sha256: 96993ee203a215e99e063e370a1f632e657513278dba71abd5d2d8e61bfe444c
+    committed_at: '2026-07-12T13:06:55-04:00'
+    fetched_at: '2026-09-30T05:59:43Z'
+go:
+  2026-06:
+    repo: https://github.com/antlr/grammars-v4.git
+    ref: 5a9a89fa7274878bdb93877c4be5d56859c08e5e
+    commit: 5a9a89fa7274878bdb93877c4be5d56859c08e5e
+    sha256: b0306f3c9b003dbf503c956aa917a9f574bd3e33a0d90ae6edf1f5bf2951a175
+    prepared_sha256: db2c66cb7f5b3e86ec633b8317361c300a3f54527ac3b3443f3f6e4551251acc
+    committed_at: '2026-06-20T08:48:44-04:00'
+    fetched_at: '2026-09-30T05:59:58Z'
+  2026-02:
+    repo: https://github.com/antlr/grammars-v4.git
+    ref: ed5e15c348d6125840384bc271bd76c437c556a4
+    commit: ed5e15c348d6125840384bc271bd76c437c556a4
+    sha256: 287de23b99c3c2d1ad9cda2fe78597fcef4c7b7929a59e38d3d614556e67e3e9
+    prepared_sha256: ae4a1ad158cbb5bed13a6872df5292f68a088632d115d173b825a9af1a9b143f
+    committed_at: '2026-02-08T10:44:03-07:00'
+    fetched_at: '2026-09-30T06:00:03Z'

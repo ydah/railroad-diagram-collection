@@ -1,0 +1,5 @@
+---
+Query: ".items[] | select(.active)\n"
+FuncDef: 'def double: . * 2; double
+
+  '

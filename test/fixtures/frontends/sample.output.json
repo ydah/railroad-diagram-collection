@@ -1,0 +1,72 @@
+{
+  "start": "start",
+  "rules": [
+    {
+      "name": "$accept",
+      "kind": "accept",
+      "alternatives": [
+        {
+          "symbols": [
+            "start",
+            "$end"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "list",
+            "DEFINEDOR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": []
+        },
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'quoted space'"
+          ]
+        }
+      ]
+    }
+  ],
+  "terminals": [
+    {
+      "name": "$end",
+      "display": "$end",
+      "kind": "internal"
+    },
+    {
+      "name": "'quoted space'",
+      "display": "quoted space",
+      "kind": "punct"
+    },
+    {
+      "name": "error",
+      "display": "error",
+      "kind": "internal"
+    },
+    {
+      "name": "DEFINEDOR",
+      "display": "//",
+      "kind": "punct",
+      "alias": "\"//\""
+    }
+  ]
+}

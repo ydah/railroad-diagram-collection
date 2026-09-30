@@ -1,0 +1,195 @@
+---
+display_name: Perl
+description:
+  en: Perl parser grammar, including lexical mode entry tokens.
+  ja: Perl のパーサ文法です。字句解析のモードを指定する内部トークンを含みます。
+epsilon_rules: []
+hide_rules: []
+token_display:
+  GRAMPROG:
+    display: GRAMPROG
+    kind: internal
+  GRAMEXPR:
+    display: GRAMEXPR
+    kind: internal
+  GRAMBLOCK:
+    display: GRAMBLOCK
+    kind: internal
+  GRAMBARESTMT:
+    display: GRAMBARESTMT
+    kind: internal
+  GRAMFULLSTMT:
+    display: GRAMFULLSTMT
+    kind: internal
+  GRAMSTMTSEQ:
+    display: GRAMSTMTSEQ
+    kind: internal
+  GRAMSUBSIGNATURE:
+    display: GRAMSUBSIGNATURE
+    kind: internal
+  KW_FORMAT:
+    display: format
+    kind: keyword
+  KW_PACKAGE:
+    display: package
+    kind: keyword
+  KW_CLASS:
+    display: class
+    kind: keyword
+  KW_LOCAL:
+    display: local
+    kind: keyword
+  KW_MY:
+    display: my
+    kind: keyword
+  KW_FIELD:
+    display: field
+    kind: keyword
+  KW_IF:
+    display: if
+    kind: keyword
+  KW_ELSE:
+    display: else
+    kind: keyword
+  KW_ELSIF:
+    display: elsif
+    kind: keyword
+  KW_UNLESS:
+    display: unless
+    kind: keyword
+  KW_FOR:
+    display: for
+    kind: keyword
+  KW_UNTIL:
+    display: until
+    kind: keyword
+  KW_WHILE:
+    display: while
+    kind: keyword
+  KW_CONTINUE:
+    display: continue
+    kind: keyword
+  KW_GIVEN:
+    display: given
+    kind: keyword
+  KW_WHEN:
+    display: when
+    kind: keyword
+  KW_DEFAULT:
+    display: default
+    kind: keyword
+  KW_TRY:
+    display: try
+    kind: keyword
+  KW_CATCH:
+    display: catch
+    kind: keyword
+  KW_FINALLY:
+    display: finally
+    kind: keyword
+  KW_DEFER:
+    display: defer
+    kind: keyword
+  KW_REQUIRE:
+    display: require
+    kind: keyword
+  KW_DO:
+    display: do
+    kind: keyword
+  KW_SUB_named:
+    display: sub
+    kind: keyword
+  KW_SUB_named_sig:
+    display: sub
+    kind: keyword
+  KW_SUB_anon:
+    display: sub
+    kind: keyword
+  KW_SUB_anon_sig:
+    display: sub
+    kind: keyword
+  KW_METHOD_named:
+    display: method
+    kind: keyword
+  KW_METHOD_anon:
+    display: method
+    kind: keyword
+  PERLY_AMPERSAND:
+    display: "&"
+    kind: punct
+  PERLY_BRACE_OPEN:
+    display: "{"
+    kind: punct
+  PERLY_BRACE_CLOSE:
+    display: "}"
+    kind: punct
+  PERLY_BRACKET_OPEN:
+    display: "["
+    kind: punct
+  PERLY_BRACKET_CLOSE:
+    display: "]"
+    kind: punct
+  PERLY_COMMA:
+    display: ","
+    kind: punct
+  PERLY_DOLLAR:
+    display: "$"
+    kind: punct
+  PERLY_DOT:
+    display: "."
+    kind: punct
+  PERLY_EQUAL_SIGN:
+    display: "="
+    kind: punct
+  PERLY_MINUS:
+    display: "-"
+    kind: punct
+  PERLY_PERCENT_SIGN:
+    display: "%"
+    kind: punct
+  PERLY_PLUS:
+    display: "+"
+    kind: punct
+  PERLY_SEMICOLON:
+    display: ";"
+    kind: punct
+  PERLY_SLASH:
+    display: "/"
+    kind: punct
+  PERLY_SNAIL:
+    display: "@"
+    kind: punct
+  PERLY_STAR:
+    display: "*"
+    kind: punct
+  PERLY_PAREN_OPEN:
+    display: "("
+    kind: punct
+  PERLY_PAREN_CLOSE:
+    display: ")"
+    kind: punct
+  PERLY_QUESTION_MARK:
+    display: "?"
+    kind: punct
+  PERLY_COLON:
+    display: ":"
+    kind: punct
+  KW_USE_or_NO:
+    display: use / no
+    kind: keyword
+  BAREWORD:
+    display: bareword
+    kind: class
+categories:
+  statements:
+  - barestmt
+  - fullstmt
+  - stmtseq
+  - block
+  expressions:
+  - expr
+  - term
+  - scalar
+simplify:
+  factor_prefix: true
+  inline_trivial: false

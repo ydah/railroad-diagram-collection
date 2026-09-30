@@ -1,0 +1,4011 @@
+{
+  "schema": 1,
+  "language": "perl",
+  "version": "5.44",
+  "source": {
+    "repo": "https://github.com/Perl/perl5.git",
+    "ref": "v5.44.0",
+    "commit": "e634cc838fb1785dfafb5d13b52807ea16b5c52c",
+    "path": "perly.y",
+    "sha256": "783af8ff7ff42fd7313d85df8bbde58d7480e4964bb41ce7b92a5039a7286074",
+    "prepared_sha256": "783af8ff7ff42fd7313d85df8bbde58d7480e4964bb41ce7b92a5039a7286074",
+    "committed_at": "2026-07-13T17:18:45+02:00",
+    "license": {
+      "name": "Artistic License 1.0",
+      "url": "https://github.com/Perl/perl5/blob/v5.44.0/Artistic",
+      "path": "Artistic"
+    }
+  },
+  "generator": {
+    "frontend": "lrama",
+    "tool_version": "0.8.0",
+    "lrama_revision": "c8317b55850bc6cd9033ddfbf816377b73f6c7bc",
+    "rdc": "1.0.0",
+    "metadata_sha256": "dfa3debd4c8cad028199a86f40d38c7c77988285ee419272c26347f9fcc242d2"
+  },
+  "start": "grammar",
+  "terminals": [
+    {
+      "name": "YYEOF",
+      "display": "end of file",
+      "kind": "internal",
+      "alias": "\"end of file\""
+    },
+    {
+      "name": "YYerror",
+      "display": "error",
+      "kind": "internal",
+      "alias": "error"
+    },
+    {
+      "name": "YYUNDEF",
+      "display": "invalid token",
+      "kind": "internal",
+      "alias": "\"invalid token\""
+    },
+    {
+      "name": "GRAMPROG",
+      "display": "GRAMPROG",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMEXPR",
+      "display": "GRAMEXPR",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMBLOCK",
+      "display": "GRAMBLOCK",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMBARESTMT",
+      "display": "GRAMBARESTMT",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMFULLSTMT",
+      "display": "GRAMFULLSTMT",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMSTMTSEQ",
+      "display": "GRAMSTMTSEQ",
+      "kind": "internal"
+    },
+    {
+      "name": "GRAMSUBSIGNATURE",
+      "display": "GRAMSUBSIGNATURE",
+      "kind": "internal"
+    },
+    {
+      "name": "PERLY_AMPERSAND",
+      "display": "&",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_BRACE_OPEN",
+      "display": "{",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_BRACE_CLOSE",
+      "display": "}",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_BRACKET_OPEN",
+      "display": "[",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_BRACKET_CLOSE",
+      "display": "]",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_COMMA",
+      "display": ",",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_DOLLAR",
+      "display": "$",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_DOT",
+      "display": ".",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_EQUAL_SIGN",
+      "display": "=",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_MINUS",
+      "display": "-",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_PERCENT_SIGN",
+      "display": "%",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_PLUS",
+      "display": "+",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_SEMICOLON",
+      "display": ";",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_SLASH",
+      "display": "/",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_SNAIL",
+      "display": "@",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_STAR",
+      "display": "*",
+      "kind": "punct"
+    },
+    {
+      "name": "KW_FORMAT",
+      "display": "format",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_PACKAGE",
+      "display": "package",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_CLASS",
+      "display": "class",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_LOCAL",
+      "display": "local",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_MY",
+      "display": "my",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_FIELD",
+      "display": "field",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_IF",
+      "display": "if",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_ELSE",
+      "display": "else",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_ELSIF",
+      "display": "elsif",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_UNLESS",
+      "display": "unless",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_FOR",
+      "display": "for",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_UNTIL",
+      "display": "until",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_WHILE",
+      "display": "while",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_CONTINUE",
+      "display": "continue",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_GIVEN",
+      "display": "given",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_WHEN",
+      "display": "when",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_DEFAULT",
+      "display": "default",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_TRY",
+      "display": "try",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_CATCH",
+      "display": "catch",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_FINALLY",
+      "display": "finally",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_DEFER",
+      "display": "defer",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_REQUIRE",
+      "display": "require",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_DO",
+      "display": "do",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_USE_or_NO",
+      "display": "use / no",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_SUB_named",
+      "display": "sub",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_SUB_named_sig",
+      "display": "sub",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_SUB_anon",
+      "display": "sub",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_SUB_anon_sig",
+      "display": "sub",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_METHOD_named",
+      "display": "method",
+      "kind": "keyword"
+    },
+    {
+      "name": "KW_METHOD_anon",
+      "display": "method",
+      "kind": "keyword"
+    },
+    {
+      "name": "BAREWORD",
+      "display": "bareword",
+      "kind": "class"
+    },
+    {
+      "name": "METHCALL0",
+      "display": "METHCALL0",
+      "kind": "class"
+    },
+    {
+      "name": "METHCALL",
+      "display": "METHCALL",
+      "kind": "class"
+    },
+    {
+      "name": "ATTRLIST",
+      "display": "ATTRLIST",
+      "kind": "class"
+    },
+    {
+      "name": "THING",
+      "display": "THING",
+      "kind": "class"
+    },
+    {
+      "name": "PMFUNC",
+      "display": "PMFUNC",
+      "kind": "class"
+    },
+    {
+      "name": "PRIVATEREF",
+      "display": "PRIVATEREF",
+      "kind": "class"
+    },
+    {
+      "name": "QWLIST",
+      "display": "QWLIST",
+      "kind": "class"
+    },
+    {
+      "name": "FUNC0OP",
+      "display": "FUNC0OP",
+      "kind": "class"
+    },
+    {
+      "name": "FUNC0SUB",
+      "display": "FUNC0SUB",
+      "kind": "class"
+    },
+    {
+      "name": "UNIOPSUB",
+      "display": "UNIOPSUB",
+      "kind": "class"
+    },
+    {
+      "name": "LSTOPSUB",
+      "display": "LSTOPSUB",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGEXPR",
+      "display": "PLUGEXPR",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGSTMT",
+      "display": "PLUGSTMT",
+      "kind": "class"
+    },
+    {
+      "name": "LABEL",
+      "display": "LABEL",
+      "kind": "class"
+    },
+    {
+      "name": "PROTOTYPE",
+      "display": "PROTOTYPE",
+      "kind": "class"
+    },
+    {
+      "name": "LOOPEX",
+      "display": "LOOPEX",
+      "kind": "class"
+    },
+    {
+      "name": "DOTDOT",
+      "display": "DOTDOT",
+      "kind": "class"
+    },
+    {
+      "name": "YADAYADA",
+      "display": "YADAYADA",
+      "kind": "class"
+    },
+    {
+      "name": "FUNC0",
+      "display": "FUNC0",
+      "kind": "class"
+    },
+    {
+      "name": "FUNC1",
+      "display": "FUNC1",
+      "kind": "class"
+    },
+    {
+      "name": "FUNC",
+      "display": "FUNC",
+      "kind": "class"
+    },
+    {
+      "name": "UNIOP",
+      "display": "UNIOP",
+      "kind": "class"
+    },
+    {
+      "name": "LSTOP",
+      "display": "LSTOP",
+      "kind": "class"
+    },
+    {
+      "name": "BLKLSTOP",
+      "display": "BLKLSTOP",
+      "kind": "class"
+    },
+    {
+      "name": "POWOP",
+      "display": "POWOP",
+      "kind": "class"
+    },
+    {
+      "name": "MULOP",
+      "display": "MULOP",
+      "kind": "class"
+    },
+    {
+      "name": "ADDOP",
+      "display": "ADDOP",
+      "kind": "class"
+    },
+    {
+      "name": "DOLSHARP",
+      "display": "DOLSHARP",
+      "kind": "class"
+    },
+    {
+      "name": "HASHBRACK",
+      "display": "HASHBRACK",
+      "kind": "class"
+    },
+    {
+      "name": "NOAMP",
+      "display": "NOAMP",
+      "kind": "class"
+    },
+    {
+      "name": "COLONATTR",
+      "display": "COLONATTR",
+      "kind": "class"
+    },
+    {
+      "name": "FORMLBRACK",
+      "display": "FORMLBRACK",
+      "kind": "class"
+    },
+    {
+      "name": "FORMRBRACK",
+      "display": "FORMRBRACK",
+      "kind": "class"
+    },
+    {
+      "name": "SUBLEXSTART",
+      "display": "SUBLEXSTART",
+      "kind": "class"
+    },
+    {
+      "name": "SUBLEXEND",
+      "display": "SUBLEXEND",
+      "kind": "class"
+    },
+    {
+      "name": "PHASER",
+      "display": "PHASER",
+      "kind": "class"
+    },
+    {
+      "name": "PREC_LOW",
+      "display": "PREC_LOW",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_LOW_OP",
+      "display": "PLUGIN_LOW_OP",
+      "kind": "class"
+    },
+    {
+      "name": "OROP",
+      "display": "OROP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_LOGICAL_OR_LOW_OP",
+      "display": "PLUGIN_LOGICAL_OR_LOW_OP",
+      "kind": "class"
+    },
+    {
+      "name": "ANDOP",
+      "display": "ANDOP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_LOGICAL_AND_LOW_OP",
+      "display": "PLUGIN_LOGICAL_AND_LOW_OP",
+      "kind": "class"
+    },
+    {
+      "name": "NOTOP",
+      "display": "NOTOP",
+      "kind": "class"
+    },
+    {
+      "name": "ASSIGNOP",
+      "display": "ASSIGNOP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_ASSIGN_OP",
+      "display": "PLUGIN_ASSIGN_OP",
+      "kind": "class"
+    },
+    {
+      "name": "PERLY_QUESTION_MARK",
+      "display": "?",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_COLON",
+      "display": ":",
+      "kind": "punct"
+    },
+    {
+      "name": "OROR",
+      "display": "OROR",
+      "kind": "class"
+    },
+    {
+      "name": "DORDOR",
+      "display": "DORDOR",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_LOGICAL_OR_OP",
+      "display": "PLUGIN_LOGICAL_OR_OP",
+      "kind": "class"
+    },
+    {
+      "name": "ANDAND",
+      "display": "ANDAND",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_LOGICAL_AND_OP",
+      "display": "PLUGIN_LOGICAL_AND_OP",
+      "kind": "class"
+    },
+    {
+      "name": "BITOROP",
+      "display": "BITOROP",
+      "kind": "class"
+    },
+    {
+      "name": "BITANDOP",
+      "display": "BITANDOP",
+      "kind": "class"
+    },
+    {
+      "name": "CHEQOP",
+      "display": "CHEQOP",
+      "kind": "class"
+    },
+    {
+      "name": "NCEQOP",
+      "display": "NCEQOP",
+      "kind": "class"
+    },
+    {
+      "name": "CHRELOP",
+      "display": "CHRELOP",
+      "kind": "class"
+    },
+    {
+      "name": "NCRELOP",
+      "display": "NCRELOP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_REL_OP",
+      "display": "PLUGIN_REL_OP",
+      "kind": "class"
+    },
+    {
+      "name": "SHIFTOP",
+      "display": "SHIFTOP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_ADD_OP",
+      "display": "PLUGIN_ADD_OP",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_MUL_OP",
+      "display": "PLUGIN_MUL_OP",
+      "kind": "class"
+    },
+    {
+      "name": "MATCHOP",
+      "display": "MATCHOP",
+      "kind": "class"
+    },
+    {
+      "name": "PERLY_EXCLAMATION_MARK",
+      "display": "PERLY_EXCLAMATION_MARK",
+      "kind": "class"
+    },
+    {
+      "name": "PERLY_TILDE",
+      "display": "PERLY_TILDE",
+      "kind": "class"
+    },
+    {
+      "name": "UMINUS",
+      "display": "UMINUS",
+      "kind": "class"
+    },
+    {
+      "name": "REFGEN",
+      "display": "REFGEN",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_POW_OP",
+      "display": "PLUGIN_POW_OP",
+      "kind": "class"
+    },
+    {
+      "name": "PREINC",
+      "display": "PREINC",
+      "kind": "class"
+    },
+    {
+      "name": "PREDEC",
+      "display": "PREDEC",
+      "kind": "class"
+    },
+    {
+      "name": "POSTINC",
+      "display": "POSTINC",
+      "kind": "class"
+    },
+    {
+      "name": "POSTDEC",
+      "display": "POSTDEC",
+      "kind": "class"
+    },
+    {
+      "name": "POSTJOIN",
+      "display": "POSTJOIN",
+      "kind": "class"
+    },
+    {
+      "name": "PLUGIN_HIGH_OP",
+      "display": "PLUGIN_HIGH_OP",
+      "kind": "class"
+    },
+    {
+      "name": "ARROW",
+      "display": "ARROW",
+      "kind": "class"
+    },
+    {
+      "name": "PERLY_PAREN_CLOSE",
+      "display": ")",
+      "kind": "punct"
+    },
+    {
+      "name": "PERLY_PAREN_OPEN",
+      "display": "(",
+      "kind": "punct"
+    }
+  ],
+  "rules": [
+    {
+      "name": "$accept",
+      "kind": "accept",
+      "line": 36,
+      "alternatives": [
+        {
+          "symbols": [
+            "grammar",
+            "YYEOF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@1",
+      "kind": "midrule",
+      "line": 188,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "grammar",
+      "kind": "normal",
+      "line": 187,
+      "alternatives": [
+        {
+          "symbols": [
+            "GRAMPROG",
+            "$@1",
+            "remember",
+            "stmtseq"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMEXPR",
+            "$@2",
+            "optexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMBLOCK",
+            "$@3",
+            "block"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMBARESTMT",
+            "$@4",
+            "barestmt"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMFULLSTMT",
+            "$@5",
+            "fullstmt"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMSTMTSEQ",
+            "$@6",
+            "stmtseq"
+          ]
+        },
+        {
+          "symbols": [
+            "GRAMSUBSIGNATURE",
+            "$@7",
+            "subsigguts"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@2",
+      "kind": "midrule",
+      "line": 199,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@3",
+      "kind": "midrule",
+      "line": 209,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@4",
+      "kind": "midrule",
+      "line": 222,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@5",
+      "kind": "midrule",
+      "line": 235,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@6",
+      "kind": "midrule",
+      "line": 248,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@7",
+      "kind": "midrule",
+      "line": 258,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_block",
+      "kind": "normal",
+      "line": 270,
+      "alternatives": [
+        {
+          "symbols": [
+            "block",
+            "cont"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_class_declaration",
+      "kind": "normal",
+      "line": 278,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_CLASS",
+            "BAREWORD",
+            "BAREWORD",
+            "optattrlist",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@8",
+      "kind": "midrule",
+      "line": 300,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_class_definition",
+      "kind": "normal",
+      "line": 294,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_CLASS",
+            "BAREWORD",
+            "BAREWORD",
+            "optattrlist",
+            "PERLY_BRACE_OPEN",
+            "remember",
+            "$@8",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_default",
+      "kind": "normal",
+      "line": 317,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_DEFAULT",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_defer",
+      "kind": "normal",
+      "line": 325,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_DEFER",
+            "mblock"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_expression",
+      "kind": "normal",
+      "line": 333,
+      "alternatives": [
+        {
+          "symbols": [
+            "sideff",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_field_declaration",
+      "kind": "normal",
+      "line": 340,
+      "alternatives": [
+        {
+          "symbols": [
+            "fielddecl",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@9",
+      "kind": "midrule",
+      "line": 353,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@10",
+      "kind": "midrule",
+      "line": 358,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_for",
+      "kind": "normal",
+      "line": 348,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_FOR",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mnexpr",
+            "PERLY_SEMICOLON",
+            "$@9",
+            "texpr",
+            "PERLY_SEMICOLON",
+            "$@10",
+            "mintro",
+            "mnexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "KW_MY",
+            "remember",
+            "my_scalar",
+            "PERLY_PAREN_OPEN",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "KW_MY",
+            "remember",
+            "PERLY_PAREN_OPEN",
+            "my_list_of_itervars",
+            "PERLY_PAREN_CLOSE",
+            "PERLY_PAREN_OPEN",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "scalar",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "my_refgen",
+            "remember",
+            "my_var",
+            "@11",
+            "PERLY_PAREN_OPEN",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "REFGEN",
+            "refgen_topic",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FOR",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "cont"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@11",
+      "kind": "midrule",
+      "line": 427,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_format",
+      "kind": "normal",
+      "line": 488,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_FORMAT",
+            "startformsub",
+            "formname",
+            "formblock"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_given",
+      "kind": "normal",
+      "line": 504,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_GIVEN",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_if",
+      "kind": "normal",
+      "line": 517,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_IF",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "else"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_null",
+      "kind": "normal",
+      "line": 532,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_package_declaration",
+      "kind": "normal",
+      "line": 540,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_PACKAGE",
+            "BAREWORD",
+            "BAREWORD",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@12",
+      "kind": "midrule",
+      "line": 561,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_package_definition",
+      "kind": "normal",
+      "line": 556,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_PACKAGE",
+            "BAREWORD",
+            "BAREWORD",
+            "PERLY_BRACE_OPEN",
+            "remember",
+            "$@12",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@13",
+      "kind": "midrule",
+      "line": 576,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_phaser",
+      "kind": "normal",
+      "line": 574,
+      "alternatives": [
+        {
+          "symbols": [
+            "PHASER",
+            "startsub",
+            "$@13",
+            "optsubbody"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@14",
+      "kind": "midrule",
+      "line": 611,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_sub_signature",
+      "kind": "normal",
+      "line": 608,
+      "alternatives": [
+        {
+          "symbols": [
+            "sigsub_or_method_named",
+            "subname",
+            "startsub",
+            "$@14",
+            "subattrlist",
+            "optsigsubbody"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@15",
+      "kind": "midrule",
+      "line": 641,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_sub_traditional",
+      "kind": "normal",
+      "line": 638,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_SUB_named",
+            "subname",
+            "startsub",
+            "$@15",
+            "proto",
+            "subattrlist",
+            "optsubbody"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@16",
+      "kind": "midrule",
+      "line": 667,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_try_catch",
+      "kind": "normal",
+      "line": 662,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_TRY",
+            "mblock",
+            "KW_CATCH",
+            "remember",
+            "catch_paren",
+            "$@16",
+            "mblock",
+            "finally"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_unless",
+      "kind": "normal",
+      "line": 684,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_UNLESS",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "else"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_until",
+      "kind": "normal",
+      "line": 699,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_UNTIL",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "iexpr",
+            "PERLY_PAREN_CLOSE",
+            "mintro",
+            "mblock",
+            "cont"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@17",
+      "kind": "midrule",
+      "line": 716,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_utilize",
+      "kind": "normal",
+      "line": 714,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_USE_or_NO",
+            "startsub",
+            "$@17",
+            "BAREWORD",
+            "BAREWORD",
+            "optlistexpr",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_when",
+      "kind": "normal",
+      "line": 732,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_WHEN",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_while",
+      "kind": "normal",
+      "line": 744,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_WHILE",
+            "PERLY_PAREN_OPEN",
+            "remember",
+            "texpr",
+            "PERLY_PAREN_CLOSE",
+            "mintro",
+            "mblock",
+            "cont"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bare_statement_yadayada",
+      "kind": "normal",
+      "line": 759,
+      "alternatives": [
+        {
+          "symbols": [
+            "YADAYADA",
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigsub_or_method_named",
+      "kind": "normal",
+      "line": 768,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_SUB_named_sig"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_METHOD_named"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "block",
+      "kind": "normal",
+      "line": 775,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_BRACE_OPEN",
+            "remember",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "kind": "normal",
+      "line": 783,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "formblock",
+      "kind": "normal",
+      "line": 787,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_EQUAL_SIGN",
+            "remember",
+            "PERLY_SEMICOLON",
+            "FORMRBRACK",
+            "formstmtseq",
+            "PERLY_SEMICOLON",
+            "PERLY_DOT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remember",
+      "kind": "normal",
+      "line": 794,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "mblock",
+      "kind": "normal",
+      "line": 799,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_BRACE_OPEN",
+            "mremember",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mremember",
+      "kind": "normal",
+      "line": 806,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "catch_paren",
+      "kind": "normal",
+      "line": 812,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "$@18",
+            "scalar",
+            "$@19",
+            "PERLY_PAREN_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@18",
+      "kind": "midrule",
+      "line": 816,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@19",
+      "kind": "midrule",
+      "line": 818,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "stmtseq",
+      "kind": "normal",
+      "line": 825,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "stmtseq",
+            "fullstmt"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formstmtseq",
+      "kind": "normal",
+      "line": 836,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "formstmtseq",
+            "formline"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fullstmt",
+      "kind": "normal",
+      "line": 846,
+      "alternatives": [
+        {
+          "symbols": [
+            "barestmt"
+          ]
+        },
+        {
+          "symbols": [
+            "labfullstmt"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "labfullstmt",
+      "kind": "normal",
+      "line": 854,
+      "alternatives": [
+        {
+          "symbols": [
+            "LABEL",
+            "barestmt"
+          ]
+        },
+        {
+          "symbols": [
+            "LABEL",
+            "labfullstmt"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "barestmt",
+      "kind": "normal",
+      "line": 878,
+      "alternatives": [
+        {
+          "symbols": [
+            "PLUGSTMT"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_block"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_class_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_class_definition"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_default"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_defer"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_expression"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_field_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_for"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_format"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_given"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_if"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_null"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_package_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_package_definition"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_phaser"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_sub_signature"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_sub_traditional"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_try_catch"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_unless"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_until"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_utilize"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_when"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_while"
+          ]
+        },
+        {
+          "symbols": [
+            "bare_statement_yadayada"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formline",
+      "kind": "normal",
+      "line": 906,
+      "alternatives": [
+        {
+          "symbols": [
+            "THING",
+            "formarg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formarg",
+      "kind": "normal",
+      "line": 924,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "FORMLBRACK",
+            "stmtseq",
+            "FORMRBRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "condition",
+      "kind": "normal",
+      "line": 929,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sideff",
+      "kind": "normal",
+      "line": 933,
+      "alternatives": [
+        {
+          "symbols": [
+            "YYerror"
+          ]
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_IF",
+            "condition"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_UNLESS",
+            "condition"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_WHILE",
+            "condition"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_UNTIL",
+            "iexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_FOR",
+            "condition"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "KW_WHEN",
+            "condition"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "else",
+      "kind": "normal",
+      "line": 956,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_ELSE",
+            "mblock"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_ELSIF",
+            "PERLY_PAREN_OPEN",
+            "mexpr",
+            "PERLY_PAREN_CLOSE",
+            "mblock",
+            "else"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cont",
+      "kind": "normal",
+      "line": 973,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_CONTINUE",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finally",
+      "kind": "normal",
+      "line": 979,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "KW_FINALLY",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mintro",
+      "kind": "normal",
+      "line": 986,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "nexpr",
+      "kind": "normal",
+      "line": 993,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "sideff"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "texpr",
+      "kind": "normal",
+      "line": 998,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iexpr",
+      "kind": "normal",
+      "line": 1006,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mexpr",
+      "kind": "normal",
+      "line": 1011,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mnexpr",
+      "kind": "normal",
+      "line": 1015,
+      "alternatives": [
+        {
+          "symbols": [
+            "nexpr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formname",
+      "kind": "normal",
+      "line": 1019,
+      "alternatives": [
+        {
+          "symbols": [
+            "BAREWORD"
+          ]
+        },
+        {
+          "symbols": [
+            "empty"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "startsub",
+      "kind": "normal",
+      "line": 1023,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "startanonsub",
+      "kind": "normal",
+      "line": 1029,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "startanonmethod",
+      "kind": "normal",
+      "line": 1034,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "startformsub",
+      "kind": "normal",
+      "line": 1039,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "subname",
+      "kind": "normal",
+      "line": 1045,
+      "alternatives": [
+        {
+          "symbols": [
+            "BAREWORD"
+          ]
+        },
+        {
+          "symbols": [
+            "PRIVATEREF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "proto",
+      "kind": "normal",
+      "line": 1051,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "PROTOTYPE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subattrlist",
+      "kind": "normal",
+      "line": 1057,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "COLONATTR",
+            "ATTRLIST"
+          ]
+        },
+        {
+          "symbols": [
+            "COLONATTR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attrlist",
+      "kind": "normal",
+      "line": 1070,
+      "alternatives": [
+        {
+          "symbols": [
+            "COLONATTR",
+            "ATTRLIST"
+          ]
+        },
+        {
+          "symbols": [
+            "COLONATTR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optattrlist",
+      "kind": "normal",
+      "line": 1077,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "attrlist"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigvar",
+      "kind": "normal",
+      "line": 1087,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "PRIVATEREF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigslurpsigil",
+      "kind": "normal",
+      "line": 1094,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_SNAIL"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PERCENT_SIGN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigslurpelem",
+      "kind": "normal",
+      "line": 1100,
+      "alternatives": [
+        {
+          "symbols": [
+            "sigslurpsigil",
+            "sigvar"
+          ]
+        },
+        {
+          "symbols": [
+            "sigslurpsigil",
+            "sigvar",
+            "ASSIGNOP"
+          ]
+        },
+        {
+          "symbols": [
+            "sigslurpsigil",
+            "sigvar",
+            "ASSIGNOP",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optcolon",
+      "kind": "normal",
+      "line": 1115,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "PERLY_COLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigscalarelem",
+      "kind": "normal",
+      "line": 1123,
+      "alternatives": [
+        {
+          "symbols": [
+            "optcolon",
+            "PERLY_DOLLAR",
+            "sigvar"
+          ]
+        },
+        {
+          "symbols": [
+            "optcolon",
+            "PERLY_DOLLAR",
+            "sigvar",
+            "ASSIGNOP",
+            "optsigscalardefault"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optsigscalardefault",
+      "kind": "normal",
+      "line": 1146,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sigelem",
+      "kind": "normal",
+      "line": 1153,
+      "alternatives": [
+        {
+          "symbols": [
+            "sigscalarelem"
+          ]
+        },
+        {
+          "symbols": [
+            "sigslurpelem"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "siglist",
+      "kind": "normal",
+      "line": 1163,
+      "alternatives": [
+        {
+          "symbols": [
+            "siglist",
+            "PERLY_COMMA"
+          ]
+        },
+        {
+          "symbols": [
+            "siglist",
+            "PERLY_COMMA",
+            "sigelem"
+          ]
+        },
+        {
+          "symbols": [
+            "sigelem"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optsiglist",
+      "kind": "normal",
+      "line": 1170,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "siglist"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optsubsignature",
+      "kind": "normal",
+      "line": 1176,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "subsignature"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subsignature",
+      "kind": "normal",
+      "line": 1181,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "subsigguts",
+            "PERLY_PAREN_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@20",
+      "kind": "midrule",
+      "line": 1185,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "subsigguts",
+      "kind": "normal",
+      "line": 1185,
+      "alternatives": [
+        {
+          "symbols": [
+            "$@20",
+            "optsiglist"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optsubbody",
+      "kind": "normal",
+      "line": 1218,
+      "alternatives": [
+        {
+          "symbols": [
+            "subbody"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subbody",
+      "kind": "normal",
+      "line": 1224,
+      "alternatives": [
+        {
+          "symbols": [
+            "remember",
+            "PERLY_BRACE_OPEN",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optsigsubbody",
+      "kind": "normal",
+      "line": 1236,
+      "alternatives": [
+        {
+          "symbols": [
+            "sigsubbody"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_SEMICOLON"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@21",
+      "kind": "midrule",
+      "line": 1242,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "sigsubbody",
+      "kind": "normal",
+      "line": 1241,
+      "alternatives": [
+        {
+          "symbols": [
+            "remember",
+            "optsubsignature",
+            "PERLY_BRACE_OPEN",
+            "$@21",
+            "stmtseq",
+            "PERLY_BRACE_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expr",
+      "kind": "normal",
+      "line": 1254,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr",
+            "ANDOP",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "PLUGIN_LOGICAL_AND_LOW_OP",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "OROP",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "PLUGIN_LOGICAL_OR_LOW_OP",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "listexpr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "listexpr",
+      "kind": "normal",
+      "line": 1266,
+      "alternatives": [
+        {
+          "symbols": [
+            "listexpr",
+            "PERLY_COMMA"
+          ]
+        },
+        {
+          "symbols": [
+            "listexpr",
+            "PERLY_COMMA",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "listop",
+      "kind": "normal",
+      "line": 1277,
+      "alternatives": [
+        {
+          "symbols": [
+            "LSTOP",
+            "indirob",
+            "listexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "BLKLSTOP",
+            "block",
+            "listexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC",
+            "PERLY_PAREN_OPEN",
+            "indirob",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "methodname",
+            "PERLY_PAREN_OPEN",
+            "optexpr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "methodname"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_AMPERSAND",
+            "subname",
+            "PERLY_PAREN_OPEN",
+            "optexpr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_AMPERSAND",
+            "subname"
+          ]
+        },
+        {
+          "symbols": [
+            "METHCALL0",
+            "indirob",
+            "optlistexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "METHCALL",
+            "indirob",
+            "PERLY_PAREN_OPEN",
+            "optexpr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "LSTOP",
+            "optlistexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC",
+            "PERLY_PAREN_OPEN",
+            "optexpr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC",
+            "SUBLEXSTART",
+            "optexpr",
+            "SUBLEXEND"
+          ]
+        },
+        {
+          "symbols": [
+            "LSTOPSUB",
+            "startanonsub",
+            "block",
+            "@22",
+            "optlistexpr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@22",
+      "kind": "midrule",
+      "line": 1331,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "methodname",
+      "kind": "normal",
+      "line": 1344,
+      "alternatives": [
+        {
+          "symbols": [
+            "METHCALL0"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subscripted",
+      "kind": "normal",
+      "line": 1349,
+      "alternatives": [
+        {
+          "symbols": [
+            "gelem",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "subscripted",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "subscripted",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "subscripted",
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "subscripted",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "QWLIST",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "termbinop",
+      "kind": "normal",
+      "line": 1413,
+      "alternatives": [
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_HIGH_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ASSIGNOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_ASSIGN_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "POWOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_POW_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "MULOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_MUL_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ADDOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_ADD_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "SHIFTOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "termrelop"
+          ]
+        },
+        {
+          "symbols": [
+            "termeqop"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "BITANDOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "BITOROP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "DOTDOT",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ANDAND",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_LOGICAL_AND_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "OROR",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_LOGICAL_OR_OP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "DORDOR",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "MATCHOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_LOW_OP",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "termrelop",
+      "kind": "normal",
+      "line": 1462,
+      "alternatives": [
+        {
+          "symbols": [
+            "relopchain"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "NCRELOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "termrelop",
+            "NCRELOP"
+          ]
+        },
+        {
+          "symbols": [
+            "termrelop",
+            "CHRELOP"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PLUGIN_REL_OP",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "relopchain",
+      "kind": "normal",
+      "line": 1474,
+      "alternatives": [
+        {
+          "symbols": [
+            "term",
+            "CHRELOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "relopchain",
+            "CHRELOP",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "termeqop",
+      "kind": "normal",
+      "line": 1480,
+      "alternatives": [
+        {
+          "symbols": [
+            "eqopchain"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "NCEQOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "termeqop",
+            "NCEQOP"
+          ]
+        },
+        {
+          "symbols": [
+            "termeqop",
+            "CHEQOP"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "eqopchain",
+      "kind": "normal",
+      "line": 1490,
+      "alternatives": [
+        {
+          "symbols": [
+            "term",
+            "CHEQOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "eqopchain",
+            "CHEQOP",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "termunop",
+      "kind": "normal",
+      "line": 1497,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_MINUS",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PLUS",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_EXCLAMATION_MARK",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_TILDE",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "POSTINC"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "POSTDEC"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "POSTJOIN"
+          ]
+        },
+        {
+          "symbols": [
+            "PREINC",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "PREDEC",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "anonymous",
+      "kind": "normal",
+      "line": 1534,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_BRACKET_OPEN",
+            "optexpr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "HASHBRACK",
+            "optexpr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_SUB_anon",
+            "startanonsub",
+            "proto",
+            "subattrlist",
+            "subbody"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_SUB_anon",
+            "startanonsub",
+            "proto",
+            "subattrlist"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_SUB_anon_sig",
+            "startanonsub",
+            "subattrlist",
+            "sigsubbody"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_SUB_anon_sig",
+            "startanonsub",
+            "subattrlist"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_METHOD_anon",
+            "startanonmethod",
+            "subattrlist",
+            "sigsubbody"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_METHOD_anon",
+            "startanonmethod",
+            "subattrlist"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "termdo",
+      "kind": "normal",
+      "line": 1558,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_DO",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_DO",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "term",
+      "kind": "normal",
+      "line": 1564,
+      "alternatives": [
+        {
+          "symbols": [
+            "termbinop"
+          ]
+        },
+        {
+          "symbols": [
+            "termunop"
+          ]
+        },
+        {
+          "symbols": [
+            "anonymous"
+          ]
+        },
+        {
+          "symbols": [
+            "termdo"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "PERLY_QUESTION_MARK",
+            "term",
+            "PERLY_COLON",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "REFGEN",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "myattrterm"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_LOCAL",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "QWLIST"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "star"
+          ]
+        },
+        {
+          "symbols": [
+            "hsh"
+          ]
+        },
+        {
+          "symbols": [
+            "ary"
+          ]
+        },
+        {
+          "symbols": [
+            "arylen"
+          ]
+        },
+        {
+          "symbols": [
+            "subscripted"
+          ]
+        },
+        {
+          "symbols": [
+            "sliceme",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "kvslice",
+            "PERLY_BRACKET_OPEN",
+            "expr",
+            "PERLY_BRACKET_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "sliceme",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "kvslice",
+            "PERLY_BRACE_OPEN",
+            "expr",
+            "PERLY_SEMICOLON",
+            "PERLY_BRACE_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "THING"
+          ]
+        },
+        {
+          "symbols": [
+            "amper"
+          ]
+        },
+        {
+          "symbols": [
+            "amper",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "amper",
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "NOAMP",
+            "subname",
+            "optlistexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_DOLLAR",
+            "PERLY_STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_SNAIL",
+            "PERLY_STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_PERCENT_SIGN",
+            "PERLY_STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_AMPERSAND",
+            "PERLY_STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_STAR",
+            "PERLY_STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "LOOPEX"
+          ]
+        },
+        {
+          "symbols": [
+            "LOOPEX",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "NOTOP",
+            "listexpr"
+          ]
+        },
+        {
+          "symbols": [
+            "UNIOP"
+          ]
+        },
+        {
+          "symbols": [
+            "UNIOP",
+            "block"
+          ]
+        },
+        {
+          "symbols": [
+            "UNIOP",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_REQUIRE"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_REQUIRE",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "UNIOPSUB"
+          ]
+        },
+        {
+          "symbols": [
+            "UNIOPSUB",
+            "term"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC0"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC0",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC0OP"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC0OP",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC0SUB"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC1",
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "FUNC1",
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "PMFUNC",
+            "@23",
+            "SUBLEXSTART",
+            "listexpr",
+            "optrepl",
+            "SUBLEXEND"
+          ]
+        },
+        {
+          "symbols": [
+            "BAREWORD"
+          ]
+        },
+        {
+          "symbols": [
+            "listop"
+          ]
+        },
+        {
+          "symbols": [
+            "PLUGEXPR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@23",
+      "kind": "midrule",
+      "line": 1700,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "myattrterm",
+      "kind": "normal",
+      "line": 1719,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_MY",
+            "myterm",
+            "attrlist"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_MY",
+            "myterm"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_MY",
+            "REFGEN",
+            "myterm",
+            "attrlist"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_MY",
+            "REFGEN",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "myterm",
+      "kind": "normal",
+      "line": 1730,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "expr",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_PAREN_OPEN",
+            "PERLY_PAREN_CLOSE"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "hsh"
+          ]
+        },
+        {
+          "symbols": [
+            "ary"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fieldvar",
+      "kind": "normal",
+      "line": 1744,
+      "alternatives": [
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "hsh"
+          ]
+        },
+        {
+          "symbols": [
+            "ary"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fielddecl",
+      "kind": "normal",
+      "line": 1762,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_FIELD",
+            "fieldvar",
+            "optattrlist"
+          ]
+        },
+        {
+          "symbols": [
+            "KW_FIELD",
+            "fieldvar",
+            "optattrlist",
+            "ASSIGNOP",
+            "$@24",
+            "term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@24",
+      "kind": "midrule",
+      "line": 1770,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "optlistexpr",
+      "kind": "normal",
+      "line": 1787,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "listexpr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optexpr",
+      "kind": "normal",
+      "line": 1792,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optrepl",
+      "kind": "normal",
+      "line": 1797,
+      "alternatives": [
+        {
+          "symbols": [
+            "empty"
+          ]
+        },
+        {
+          "symbols": [
+            "PERLY_SLASH",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "my_scalar",
+      "kind": "normal",
+      "line": 1803,
+      "alternatives": [
+        {
+          "symbols": [
+            "scalar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list_of_itervars",
+      "kind": "normal",
+      "line": 1808,
+      "alternatives": [
+        {
+          "symbols": [
+            "list_of_itervars",
+            "PERLY_COMMA"
+          ]
+        },
+        {
+          "symbols": [
+            "list_of_itervars",
+            "PERLY_COMMA",
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "list_of_itervars",
+            "PERLY_COMMA",
+            "REFGEN",
+            "my_var"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "REFGEN",
+            "my_var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "my_list_of_itervars",
+      "kind": "normal",
+      "line": 1825,
+      "alternatives": [
+        {
+          "symbols": [
+            "list_of_itervars"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "my_var",
+      "kind": "normal",
+      "line": 1829,
+      "alternatives": [
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "ary"
+          ]
+        },
+        {
+          "symbols": [
+            "hsh"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "refgen_topic",
+      "kind": "normal",
+      "line": 1834,
+      "alternatives": [
+        {
+          "symbols": [
+            "my_var"
+          ]
+        },
+        {
+          "symbols": [
+            "amper"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "my_refgen",
+      "kind": "normal",
+      "line": 1838,
+      "alternatives": [
+        {
+          "symbols": [
+            "KW_MY",
+            "REFGEN"
+          ]
+        },
+        {
+          "symbols": [
+            "REFGEN",
+            "KW_MY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "amper",
+      "kind": "normal",
+      "line": 1842,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_AMPERSAND",
+            "indirob"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scalar",
+      "kind": "normal",
+      "line": 1846,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_DOLLAR",
+            "indirob"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ary",
+      "kind": "normal",
+      "line": 1850,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_SNAIL",
+            "indirob"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hsh",
+      "kind": "normal",
+      "line": 1856,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_PERCENT_SIGN",
+            "indirob"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arylen",
+      "kind": "normal",
+      "line": 1862,
+      "alternatives": [
+        {
+          "symbols": [
+            "DOLSHARP",
+            "indirob"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "DOLSHARP",
+            "PERLY_STAR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "star",
+      "kind": "normal",
+      "line": 1868,
+      "alternatives": [
+        {
+          "symbols": [
+            "PERLY_STAR",
+            "indirob"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sliceme",
+      "kind": "normal",
+      "line": 1872,
+      "alternatives": [
+        {
+          "symbols": [
+            "ary"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_SNAIL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kvslice",
+      "kind": "normal",
+      "line": 1877,
+      "alternatives": [
+        {
+          "symbols": [
+            "hsh"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_PERCENT_SIGN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gelem",
+      "kind": "normal",
+      "line": 1882,
+      "alternatives": [
+        {
+          "symbols": [
+            "star"
+          ]
+        },
+        {
+          "symbols": [
+            "term",
+            "ARROW",
+            "PERLY_STAR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indirob",
+      "kind": "normal",
+      "line": 1888,
+      "alternatives": [
+        {
+          "symbols": [
+            "BAREWORD"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "block"
+          ]
+        },
+        {
+          "symbols": [
+            "PRIVATEREF"
+          ]
+        }
+      ]
+    }
+  ]
+}

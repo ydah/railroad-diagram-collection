@@ -1,0 +1,69 @@
+---
+display_name: mruby
+description:
+  en: Ruby grammar used by the embedded mruby interpreter.
+  ja: 組み込み向け処理系 mruby の Ruby 文法です。
+epsilon_rules:
+- none
+hide_rules: []
+token_display:
+  tIDENTIFIER:
+    display: identifier
+    kind: class
+  tFID:
+    display: method name
+    kind: class
+  tGVAR:
+    display: global variable
+    kind: class
+  tIVAR:
+    display: instance variable
+    kind: class
+  tCONSTANT:
+    display: constant
+    kind: class
+  tCVAR:
+    display: class variable
+    kind: class
+  tLABEL_TAG:
+    display: label
+    kind: class
+  tINTEGER:
+    display: integer
+    kind: class
+  tFLOAT:
+    display: float
+    kind: class
+  tCHAR:
+    display: character
+    kind: class
+  tNTH_REF:
+    display: numbered reference
+    kind: class
+  tBACK_REF:
+    display: back reference
+    kind: class
+  "'\\n'":
+    display: newline
+    kind: class
+  keyword_do_cond:
+    display: do
+    kind: keyword
+  keyword_do_block:
+    display: do
+    kind: keyword
+  keyword_do_LAMBDA:
+    display: do
+    kind: keyword
+categories:
+  statements:
+  - stmt
+  - stmts
+  - top_stmt
+  expressions:
+  - expr
+  - arg
+  - primary
+simplify:
+  factor_prefix: true
+  inline_trivial: false

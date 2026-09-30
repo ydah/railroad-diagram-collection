@@ -1,0 +1,21 @@
+RDC_METADATA {"bison":"bison (GNU Bison) 3.8.2","aliases":{"\"//\"":"DEFINEDOR"}}
+Grammar
+
+    0 $accept: start $end
+    1 start: list "//"
+    2 list: ε
+    3     | %empty
+    4     | /* empty */
+    5     | 'quoted space'
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    'quoted space' (42) 5
+    error (256)
+    "//" (258) 1
+
+Nonterminals, with rules where they appear
+
+    $accept (4)
+State 0

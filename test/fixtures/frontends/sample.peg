@@ -1,0 +1,2 @@
+start <- &word word !'x' / 'x'
+word <- 'a'+

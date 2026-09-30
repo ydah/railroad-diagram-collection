@@ -1,0 +1,238 @@
+{
+  "start": "start",
+  "rules": [
+    {
+      "name": "start",
+      "kind": "normal",
+      "line": 1,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "note",
+            "text": "PEG: alternatives are tried in order"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "lookahead",
+                    "negative": false,
+                    "item": {
+                      "t": "nt",
+                      "name": "word"
+                    }
+                  },
+                  {
+                    "t": "nt",
+                    "name": "word"
+                  },
+                  {
+                    "t": "lookahead",
+                    "negative": true,
+                    "item": {
+                      "t": "term",
+                      "name": "'x'"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "term",
+                "name": "'x'"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "start__1",
+            "start__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word",
+      "kind": "normal",
+      "line": 2,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "note",
+            "text": "PEG: alternatives are tried in order"
+          },
+          {
+            "t": "plus",
+            "item": {
+              "t": "term",
+              "name": "'a'"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "word__1",
+            "word__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ],
+      "expr": {
+        "t": "note",
+        "text": "PEG: alternatives are tried in order"
+      }
+    },
+    {
+      "name": "start__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "start__3",
+            "word",
+            "start__4"
+          ]
+        },
+        {
+          "symbols": [
+            "'x'"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "lookahead",
+                "negative": false,
+                "item": {
+                  "t": "nt",
+                  "name": "word"
+                }
+              },
+              {
+                "t": "nt",
+                "name": "word"
+              },
+              {
+                "t": "lookahead",
+                "negative": true,
+                "item": {
+                  "t": "term",
+                  "name": "'x'"
+                }
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "'x'"
+          }
+        ]
+      }
+    },
+    {
+      "name": "start__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ],
+      "expr": {
+        "t": "lookahead",
+        "negative": false,
+        "item": {
+          "t": "nt",
+          "name": "word"
+        }
+      }
+    },
+    {
+      "name": "start__4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ],
+      "expr": {
+        "t": "lookahead",
+        "negative": true,
+        "item": {
+          "t": "term",
+          "name": "'x'"
+        }
+      }
+    },
+    {
+      "name": "word__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ],
+      "expr": {
+        "t": "note",
+        "text": "PEG: alternatives are tried in order"
+      }
+    },
+    {
+      "name": "word__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "'a'"
+          ]
+        },
+        {
+          "symbols": [
+            "'a'",
+            "word__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "plus",
+        "item": {
+          "t": "term",
+          "name": "'a'"
+        }
+      }
+    }
+  ],
+  "terminals": [
+    {
+      "name": "'x'",
+      "display": "x",
+      "kind": "keyword"
+    },
+    {
+      "name": "'a'",
+      "display": "a",
+      "kind": "keyword"
+    }
+  ]
+}

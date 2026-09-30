@@ -1,0 +1,46 @@
+---
+display_name: PHP
+description:
+  en: PHP parser grammar from the Zend Engine.
+  ja: Zend Engine の PHP パーサ文法です。
+epsilon_rules: []
+hide_rules: []
+token_display:
+  T_LNUMBER:
+    display: integer
+    kind: class
+  T_DNUMBER:
+    display: floating point number
+    kind: class
+  T_VARIABLE:
+    display: variable
+    kind: class
+  T_STRING:
+    display: identifier
+    kind: class
+  T_NAME_FULLY_QUALIFIED:
+    display: fully qualified name
+    kind: class
+  T_NAME_RELATIVE:
+    display: relative name
+    kind: class
+  T_NAME_QUALIFIED:
+    display: qualified name
+    kind: class
+  T_ENCAPSED_AND_WHITESPACE:
+    display: string content
+    kind: class
+  T_CONSTANT_ENCAPSED_STRING:
+    display: quoted string
+    kind: class
+categories:
+  statements:
+  - statement
+  - top_statement
+  - inner_statement
+  expressions:
+  - expr
+  - variable
+simplify:
+  factor_prefix: true
+  inline_trivial: false

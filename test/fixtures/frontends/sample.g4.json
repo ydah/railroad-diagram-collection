@@ -1,0 +1,132 @@
+{
+  "start": "start",
+  "rules": [
+    {
+      "name": "start",
+      "kind": "normal",
+      "line": 3,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "WORD"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "','"
+                },
+                {
+                  "t": "term",
+                  "name": "WORD"
+                }
+              ]
+            }
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "'>'"
+            }
+          },
+          {
+            "t": "term",
+            "name": "EOF"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "WORD",
+            "start__1",
+            "start__2",
+            "EOF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "','",
+            "WORD",
+            "start__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "','"
+            },
+            {
+              "t": "term",
+              "name": "WORD"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "start__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'>'"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "'>'"
+        }
+      }
+    }
+  ],
+  "terminals": [
+    {
+      "name": "WORD",
+      "display": "word",
+      "kind": "keyword",
+      "alias": "'word'"
+    },
+    {
+      "name": "','",
+      "display": ",",
+      "kind": "punct"
+    },
+    {
+      "name": "'>'",
+      "display": ">",
+      "kind": "punct"
+    },
+    {
+      "name": "EOF",
+      "display": "EOF",
+      "kind": "internal"
+    }
+  ]
+}

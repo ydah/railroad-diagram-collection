@@ -1,0 +1,7 @@
+---
+SelectStmt: 'SELECT name FROM users WHERE active = true;
+
+  '
+InsertStmt: 'INSERT INTO users (name) VALUES (''Ada'');
+
+  '

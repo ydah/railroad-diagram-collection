@@ -1,0 +1,6 @@
+---
+expr: "(1 + 2) * 3\n"
+stmt: |
+  if true
+    puts "hello"
+  end

@@ -1,0 +1,203 @@
+---
+schema: 1
+languages:
+  ruby:
+    name: Ruby
+    frontend: lrama
+    repo: https://github.com/ruby/ruby.git
+    grammar: parse.y
+    sparse:
+    - "/parse.y"
+    - "/tool/id2token.rb"
+    - "/defs/id.def"
+    - "/BSDL"
+    - "/COPYING"
+    preprocess:
+    - ruby
+    - tool/id2token.rb
+    - parse.y
+    start: program
+    tag_pattern: "^v(\\d+)[._](\\d+)[._]0$"
+    notes:
+    - parser_grammar
+    - parse_y_vs_prism
+    license:
+      name: BSD-2-Clause
+      url: https://github.com/ruby/ruby/blob/v4.0.0/BSDL
+      path: BSDL
+    versions:
+    - id: '4.0'
+      ref: v4.0.0
+      default: true
+    - id: '3.4'
+      ref: v3_4_0
+  php:
+    name: PHP
+    frontend: lrama
+    repo: https://github.com/php/php-src.git
+    grammar: Zend/zend_language_parser.y
+    sparse:
+    - "/Zend/zend_language_parser.y"
+    - "/Zend/LICENSE"
+    tag_pattern: "^php-(\\d+)\\.(\\d+)\\.0$"
+    notes:
+    - parser_grammar
+    license:
+      name: Zend Engine License 2.00
+      url: https://github.com/php/php-src/blob/php-8.5.0/Zend/LICENSE
+      path: Zend/LICENSE
+    versions:
+    - id: '8.5'
+      ref: php-8.5.0
+      default: true
+    - id: '8.4'
+      ref: php-8.4.0
+  perl:
+    name: Perl
+    frontend: lrama
+    repo: https://github.com/Perl/perl5.git
+    grammar: perly.y
+    sparse:
+    - "/perly.y"
+    - "/Artistic"
+    - "/README"
+    tag_pattern: "^v(5)\\.(\\d*[02468])\\.0$"
+    notes:
+    - parser_grammar
+    license:
+      name: Artistic License 1.0
+      url: https://github.com/Perl/perl5/blob/v5.44.0/Artistic
+      path: Artistic
+    versions:
+    - id: '5.44'
+      ref: v5.44.0
+      default: true
+    - id: '5.42'
+      ref: v5.42.0
+  jq:
+    name: jq
+    frontend: bison_report
+    repo: https://github.com/jqlang/jq.git
+    grammar: src/parser.y
+    preprocess:
+    - ruby
+    - "%{rdc_root}/grammars/bison/report.rb"
+    - src/parser.y
+    sparse:
+    - "/src/parser.y"
+    - "/COPYING"
+    tag_pattern: "^jq-(\\d+)\\.(\\d+)\\.(\\d+)$"
+    notes:
+    - parser_grammar
+    license:
+      name: MIT
+      url: https://github.com/jqlang/jq/blob/jq-1.8.1/COPYING
+      path: COPYING
+    versions:
+    - id: 1.8.2
+      ref: jq-1.8.2
+      default: true
+    - id: 1.8.1
+      ref: jq-1.8.1
+    - id: 1.7.1
+      ref: jq-1.7.1
+  postgresql:
+    name: PostgreSQL
+    frontend: bison_report
+    repo: https://github.com/postgres/postgres.git
+    grammar: src/backend/parser/gram.y
+    preprocess:
+    - ruby
+    - "%{rdc_root}/grammars/bison/report.rb"
+    - src/backend/parser/gram.y
+    sparse:
+    - "/src/backend/parser/gram.y"
+    - "/COPYRIGHT"
+    tag_pattern: "^REL_(\\d+)_0$"
+    notes:
+    - parser_grammar
+    license:
+      name: PostgreSQL License
+      url: https://github.com/postgres/postgres/blob/REL_18_0/COPYRIGHT
+      path: COPYRIGHT
+    versions:
+    - id: '18'
+      ref: REL_18_0
+      default: true
+    - id: '17'
+      ref: REL_17_0
+  mruby:
+    name: mruby
+    frontend: lrama
+    repo: https://github.com/mruby/mruby.git
+    grammar: mrbgems/mruby-compiler/core/parse.y
+    sparse:
+    - "/mrbgems/mruby-compiler/core/parse.y"
+    - "/LICENSE"
+    - "/include/mruby.h"
+    tag_pattern: "^(\\d+)\\.(\\d+)\\.0$"
+    notes:
+    - parser_grammar
+    license:
+      name: MIT
+      url: https://github.com/mruby/mruby/blob/4.0.0/LICENSE
+      path: LICENSE
+    versions:
+    - id: '4.0'
+      ref: 4.0.0
+      default: true
+    - id: '3.4'
+      ref: 3.4.0
+  java:
+    name: Java
+    frontend: antlr4
+    repo: https://github.com/antlr/grammars-v4.git
+    grammar: java/java/JavaParser.g4
+    sparse:
+    - "/java/java/JavaParser.g4"
+    - "/java/java/JavaLexer.g4"
+    preprocess:
+    - ruby
+    - "%{rdc_root}/grammars/antlr/combine.rb"
+    - java/java/JavaParser.g4
+    - java/java/JavaLexer.g4
+    notes:
+    - parser_grammar
+    - grammar_snapshot
+    license:
+      name: BSD-3-Clause
+      url: https://github.com/antlr/grammars-v4/blob/8c7680c4d28a2c84c8a1077a8b3dad4b37b300df/java/java/JavaParser.g4
+      path: java/java/JavaParser.g4
+    versions:
+    - id: 2026-09
+      ref: 8c7680c4d28a2c84c8a1077a8b3dad4b37b300df
+      default: true
+    - id: 2026-07
+      ref: 7d16f6dd457301340d0ae11e7d9d03269f682afd
+  go:
+    name: Go
+    frontend: antlr4
+    repo: https://github.com/antlr/grammars-v4.git
+    grammar: golang/GoParser.g4
+    sparse:
+    - "/golang/GoParser.g4"
+    - "/golang/GoLexer.g4"
+    preprocess:
+    - ruby
+    - "%{rdc_root}/grammars/antlr/combine.rb"
+    - golang/GoParser.g4
+    - golang/GoLexer.g4
+    start: sourceFile
+    notes:
+    - parser_grammar
+    - grammar_snapshot
+    license:
+      name: BSD-3-Clause
+      url: https://github.com/antlr/grammars-v4/blob/5a9a89fa7274878bdb93877c4be5d56859c08e5e/golang/GoParser.g4
+      path: golang/GoParser.g4
+    versions:
+    - id: 2026-06
+      ref: 5a9a89fa7274878bdb93877c4be5d56859c08e5e
+      default: true
+    - id: 2026-02
+      ref: ed5e15c348d6125840384bc271bd76c437c556a4

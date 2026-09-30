@@ -1,0 +1,10 @@
+---
+expr: 'my $value = 1 + 2;
+
+  '
+stmtseq: 'my @values = (1, 2, 3);
+
+  '
+block: 'if (1) { print "hello\n"; }
+
+  '

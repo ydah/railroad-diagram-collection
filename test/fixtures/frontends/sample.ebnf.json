@@ -1,0 +1,149 @@
+{
+  "start": "document",
+  "rules": [
+    {
+      "name": "document",
+      "kind": "normal",
+      "line": 1,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "name"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "','"
+                },
+                {
+                  "t": "nt",
+                  "name": "name"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "name",
+            "document__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "kind": "normal",
+      "line": 2,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "plus",
+            "item": {
+              "t": "term",
+              "name": "[a-z]"
+            }
+          },
+          {
+            "t": "term",
+            "name": "'#'"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "name__1"
+          ]
+        },
+        {
+          "symbols": [
+            "'#'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "document__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "','",
+            "name",
+            "document__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "','"
+            },
+            {
+              "t": "nt",
+              "name": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "name__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "[a-z]"
+          ]
+        },
+        {
+          "symbols": [
+            "[a-z]",
+            "name__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "plus",
+        "item": {
+          "t": "term",
+          "name": "[a-z]"
+        }
+      }
+    }
+  ],
+  "terminals": [
+    {
+      "name": "','",
+      "display": ",",
+      "kind": "punct"
+    },
+    {
+      "name": "[a-z]",
+      "display": "[a-z]",
+      "kind": "class"
+    },
+    {
+      "name": "'#'",
+      "display": "#",
+      "kind": "punct"
+    }
+  ]
+}

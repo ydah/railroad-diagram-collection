@@ -1,0 +1,25 @@
+---
+display_name: Go
+description:
+  en: Complete Go parser grammar from pinned grammars-v4 snapshots.
+  ja: grammars-v4 の固定コミットに収録された Go パーサ文法です。
+epsilon_rules: []
+hide_rules: []
+token_display: {}
+categories:
+  declarations:
+  - functionDecl
+  - typeDecl
+  - varDecl
+  statements:
+  - statement
+  - block
+  - ifStmt
+  - forStmt
+  expressions:
+  - expression
+  - primaryExpr
+  - operand
+simplify:
+  factor_prefix: true
+  inline_trivial: false

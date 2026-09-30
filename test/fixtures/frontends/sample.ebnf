@@ -1,0 +1,2 @@
+[1] document ::= name (',' name)*
+[2] name ::= [a-z]+ | '#'

@@ -1,0 +1,8696 @@
+{
+  "schema": 1,
+  "language": "go",
+  "version": "2026-02",
+  "source": {
+    "repo": "https://github.com/antlr/grammars-v4.git",
+    "ref": "ed5e15c348d6125840384bc271bd76c437c556a4",
+    "commit": "ed5e15c348d6125840384bc271bd76c437c556a4",
+    "path": "golang/GoParser.g4",
+    "sha256": "287de23b99c3c2d1ad9cda2fe78597fcef4c7b7929a59e38d3d614556e67e3e9",
+    "prepared_sha256": "ae4a1ad158cbb5bed13a6872df5292f68a088632d115d173b825a9af1a9b143f",
+    "committed_at": "2026-02-08T10:44:03-07:00",
+    "license": {
+      "name": "BSD-3-Clause",
+      "url": "https://github.com/antlr/grammars-v4/blob/5a9a89fa7274878bdb93877c4be5d56859c08e5e/golang/GoParser.g4",
+      "path": "golang/GoParser.g4"
+    }
+  },
+  "generator": {
+    "frontend": "antlr4",
+    "tool_version": "antlr4-parser-v1",
+    "lrama_revision": "c8317b55850bc6cd9033ddfbf816377b73f6c7bc",
+    "rdc": "1.0.0",
+    "metadata_sha256": "bcbf9d758ae16572915a03481973dca6eb590befe01750ffa9dd7c45a32e44f0"
+  },
+  "start": "sourceFile",
+  "terminals": [
+    {
+      "name": "EOF",
+      "display": "EOF",
+      "kind": "internal"
+    },
+    {
+      "name": "PACKAGE",
+      "display": "package",
+      "kind": "keyword",
+      "alias": "'package'"
+    },
+    {
+      "name": "IDENTIFIER",
+      "display": "IDENTIFIER",
+      "kind": "class"
+    },
+    {
+      "name": "IMPORT",
+      "display": "import",
+      "kind": "keyword",
+      "alias": "'import'"
+    },
+    {
+      "name": "L_PAREN",
+      "display": "(",
+      "kind": "punct",
+      "alias": "'('"
+    },
+    {
+      "name": "R_PAREN",
+      "display": ")",
+      "kind": "punct",
+      "alias": "')'"
+    },
+    {
+      "name": "DOT",
+      "display": ".",
+      "kind": "punct",
+      "alias": "'.'"
+    },
+    {
+      "name": "CONST",
+      "display": "const",
+      "kind": "keyword",
+      "alias": "'const'"
+    },
+    {
+      "name": "ASSIGN",
+      "display": "=",
+      "kind": "punct",
+      "alias": "'='"
+    },
+    {
+      "name": "COMMA",
+      "display": ",",
+      "kind": "punct",
+      "alias": "','"
+    },
+    {
+      "name": "TYPE",
+      "display": "type",
+      "kind": "keyword",
+      "alias": "'type'"
+    },
+    {
+      "name": "L_BRACKET",
+      "display": "[",
+      "kind": "punct",
+      "alias": "'['"
+    },
+    {
+      "name": "R_BRACKET",
+      "display": "]",
+      "kind": "punct",
+      "alias": "']'"
+    },
+    {
+      "name": "OR",
+      "display": "|",
+      "kind": "punct",
+      "alias": "'|'"
+    },
+    {
+      "name": "UNDERLYING",
+      "display": "~",
+      "kind": "punct",
+      "alias": "'~'"
+    },
+    {
+      "name": "FUNC",
+      "display": "func",
+      "kind": "keyword",
+      "alias": "'func'"
+    },
+    {
+      "name": "VAR",
+      "display": "var",
+      "kind": "keyword",
+      "alias": "'var'"
+    },
+    {
+      "name": "L_CURLY",
+      "display": "{",
+      "kind": "punct",
+      "alias": "'{'"
+    },
+    {
+      "name": "R_CURLY",
+      "display": "}",
+      "kind": "punct",
+      "alias": "'}'"
+    },
+    {
+      "name": "SEMI",
+      "display": ";",
+      "kind": "punct",
+      "alias": "';'"
+    },
+    {
+      "name": "EOS",
+      "display": "EOS",
+      "kind": "class"
+    },
+    {
+      "name": "RECEIVE",
+      "display": "<-",
+      "kind": "punct",
+      "alias": "'<-'"
+    },
+    {
+      "name": "PLUS_PLUS",
+      "display": "++",
+      "kind": "punct",
+      "alias": "'++'"
+    },
+    {
+      "name": "MINUS_MINUS",
+      "display": "--",
+      "kind": "punct",
+      "alias": "'--'"
+    },
+    {
+      "name": "PLUS",
+      "display": "+",
+      "kind": "punct",
+      "alias": "'+'"
+    },
+    {
+      "name": "MINUS",
+      "display": "-",
+      "kind": "punct",
+      "alias": "'-'"
+    },
+    {
+      "name": "CARET",
+      "display": "^",
+      "kind": "punct",
+      "alias": "'^'"
+    },
+    {
+      "name": "STAR",
+      "display": "*",
+      "kind": "punct",
+      "alias": "'*'"
+    },
+    {
+      "name": "DIV",
+      "display": "/",
+      "kind": "punct",
+      "alias": "'/'"
+    },
+    {
+      "name": "MOD",
+      "display": "%",
+      "kind": "punct",
+      "alias": "'%'"
+    },
+    {
+      "name": "LSHIFT",
+      "display": "<<",
+      "kind": "punct",
+      "alias": "'<<'"
+    },
+    {
+      "name": "RSHIFT",
+      "display": ">>",
+      "kind": "punct",
+      "alias": "'>>'"
+    },
+    {
+      "name": "AMPERSAND",
+      "display": "&",
+      "kind": "punct",
+      "alias": "'&'"
+    },
+    {
+      "name": "BIT_CLEAR",
+      "display": "&^",
+      "kind": "punct",
+      "alias": "'&^'"
+    },
+    {
+      "name": "DECLARE_ASSIGN",
+      "display": ":=",
+      "kind": "punct",
+      "alias": "':='"
+    },
+    {
+      "name": "COLON",
+      "display": ":",
+      "kind": "punct",
+      "alias": "':'"
+    },
+    {
+      "name": "RETURN",
+      "display": "return",
+      "kind": "keyword",
+      "alias": "'return'"
+    },
+    {
+      "name": "BREAK",
+      "display": "break",
+      "kind": "keyword",
+      "alias": "'break'"
+    },
+    {
+      "name": "CONTINUE",
+      "display": "continue",
+      "kind": "keyword",
+      "alias": "'continue'"
+    },
+    {
+      "name": "GOTO",
+      "display": "goto",
+      "kind": "keyword",
+      "alias": "'goto'"
+    },
+    {
+      "name": "FALLTHROUGH",
+      "display": "fallthrough",
+      "kind": "keyword",
+      "alias": "'fallthrough'"
+    },
+    {
+      "name": "DEFER",
+      "display": "defer",
+      "kind": "keyword",
+      "alias": "'defer'"
+    },
+    {
+      "name": "IF",
+      "display": "if",
+      "kind": "keyword",
+      "alias": "'if'"
+    },
+    {
+      "name": "ELSE",
+      "display": "else",
+      "kind": "keyword",
+      "alias": "'else'"
+    },
+    {
+      "name": "SWITCH",
+      "display": "switch",
+      "kind": "keyword",
+      "alias": "'switch'"
+    },
+    {
+      "name": "CASE",
+      "display": "case",
+      "kind": "keyword",
+      "alias": "'case'"
+    },
+    {
+      "name": "DEFAULT",
+      "display": "default",
+      "kind": "keyword",
+      "alias": "'default'"
+    },
+    {
+      "name": "NIL_LIT",
+      "display": "nil",
+      "kind": "keyword",
+      "alias": "'nil'"
+    },
+    {
+      "name": "SELECT",
+      "display": "select",
+      "kind": "keyword",
+      "alias": "'select'"
+    },
+    {
+      "name": "FOR",
+      "display": "for",
+      "kind": "keyword",
+      "alias": "'for'"
+    },
+    {
+      "name": "RANGE",
+      "display": "range",
+      "kind": "keyword",
+      "alias": "'range'"
+    },
+    {
+      "name": "GO",
+      "display": "go",
+      "kind": "keyword",
+      "alias": "'go'"
+    },
+    {
+      "name": "INTERFACE",
+      "display": "interface",
+      "kind": "keyword",
+      "alias": "'interface'"
+    },
+    {
+      "name": "MAP",
+      "display": "map",
+      "kind": "keyword",
+      "alias": "'map'"
+    },
+    {
+      "name": "CHAN",
+      "display": "chan",
+      "kind": "keyword",
+      "alias": "'chan'"
+    },
+    {
+      "name": "ELLIPSIS",
+      "display": "...",
+      "kind": "punct",
+      "alias": "'...'"
+    },
+    {
+      "name": "EXCLAMATION",
+      "display": "!",
+      "kind": "punct",
+      "alias": "'!'"
+    },
+    {
+      "name": "EQUALS",
+      "display": "==",
+      "kind": "punct",
+      "alias": "'=='"
+    },
+    {
+      "name": "NOT_EQUALS",
+      "display": "!=",
+      "kind": "punct",
+      "alias": "'!='"
+    },
+    {
+      "name": "LESS",
+      "display": "<",
+      "kind": "punct",
+      "alias": "'<'"
+    },
+    {
+      "name": "LESS_OR_EQUALS",
+      "display": "<=",
+      "kind": "punct",
+      "alias": "'<='"
+    },
+    {
+      "name": "GREATER",
+      "display": ">",
+      "kind": "punct",
+      "alias": "'>'"
+    },
+    {
+      "name": "GREATER_OR_EQUALS",
+      "display": ">=",
+      "kind": "punct",
+      "alias": "'>='"
+    },
+    {
+      "name": "LOGICAL_AND",
+      "display": "&&",
+      "kind": "punct",
+      "alias": "'&&'"
+    },
+    {
+      "name": "LOGICAL_OR",
+      "display": "||",
+      "kind": "punct",
+      "alias": "'||'"
+    },
+    {
+      "name": "FLOAT_LIT",
+      "display": "FLOAT_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "DECIMAL_LIT",
+      "display": "DECIMAL_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "BINARY_LIT",
+      "display": "BINARY_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "OCTAL_LIT",
+      "display": "OCTAL_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "HEX_LIT",
+      "display": "HEX_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "IMAGINARY_LIT",
+      "display": "IMAGINARY_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "RUNE_LIT",
+      "display": "RUNE_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "STRUCT",
+      "display": "struct",
+      "kind": "keyword",
+      "alias": "'struct'"
+    },
+    {
+      "name": "RAW_STRING_LIT",
+      "display": "RAW_STRING_LIT",
+      "kind": "class"
+    },
+    {
+      "name": "INTERPRETED_STRING_LIT",
+      "display": "INTERPRETED_STRING_LIT",
+      "kind": "class"
+    }
+  ],
+  "rules": [
+    {
+      "name": "sourceFile",
+      "kind": "normal",
+      "line": 42,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "packageClause"
+          },
+          {
+            "t": "nt",
+            "name": "eos"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "importDecl"
+                },
+                {
+                  "t": "nt",
+                  "name": "eos"
+                }
+              ]
+            }
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "choice",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "functionDecl"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "methodDecl"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "declaration"
+                    }
+                  ]
+                },
+                {
+                  "t": "nt",
+                  "name": "eos"
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "EOF"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "packageClause",
+            "eos",
+            "sourceFile__1",
+            "sourceFile__2",
+            "EOF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "packageClause",
+      "kind": "normal",
+      "line": 46,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "PACKAGE"
+          },
+          {
+            "t": "nt",
+            "name": "packageName"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "PACKAGE",
+            "packageName"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "packageName",
+      "kind": "normal",
+      "line": 50,
+      "expr": {
+        "t": "nt",
+        "name": "identifier"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "identifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "identifier",
+      "kind": "normal",
+      "line": 54,
+      "expr": {
+        "t": "term",
+        "name": "IDENTIFIER"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "importDecl",
+      "kind": "normal",
+      "line": 56,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IMPORT"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "importSpec"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "L_PAREN"
+                  },
+                  {
+                    "t": "star",
+                    "item": {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "nt",
+                          "name": "importSpec"
+                        },
+                        {
+                          "t": "nt",
+                          "name": "eos"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "R_PAREN"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IMPORT",
+            "importDecl__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "importSpec",
+      "kind": "normal",
+      "line": 60,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "DOT"
+                },
+                {
+                  "t": "nt",
+                  "name": "packageName"
+                }
+              ]
+            }
+          },
+          {
+            "t": "nt",
+            "name": "importPath"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "importSpec__1",
+            "importPath"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "importPath",
+      "kind": "normal",
+      "line": 64,
+      "expr": {
+        "t": "nt",
+        "name": "string_"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "string_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "declaration",
+      "kind": "normal",
+      "line": 68,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "constDecl"
+          },
+          {
+            "t": "nt",
+            "name": "typeDecl"
+          },
+          {
+            "t": "nt",
+            "name": "varDecl"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "constDecl"
+          ]
+        },
+        {
+          "symbols": [
+            "typeDecl"
+          ]
+        },
+        {
+          "symbols": [
+            "varDecl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "constDecl",
+      "kind": "normal",
+      "line": 74,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "CONST"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "constSpec"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "L_PAREN"
+                  },
+                  {
+                    "t": "star",
+                    "item": {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "nt",
+                          "name": "constSpec"
+                        },
+                        {
+                          "t": "nt",
+                          "name": "eos"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "R_PAREN"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "CONST",
+            "constDecl__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "constSpec",
+      "kind": "normal",
+      "line": 78,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "identifierList"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "opt",
+                  "item": {
+                    "t": "nt",
+                    "name": "type_"
+                  }
+                },
+                {
+                  "t": "term",
+                  "name": "ASSIGN"
+                },
+                {
+                  "t": "nt",
+                  "name": "expressionList"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "identifierList",
+            "constSpec__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "identifierList",
+      "kind": "normal",
+      "line": 82,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "COMMA"
+                },
+                {
+                  "t": "term",
+                  "name": "IDENTIFIER"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "identifierList__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expressionList",
+      "kind": "normal",
+      "line": 86,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "COMMA"
+                },
+                {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression",
+            "expressionList__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeDecl",
+      "kind": "normal",
+      "line": 90,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "TYPE"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "typeSpec"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "L_PAREN"
+                  },
+                  {
+                    "t": "star",
+                    "item": {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "nt",
+                          "name": "typeSpec"
+                        },
+                        {
+                          "t": "nt",
+                          "name": "eos"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "R_PAREN"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "TYPE",
+            "typeDecl__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeSpec",
+      "kind": "normal",
+      "line": 94,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "aliasDecl"
+          },
+          {
+            "t": "nt",
+            "name": "typeDef"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "aliasDecl"
+          ]
+        },
+        {
+          "symbols": [
+            "typeDef"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aliasDecl",
+      "kind": "normal",
+      "line": 99,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "typeParameters"
+            }
+          },
+          {
+            "t": "term",
+            "name": "ASSIGN"
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "aliasDecl__1",
+            "ASSIGN",
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeDef",
+      "kind": "normal",
+      "line": 103,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "typeParameters"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "typeDef__1",
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeParameters",
+      "kind": "normal",
+      "line": 107,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "typeParameterDecl"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "COMMA"
+                },
+                {
+                  "t": "nt",
+                  "name": "typeParameterDecl"
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "typeParameterDecl",
+            "typeParameters__1",
+            "R_BRACKET"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeParameterDecl",
+      "kind": "normal",
+      "line": 111,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "identifierList"
+          },
+          {
+            "t": "nt",
+            "name": "typeElement"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "identifierList",
+            "typeElement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeElement",
+      "kind": "normal",
+      "line": 115,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "typeTerm"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "OR"
+                },
+                {
+                  "t": "nt",
+                  "name": "typeTerm"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeTerm",
+            "typeElement__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeTerm",
+      "kind": "normal",
+      "line": 119,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "UNDERLYING"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeTerm__1",
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "functionDecl",
+      "kind": "normal",
+      "line": 125,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "FUNC"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "typeParameters"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "signature"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "block"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FUNC",
+            "IDENTIFIER",
+            "functionDecl__1",
+            "signature",
+            "functionDecl__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "methodDecl",
+      "kind": "normal",
+      "line": 129,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "FUNC"
+          },
+          {
+            "t": "nt",
+            "name": "receiver"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "nt",
+            "name": "signature"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "block"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FUNC",
+            "receiver",
+            "IDENTIFIER",
+            "signature",
+            "methodDecl__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "kind": "normal",
+      "line": 133,
+      "expr": {
+        "t": "nt",
+        "name": "parameters"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "parameters"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "varDecl",
+      "kind": "normal",
+      "line": 137,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "VAR"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "varSpec"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "L_PAREN"
+                  },
+                  {
+                    "t": "star",
+                    "item": {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "nt",
+                          "name": "varSpec"
+                        },
+                        {
+                          "t": "nt",
+                          "name": "eos"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "R_PAREN"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "VAR",
+            "varDecl__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "varSpec",
+      "kind": "normal",
+      "line": 141,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "identifierList"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "type_"
+                  },
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "term",
+                          "name": "ASSIGN"
+                        },
+                        {
+                          "t": "nt",
+                          "name": "expressionList"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "ASSIGN"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "expressionList"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "identifierList",
+            "varSpec__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "block",
+      "kind": "normal",
+      "line": 145,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "nt",
+            "name": "statementList"
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_CURLY",
+            "statementList",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statementList",
+      "kind": "normal",
+      "line": 149,
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "SEMI"
+                },
+                {
+                  "t": "term",
+                  "name": "EOS"
+                },
+                {
+                  "t": "eps"
+                }
+              ]
+            },
+            {
+              "t": "nt",
+              "name": "statement"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "statementList__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statement",
+      "kind": "normal",
+      "line": 153,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "declaration"
+          },
+          {
+            "t": "nt",
+            "name": "labeledStmt"
+          },
+          {
+            "t": "nt",
+            "name": "simpleStmt"
+          },
+          {
+            "t": "nt",
+            "name": "goStmt"
+          },
+          {
+            "t": "nt",
+            "name": "returnStmt"
+          },
+          {
+            "t": "nt",
+            "name": "breakStmt"
+          },
+          {
+            "t": "nt",
+            "name": "continueStmt"
+          },
+          {
+            "t": "nt",
+            "name": "gotoStmt"
+          },
+          {
+            "t": "nt",
+            "name": "fallthroughStmt"
+          },
+          {
+            "t": "nt",
+            "name": "block"
+          },
+          {
+            "t": "nt",
+            "name": "ifStmt"
+          },
+          {
+            "t": "nt",
+            "name": "switchStmt"
+          },
+          {
+            "t": "nt",
+            "name": "selectStmt"
+          },
+          {
+            "t": "nt",
+            "name": "forStmt"
+          },
+          {
+            "t": "nt",
+            "name": "deferStmt"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "labeledStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "simpleStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "goStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "returnStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "breakStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "continueStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "gotoStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "fallthroughStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "block"
+          ]
+        },
+        {
+          "symbols": [
+            "ifStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "switchStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "selectStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "forStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "deferStmt"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "simpleStmt",
+      "kind": "normal",
+      "line": 171,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "sendStmt"
+          },
+          {
+            "t": "nt",
+            "name": "incDecStmt"
+          },
+          {
+            "t": "nt",
+            "name": "assignment"
+          },
+          {
+            "t": "nt",
+            "name": "expressionStmt"
+          },
+          {
+            "t": "nt",
+            "name": "shortVarDecl"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "sendStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "incDecStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "assignment"
+          ]
+        },
+        {
+          "symbols": [
+            "expressionStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "shortVarDecl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expressionStmt",
+      "kind": "normal",
+      "line": 179,
+      "expr": {
+        "t": "nt",
+        "name": "expression"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sendStmt",
+      "kind": "normal",
+      "line": 183,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "term",
+            "name": "RECEIVE"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression",
+            "RECEIVE",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "incDecStmt",
+      "kind": "normal",
+      "line": 187,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "term",
+                "name": "PLUS_PLUS"
+              },
+              {
+                "t": "term",
+                "name": "MINUS_MINUS"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression",
+            "incDecStmt__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "assignment",
+      "kind": "normal",
+      "line": 191,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expressionList"
+          },
+          {
+            "t": "nt",
+            "name": "assign_op"
+          },
+          {
+            "t": "nt",
+            "name": "expressionList"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expressionList",
+            "assign_op",
+            "expressionList"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "assign_op",
+      "kind": "normal",
+      "line": 195,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "PLUS"
+                },
+                {
+                  "t": "term",
+                  "name": "MINUS"
+                },
+                {
+                  "t": "term",
+                  "name": "OR"
+                },
+                {
+                  "t": "term",
+                  "name": "CARET"
+                },
+                {
+                  "t": "term",
+                  "name": "STAR"
+                },
+                {
+                  "t": "term",
+                  "name": "DIV"
+                },
+                {
+                  "t": "term",
+                  "name": "MOD"
+                },
+                {
+                  "t": "term",
+                  "name": "LSHIFT"
+                },
+                {
+                  "t": "term",
+                  "name": "RSHIFT"
+                },
+                {
+                  "t": "term",
+                  "name": "AMPERSAND"
+                },
+                {
+                  "t": "term",
+                  "name": "BIT_CLEAR"
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "ASSIGN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "assign_op__1",
+            "ASSIGN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shortVarDecl",
+      "kind": "normal",
+      "line": 199,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "identifierList"
+          },
+          {
+            "t": "term",
+            "name": "DECLARE_ASSIGN"
+          },
+          {
+            "t": "nt",
+            "name": "expressionList"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "identifierList",
+            "DECLARE_ASSIGN",
+            "expressionList"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "labeledStmt",
+      "kind": "normal",
+      "line": 203,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "term",
+            "name": "COLON"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "statement"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "COLON",
+            "labeledStmt__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "returnStmt",
+      "kind": "normal",
+      "line": 207,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "RETURN"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "expressionList"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "RETURN",
+            "returnStmt__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "breakStmt",
+      "kind": "normal",
+      "line": 211,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "BREAK"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "IDENTIFIER"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "BREAK",
+            "breakStmt__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "continueStmt",
+      "kind": "normal",
+      "line": 215,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "CONTINUE"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "IDENTIFIER"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "CONTINUE",
+            "continueStmt__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gotoStmt",
+      "kind": "normal",
+      "line": 219,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "GOTO"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "GOTO",
+            "IDENTIFIER"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fallthroughStmt",
+      "kind": "normal",
+      "line": 223,
+      "expr": {
+        "t": "term",
+        "name": "FALLTHROUGH"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FALLTHROUGH"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "deferStmt",
+      "kind": "normal",
+      "line": 227,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "DEFER"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "DEFER",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ifStmt",
+      "kind": "normal",
+      "line": 231,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IF"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "choice",
+                    "items": [
+                      {
+                        "t": "term",
+                        "name": "SEMI"
+                      },
+                      {
+                        "t": "term",
+                        "name": "EOS"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "nt",
+                    "name": "expression"
+                  }
+                ]
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "simpleStmt"
+                  },
+                  {
+                    "t": "choice",
+                    "items": [
+                      {
+                        "t": "term",
+                        "name": "SEMI"
+                      },
+                      {
+                        "t": "term",
+                        "name": "EOS"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "nt",
+                    "name": "expression"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "block"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "ELSE"
+                },
+                {
+                  "t": "choice",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "ifStmt"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "block"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IF",
+            "ifStmt__1",
+            "block",
+            "ifStmt__4"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "switchStmt",
+      "kind": "normal",
+      "line": 235,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "exprSwitchStmt"
+          },
+          {
+            "t": "nt",
+            "name": "typeSwitchStmt"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "exprSwitchStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "typeSwitchStmt"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exprSwitchStmt",
+      "kind": "normal",
+      "line": 240,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "SWITCH"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "nt",
+                      "name": "simpleStmt"
+                    }
+                  },
+                  {
+                    "t": "nt",
+                    "name": "eos"
+                  },
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "nt",
+                      "name": "expression"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "nt",
+              "name": "exprCaseClause"
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "SWITCH",
+            "exprSwitchStmt__1",
+            "L_CURLY",
+            "exprSwitchStmt__5",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exprCaseClause",
+      "kind": "normal",
+      "line": 244,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "exprSwitchCase"
+          },
+          {
+            "t": "term",
+            "name": "COLON"
+          },
+          {
+            "t": "nt",
+            "name": "statementList"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "exprSwitchCase",
+            "COLON",
+            "statementList"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exprSwitchCase",
+      "kind": "normal",
+      "line": 248,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "CASE"
+              },
+              {
+                "t": "nt",
+                "name": "expressionList"
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "DEFAULT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "CASE",
+            "expressionList"
+          ]
+        },
+        {
+          "symbols": [
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeSwitchStmt",
+      "kind": "normal",
+      "line": 253,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "SWITCH"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "typeSwitchGuard"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "eos"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "typeSwitchGuard"
+                  }
+                ]
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "simpleStmt"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "eos"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "typeSwitchGuard"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "nt",
+              "name": "typeCaseClause"
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "SWITCH",
+            "typeSwitchStmt__1",
+            "L_CURLY",
+            "typeSwitchStmt__2",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeSwitchGuard",
+      "kind": "normal",
+      "line": 257,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "IDENTIFIER"
+                },
+                {
+                  "t": "term",
+                  "name": "DECLARE_ASSIGN"
+                }
+              ]
+            }
+          },
+          {
+            "t": "nt",
+            "name": "primaryExpr"
+          },
+          {
+            "t": "term",
+            "name": "DOT"
+          },
+          {
+            "t": "term",
+            "name": "L_PAREN"
+          },
+          {
+            "t": "term",
+            "name": "TYPE"
+          },
+          {
+            "t": "term",
+            "name": "R_PAREN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeSwitchGuard__1",
+            "primaryExpr",
+            "DOT",
+            "L_PAREN",
+            "TYPE",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeCaseClause",
+      "kind": "normal",
+      "line": 261,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "typeSwitchCase"
+          },
+          {
+            "t": "term",
+            "name": "COLON"
+          },
+          {
+            "t": "nt",
+            "name": "statementList"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeSwitchCase",
+            "COLON",
+            "statementList"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeSwitchCase",
+      "kind": "normal",
+      "line": 265,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "CASE"
+              },
+              {
+                "t": "nt",
+                "name": "typeList"
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "DEFAULT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "CASE",
+            "typeList"
+          ]
+        },
+        {
+          "symbols": [
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeList",
+      "kind": "normal",
+      "line": 270,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "type_"
+              },
+              {
+                "t": "term",
+                "name": "NIL_LIT"
+              }
+            ]
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "COMMA"
+                },
+                {
+                  "t": "choice",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "type_"
+                    },
+                    {
+                      "t": "term",
+                      "name": "NIL_LIT"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeList__1",
+            "typeList__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "selectStmt",
+      "kind": "normal",
+      "line": 274,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "SELECT"
+          },
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "nt",
+              "name": "commClause"
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "SELECT",
+            "L_CURLY",
+            "selectStmt__1",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "commClause",
+      "kind": "normal",
+      "line": 278,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "commCase"
+          },
+          {
+            "t": "term",
+            "name": "COLON"
+          },
+          {
+            "t": "nt",
+            "name": "statementList"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "commCase",
+            "COLON",
+            "statementList"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "commCase",
+      "kind": "normal",
+      "line": 282,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "CASE"
+              },
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "sendStmt"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "recvStmt"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "DEFAULT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "CASE",
+            "commCase__1"
+          ]
+        },
+        {
+          "symbols": [
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "recvStmt",
+      "kind": "normal",
+      "line": 287,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "expressionList"
+                    },
+                    {
+                      "t": "term",
+                      "name": "ASSIGN"
+                    }
+                  ]
+                },
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "identifierList"
+                    },
+                    {
+                      "t": "term",
+                      "name": "DECLARE_ASSIGN"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "recvStmt__1",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "forStmt",
+      "kind": "normal",
+      "line": 291,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "FOR"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "condition"
+                },
+                {
+                  "t": "nt",
+                  "name": "forClause"
+                },
+                {
+                  "t": "nt",
+                  "name": "rangeClause"
+                }
+              ]
+            }
+          },
+          {
+            "t": "nt",
+            "name": "block"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FOR",
+            "forStmt__1",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "condition",
+      "kind": "normal",
+      "line": 295,
+      "expr": {
+        "t": "nt",
+        "name": "expression"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "forClause",
+      "kind": "normal",
+      "line": 299,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "simpleStmt"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "eos"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "expression"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "eos"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "simpleStmt"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "forClause__1",
+            "eos",
+            "forClause__2",
+            "eos",
+            "forClause__3"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rangeClause",
+      "kind": "normal",
+      "line": 303,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "expressionList"
+                    },
+                    {
+                      "t": "term",
+                      "name": "ASSIGN"
+                    }
+                  ]
+                },
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "identifierList"
+                    },
+                    {
+                      "t": "term",
+                      "name": "DECLARE_ASSIGN"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "RANGE"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "rangeClause__1",
+            "RANGE",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "goStmt",
+      "kind": "normal",
+      "line": 307,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "GO"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "GO",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type_",
+      "kind": "normal",
+      "line": 311,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "typeName"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "typeArgs"
+                }
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "typeLit"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "nt",
+                "name": "type_"
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "typeName",
+            "type___1"
+          ]
+        },
+        {
+          "symbols": [
+            "typeLit"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "type_",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeArgs",
+      "kind": "normal",
+      "line": 317,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "typeList"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "COMMA"
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "typeList",
+            "typeArgs__1",
+            "R_BRACKET"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeName",
+      "kind": "normal",
+      "line": 321,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "qualifiedIdent"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "qualifiedIdent"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENTIFIER"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeLit",
+      "kind": "normal",
+      "line": 326,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "arrayType"
+          },
+          {
+            "t": "nt",
+            "name": "structType"
+          },
+          {
+            "t": "nt",
+            "name": "pointerType"
+          },
+          {
+            "t": "nt",
+            "name": "functionType"
+          },
+          {
+            "t": "nt",
+            "name": "interfaceType"
+          },
+          {
+            "t": "nt",
+            "name": "sliceType"
+          },
+          {
+            "t": "nt",
+            "name": "mapType"
+          },
+          {
+            "t": "nt",
+            "name": "channelType"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "arrayType"
+          ]
+        },
+        {
+          "symbols": [
+            "structType"
+          ]
+        },
+        {
+          "symbols": [
+            "pointerType"
+          ]
+        },
+        {
+          "symbols": [
+            "functionType"
+          ]
+        },
+        {
+          "symbols": [
+            "interfaceType"
+          ]
+        },
+        {
+          "symbols": [
+            "sliceType"
+          ]
+        },
+        {
+          "symbols": [
+            "mapType"
+          ]
+        },
+        {
+          "symbols": [
+            "channelType"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arrayType",
+      "kind": "normal",
+      "line": 337,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "arrayLength"
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "elementType"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "arrayLength",
+            "R_BRACKET",
+            "elementType"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arrayLength",
+      "kind": "normal",
+      "line": 341,
+      "expr": {
+        "t": "nt",
+        "name": "expression"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "elementType",
+      "kind": "normal",
+      "line": 345,
+      "expr": {
+        "t": "nt",
+        "name": "type_"
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pointerType",
+      "kind": "normal",
+      "line": 349,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "STAR"
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "STAR",
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "interfaceType",
+      "kind": "normal",
+      "line": 353,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "INTERFACE"
+          },
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "choice",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "methodSpec"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "typeElement"
+                    }
+                  ]
+                },
+                {
+                  "t": "nt",
+                  "name": "eos"
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "INTERFACE",
+            "L_CURLY",
+            "interfaceType__1",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sliceType",
+      "kind": "normal",
+      "line": 357,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "elementType"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "R_BRACKET",
+            "elementType"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mapType",
+      "kind": "normal",
+      "line": 362,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "MAP"
+          },
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "elementType"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "MAP",
+            "L_BRACKET",
+            "type_",
+            "R_BRACKET",
+            "elementType"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "channelType",
+      "kind": "normal",
+      "line": 366,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "term",
+                "name": "CHAN"
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "CHAN"
+                  },
+                  {
+                    "t": "term",
+                    "name": "RECEIVE"
+                  }
+                ]
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "RECEIVE"
+                  },
+                  {
+                    "t": "term",
+                    "name": "CHAN"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "elementType"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "channelType__1",
+            "elementType"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "methodSpec",
+      "kind": "normal",
+      "line": 370,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "IDENTIFIER"
+              },
+              {
+                "t": "nt",
+                "name": "parameters"
+              },
+              {
+                "t": "nt",
+                "name": "result"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "IDENTIFIER"
+              },
+              {
+                "t": "nt",
+                "name": "parameters"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "parameters",
+            "result"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "parameters"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "functionType",
+      "kind": "normal",
+      "line": 375,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "FUNC"
+          },
+          {
+            "t": "nt",
+            "name": "signature"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FUNC",
+            "signature"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "signature",
+      "kind": "normal",
+      "line": 379,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "parameters"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "result"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "parameters",
+            "signature__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "result",
+      "kind": "normal",
+      "line": 383,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "parameters"
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "parameters"
+          ]
+        },
+        {
+          "symbols": [
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "kind": "normal",
+      "line": 388,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_PAREN"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "parameterDecl"
+                },
+                {
+                  "t": "star",
+                  "item": {
+                    "t": "seq",
+                    "items": [
+                      {
+                        "t": "term",
+                        "name": "COMMA"
+                      },
+                      {
+                        "t": "nt",
+                        "name": "parameterDecl"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "t": "opt",
+                  "item": {
+                    "t": "term",
+                    "name": "COMMA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_PAREN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_PAREN",
+            "parameters__1",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parameterDecl",
+      "kind": "normal",
+      "line": 392,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "identifierList"
+            }
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "ELLIPSIS"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "parameterDecl__1",
+            "parameterDecl__2",
+            "type_"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expression",
+      "kind": "normal",
+      "line": 396,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "primaryExpr"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "PLUS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "MINUS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "EXCLAMATION"
+                  },
+                  {
+                    "t": "term",
+                    "name": "CARET"
+                  },
+                  {
+                    "t": "term",
+                    "name": "STAR"
+                  },
+                  {
+                    "t": "term",
+                    "name": "AMPERSAND"
+                  },
+                  {
+                    "t": "term",
+                    "name": "RECEIVE"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "STAR"
+                  },
+                  {
+                    "t": "term",
+                    "name": "DIV"
+                  },
+                  {
+                    "t": "term",
+                    "name": "MOD"
+                  },
+                  {
+                    "t": "term",
+                    "name": "LSHIFT"
+                  },
+                  {
+                    "t": "term",
+                    "name": "RSHIFT"
+                  },
+                  {
+                    "t": "term",
+                    "name": "AMPERSAND"
+                  },
+                  {
+                    "t": "term",
+                    "name": "BIT_CLEAR"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "PLUS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "MINUS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "OR"
+                  },
+                  {
+                    "t": "term",
+                    "name": "CARET"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "EQUALS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "NOT_EQUALS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "LESS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "LESS_OR_EQUALS"
+                  },
+                  {
+                    "t": "term",
+                    "name": "GREATER"
+                  },
+                  {
+                    "t": "term",
+                    "name": "GREATER_OR_EQUALS"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "term",
+                "name": "LOGICAL_AND"
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "term",
+                "name": "LOGICAL_OR"
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "primaryExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "expression__1",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "expression",
+            "expression__2",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "expression",
+            "expression__3",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "expression",
+            "expression__4",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "expression",
+            "LOGICAL_AND",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "expression",
+            "LOGICAL_OR",
+            "expression"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "primaryExpr",
+      "kind": "normal",
+      "line": 413,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "nt",
+                "name": "operand"
+              },
+              {
+                "t": "nt",
+                "name": "conversion"
+              },
+              {
+                "t": "nt",
+                "name": "methodExpr"
+              }
+            ]
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "term",
+                      "name": "DOT"
+                    },
+                    {
+                      "t": "term",
+                      "name": "IDENTIFIER"
+                    }
+                  ]
+                },
+                {
+                  "t": "nt",
+                  "name": "index"
+                },
+                {
+                  "t": "nt",
+                  "name": "slice_"
+                },
+                {
+                  "t": "nt",
+                  "name": "typeAssertion"
+                },
+                {
+                  "t": "nt",
+                  "name": "arguments"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "primaryExpr__1",
+            "primaryExpr__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "conversion",
+      "kind": "normal",
+      "line": 420,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "L_PAREN"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "COMMA"
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_PAREN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "type_",
+            "L_PAREN",
+            "expression",
+            "conversion__1",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "operand",
+      "kind": "normal",
+      "line": 424,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "literal"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "operandName"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "typeArgs"
+                }
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "literal"
+          ]
+        },
+        {
+          "symbols": [
+            "operandName",
+            "operand__1"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "expression",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "literal",
+      "kind": "normal",
+      "line": 430,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "basicLit"
+          },
+          {
+            "t": "nt",
+            "name": "compositeLit"
+          },
+          {
+            "t": "nt",
+            "name": "functionLit"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "basicLit"
+          ]
+        },
+        {
+          "symbols": [
+            "compositeLit"
+          ]
+        },
+        {
+          "symbols": [
+            "functionLit"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "basicLit",
+      "kind": "normal",
+      "line": 436,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "NIL_LIT"
+          },
+          {
+            "t": "nt",
+            "name": "integer"
+          },
+          {
+            "t": "nt",
+            "name": "string_"
+          },
+          {
+            "t": "term",
+            "name": "FLOAT_LIT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "NIL_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "integer"
+          ]
+        },
+        {
+          "symbols": [
+            "string_"
+          ]
+        },
+        {
+          "symbols": [
+            "FLOAT_LIT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "integer",
+      "kind": "normal",
+      "line": 443,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "DECIMAL_LIT"
+          },
+          {
+            "t": "term",
+            "name": "BINARY_LIT"
+          },
+          {
+            "t": "term",
+            "name": "OCTAL_LIT"
+          },
+          {
+            "t": "term",
+            "name": "HEX_LIT"
+          },
+          {
+            "t": "term",
+            "name": "IMAGINARY_LIT"
+          },
+          {
+            "t": "term",
+            "name": "RUNE_LIT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "DECIMAL_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "BINARY_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "OCTAL_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "HEX_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "IMAGINARY_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "RUNE_LIT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "operandName",
+      "kind": "normal",
+      "line": 452,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "nt",
+            "name": "qualifiedIdent"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER"
+          ]
+        },
+        {
+          "symbols": [
+            "qualifiedIdent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "qualifiedIdent",
+      "kind": "normal",
+      "line": 457,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          },
+          {
+            "t": "term",
+            "name": "DOT"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "DOT",
+            "IDENTIFIER"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "compositeLit",
+      "kind": "normal",
+      "line": 461,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "literalType"
+          },
+          {
+            "t": "nt",
+            "name": "literalValue"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "literalType",
+            "literalValue"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "literalType",
+      "kind": "normal",
+      "line": 465,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "structType"
+          },
+          {
+            "t": "nt",
+            "name": "arrayType"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_BRACKET"
+              },
+              {
+                "t": "term",
+                "name": "ELLIPSIS"
+              },
+              {
+                "t": "term",
+                "name": "R_BRACKET"
+              },
+              {
+                "t": "nt",
+                "name": "elementType"
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "sliceType"
+          },
+          {
+            "t": "nt",
+            "name": "mapType"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "typeName"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "typeArgs"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "structType"
+          ]
+        },
+        {
+          "symbols": [
+            "arrayType"
+          ]
+        },
+        {
+          "symbols": [
+            "L_BRACKET",
+            "ELLIPSIS",
+            "R_BRACKET",
+            "elementType"
+          ]
+        },
+        {
+          "symbols": [
+            "sliceType"
+          ]
+        },
+        {
+          "symbols": [
+            "mapType"
+          ]
+        },
+        {
+          "symbols": [
+            "typeName",
+            "literalType__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "literalValue",
+      "kind": "normal",
+      "line": 474,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "elementList"
+                },
+                {
+                  "t": "opt",
+                  "item": {
+                    "t": "term",
+                    "name": "COMMA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_CURLY",
+            "literalValue__1",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "elementList",
+      "kind": "normal",
+      "line": 478,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "keyedElement"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "COMMA"
+                },
+                {
+                  "t": "nt",
+                  "name": "keyedElement"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "keyedElement",
+            "elementList__1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keyedElement",
+      "kind": "normal",
+      "line": 482,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "key"
+                },
+                {
+                  "t": "term",
+                  "name": "COLON"
+                }
+              ]
+            }
+          },
+          {
+            "t": "nt",
+            "name": "element"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "keyedElement__1",
+            "element"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "key",
+      "kind": "normal",
+      "line": 486,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "nt",
+            "name": "literalValue"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "literalValue"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "element",
+      "kind": "normal",
+      "line": 491,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "nt",
+            "name": "literalValue"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "literalValue"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "structType",
+      "kind": "normal",
+      "line": 496,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "STRUCT"
+          },
+          {
+            "t": "term",
+            "name": "L_CURLY"
+          },
+          {
+            "t": "star",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "fieldDecl"
+                },
+                {
+                  "t": "nt",
+                  "name": "eos"
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_CURLY"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "STRUCT",
+            "L_CURLY",
+            "structType__1",
+            "R_CURLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fieldDecl",
+      "kind": "normal",
+      "line": 500,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "nt",
+                    "name": "identifierList"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "type_"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "embeddedField"
+              }
+            ]
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "string_"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "fieldDecl__1",
+            "fieldDecl__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "string_",
+      "kind": "normal",
+      "line": 504,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "RAW_STRING_LIT"
+          },
+          {
+            "t": "term",
+            "name": "INTERPRETED_STRING_LIT"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "RAW_STRING_LIT"
+          ]
+        },
+        {
+          "symbols": [
+            "INTERPRETED_STRING_LIT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "embeddedField",
+      "kind": "normal",
+      "line": 509,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "term",
+              "name": "STAR"
+            }
+          },
+          {
+            "t": "nt",
+            "name": "typeName"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "typeArgs"
+            }
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "embeddedField__1",
+            "typeName",
+            "embeddedField__2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "functionLit",
+      "kind": "normal",
+      "line": 513,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "FUNC"
+          },
+          {
+            "t": "nt",
+            "name": "signature"
+          },
+          {
+            "t": "nt",
+            "name": "block"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "FUNC",
+            "signature",
+            "block"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "kind": "normal",
+      "line": 517,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "expression",
+            "R_BRACKET"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice_",
+      "kind": "normal",
+      "line": 521,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_BRACKET"
+          },
+          {
+            "t": "choice",
+            "items": [
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "nt",
+                      "name": "expression"
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "COLON"
+                  },
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "nt",
+                      "name": "expression"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "opt",
+                    "item": {
+                      "t": "nt",
+                      "name": "expression"
+                    }
+                  },
+                  {
+                    "t": "term",
+                    "name": "COLON"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "expression"
+                  },
+                  {
+                    "t": "term",
+                    "name": "COLON"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "expression"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "term",
+            "name": "R_BRACKET"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_BRACKET",
+            "slice___1",
+            "R_BRACKET"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "typeAssertion",
+      "kind": "normal",
+      "line": 525,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "DOT"
+          },
+          {
+            "t": "term",
+            "name": "L_PAREN"
+          },
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "R_PAREN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "DOT",
+            "L_PAREN",
+            "type_",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arguments",
+      "kind": "normal",
+      "line": 529,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "term",
+            "name": "L_PAREN"
+          },
+          {
+            "t": "opt",
+            "item": {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "choice",
+                  "items": [
+                    {
+                      "t": "seq",
+                      "items": [
+                        {
+                          "t": "nt",
+                          "name": "type_"
+                        },
+                        {
+                          "t": "opt",
+                          "item": {
+                            "t": "seq",
+                            "items": [
+                              {
+                                "t": "term",
+                                "name": "COMMA"
+                              },
+                              {
+                                "t": "nt",
+                                "name": "expressionList"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "t": "nt",
+                      "name": "expressionList"
+                    }
+                  ]
+                },
+                {
+                  "t": "opt",
+                  "item": {
+                    "t": "term",
+                    "name": "ELLIPSIS"
+                  }
+                },
+                {
+                  "t": "opt",
+                  "item": {
+                    "t": "term",
+                    "name": "COMMA"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "t": "term",
+            "name": "R_PAREN"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "L_PAREN",
+            "arguments__1",
+            "R_PAREN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "methodExpr",
+      "kind": "normal",
+      "line": 533,
+      "expr": {
+        "t": "seq",
+        "items": [
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "DOT"
+          },
+          {
+            "t": "term",
+            "name": "IDENTIFIER"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "type_",
+            "DOT",
+            "IDENTIFIER"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "eos",
+      "kind": "normal",
+      "line": 537,
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "SEMI"
+          },
+          {
+            "t": "term",
+            "name": "EOS"
+          },
+          {
+            "t": "eps"
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "symbols": [
+            "SEMI"
+          ]
+        },
+        {
+          "symbols": [
+            "EOS"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "sourceFile__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "importDecl",
+            "eos",
+            "sourceFile__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "importDecl"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "sourceFile__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "sourceFile__3",
+            "eos",
+            "sourceFile__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "functionDecl"
+                },
+                {
+                  "t": "nt",
+                  "name": "methodDecl"
+                },
+                {
+                  "t": "nt",
+                  "name": "declaration"
+                }
+              ]
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "sourceFile__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "functionDecl"
+          ]
+        },
+        {
+          "symbols": [
+            "methodDecl"
+          ]
+        },
+        {
+          "symbols": [
+            "declaration"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "functionDecl"
+          },
+          {
+            "t": "nt",
+            "name": "methodDecl"
+          },
+          {
+            "t": "nt",
+            "name": "declaration"
+          }
+        ]
+      }
+    },
+    {
+      "name": "importDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "importSpec"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "importDecl__2",
+            "R_PAREN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "importSpec"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "star",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "importSpec"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "eos"
+                    }
+                  ]
+                }
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "importDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "importSpec",
+            "eos",
+            "importDecl__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "importSpec"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "importSpec__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "DOT"
+          ]
+        },
+        {
+          "symbols": [
+            "packageName"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "term",
+              "name": "DOT"
+            },
+            {
+              "t": "nt",
+              "name": "packageName"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "constDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "constSpec"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "constDecl__2",
+            "R_PAREN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "constSpec"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "star",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "constSpec"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "eos"
+                    }
+                  ]
+                }
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "constDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "constSpec",
+            "eos",
+            "constDecl__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "constSpec"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "constSpec__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "constSpec__2",
+            "ASSIGN",
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "opt",
+              "item": {
+                "t": "nt",
+                "name": "type_"
+              }
+            },
+            {
+              "t": "term",
+              "name": "ASSIGN"
+            },
+            {
+              "t": "nt",
+              "name": "expressionList"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "constSpec__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "type_"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "type_"
+        }
+      }
+    },
+    {
+      "name": "identifierList__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "IDENTIFIER",
+            "identifierList__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "term",
+              "name": "IDENTIFIER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "expressionList__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "expression",
+            "expressionList__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "nt",
+              "name": "expression"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "typeDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "typeSpec"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "typeDecl__2",
+            "R_PAREN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "typeSpec"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "star",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "typeSpec"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "eos"
+                    }
+                  ]
+                }
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "typeDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeSpec",
+            "eos",
+            "typeDecl__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "typeSpec"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "aliasDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeParameters"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeParameters"
+        }
+      }
+    },
+    {
+      "name": "typeDef__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeParameters"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeParameters"
+        }
+      }
+    },
+    {
+      "name": "typeParameters__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "typeParameterDecl",
+            "typeParameters__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "nt",
+              "name": "typeParameterDecl"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "typeElement__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "OR",
+            "typeTerm",
+            "typeElement__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "OR"
+            },
+            {
+              "t": "nt",
+              "name": "typeTerm"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "typeTerm__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "UNDERLYING"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "UNDERLYING"
+        }
+      }
+    },
+    {
+      "name": "functionDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeParameters"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeParameters"
+        }
+      }
+    },
+    {
+      "name": "functionDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "block"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "block"
+        }
+      }
+    },
+    {
+      "name": "methodDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "block"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "block"
+        }
+      }
+    },
+    {
+      "name": "varDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "varSpec"
+          ]
+        },
+        {
+          "symbols": [
+            "L_PAREN",
+            "varDecl__2",
+            "R_PAREN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "varSpec"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "L_PAREN"
+              },
+              {
+                "t": "star",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "varSpec"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "eos"
+                    }
+                  ]
+                }
+              },
+              {
+                "t": "term",
+                "name": "R_PAREN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "varDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "varSpec",
+            "eos",
+            "varDecl__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "varSpec"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "varSpec__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "type_",
+            "varSpec__2"
+          ]
+        },
+        {
+          "symbols": [
+            "ASSIGN",
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "type_"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "term",
+                      "name": "ASSIGN"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "expressionList"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "ASSIGN"
+              },
+              {
+                "t": "nt",
+                "name": "expressionList"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "varSpec__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "ASSIGN",
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "ASSIGN"
+            },
+            {
+              "t": "nt",
+              "name": "expressionList"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "statementList__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "statementList__2",
+            "statement",
+            "eos",
+            "statementList__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "SEMI"
+                },
+                {
+                  "t": "term",
+                  "name": "EOS"
+                },
+                {
+                  "t": "eps"
+                }
+              ]
+            },
+            {
+              "t": "nt",
+              "name": "statement"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "statementList__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "SEMI"
+          ]
+        },
+        {
+          "symbols": [
+            "EOS"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "SEMI"
+          },
+          {
+            "t": "term",
+            "name": "EOS"
+          },
+          {
+            "t": "eps"
+          }
+        ]
+      }
+    },
+    {
+      "name": "incDecStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "PLUS_PLUS"
+          ]
+        },
+        {
+          "symbols": [
+            "MINUS_MINUS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "PLUS_PLUS"
+          },
+          {
+            "t": "term",
+            "name": "MINUS_MINUS"
+          }
+        ]
+      }
+    },
+    {
+      "name": "assign_op__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "PLUS"
+          ]
+        },
+        {
+          "symbols": [
+            "MINUS"
+          ]
+        },
+        {
+          "symbols": [
+            "OR"
+          ]
+        },
+        {
+          "symbols": [
+            "CARET"
+          ]
+        },
+        {
+          "symbols": [
+            "STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "DIV"
+          ]
+        },
+        {
+          "symbols": [
+            "MOD"
+          ]
+        },
+        {
+          "symbols": [
+            "LSHIFT"
+          ]
+        },
+        {
+          "symbols": [
+            "RSHIFT"
+          ]
+        },
+        {
+          "symbols": [
+            "AMPERSAND"
+          ]
+        },
+        {
+          "symbols": [
+            "BIT_CLEAR"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "term",
+              "name": "PLUS"
+            },
+            {
+              "t": "term",
+              "name": "MINUS"
+            },
+            {
+              "t": "term",
+              "name": "OR"
+            },
+            {
+              "t": "term",
+              "name": "CARET"
+            },
+            {
+              "t": "term",
+              "name": "STAR"
+            },
+            {
+              "t": "term",
+              "name": "DIV"
+            },
+            {
+              "t": "term",
+              "name": "MOD"
+            },
+            {
+              "t": "term",
+              "name": "LSHIFT"
+            },
+            {
+              "t": "term",
+              "name": "RSHIFT"
+            },
+            {
+              "t": "term",
+              "name": "AMPERSAND"
+            },
+            {
+              "t": "term",
+              "name": "BIT_CLEAR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "labeledStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "statement"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "statement"
+        }
+      }
+    },
+    {
+      "name": "returnStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expressionList"
+        }
+      }
+    },
+    {
+      "name": "breakStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "IDENTIFIER"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "IDENTIFIER"
+        }
+      }
+    },
+    {
+      "name": "continueStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "IDENTIFIER"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "IDENTIFIER"
+        }
+      }
+    },
+    {
+      "name": "ifStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "ifStmt__2",
+            "expression"
+          ]
+        },
+        {
+          "symbols": [
+            "simpleStmt",
+            "ifStmt__3",
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "expression"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "SEMI"
+                  },
+                  {
+                    "t": "term",
+                    "name": "EOS"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "simpleStmt"
+              },
+              {
+                "t": "choice",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "SEMI"
+                  },
+                  {
+                    "t": "term",
+                    "name": "EOS"
+                  }
+                ]
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ifStmt__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "SEMI"
+          ]
+        },
+        {
+          "symbols": [
+            "EOS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "SEMI"
+          },
+          {
+            "t": "term",
+            "name": "EOS"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ifStmt__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "SEMI"
+          ]
+        },
+        {
+          "symbols": [
+            "EOS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "SEMI"
+          },
+          {
+            "t": "term",
+            "name": "EOS"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ifStmt__4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "ELSE",
+            "ifStmt__5"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "ELSE"
+            },
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "ifStmt"
+                },
+                {
+                  "t": "nt",
+                  "name": "block"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ifStmt__5",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "ifStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "block"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "ifStmt"
+          },
+          {
+            "t": "nt",
+            "name": "block"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exprSwitchStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "exprSwitchStmt__2"
+          ]
+        },
+        {
+          "symbols": [
+            "exprSwitchStmt__3",
+            "eos",
+            "exprSwitchStmt__4"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "opt",
+            "item": {
+              "t": "nt",
+              "name": "expression"
+            }
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "simpleStmt"
+                }
+              },
+              {
+                "t": "nt",
+                "name": "eos"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "exprSwitchStmt__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "exprSwitchStmt__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "simpleStmt"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "simpleStmt"
+        }
+      }
+    },
+    {
+      "name": "exprSwitchStmt__4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "exprSwitchStmt__5",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "exprCaseClause",
+            "exprSwitchStmt__5"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "nt",
+          "name": "exprCaseClause"
+        }
+      }
+    },
+    {
+      "name": "typeSwitchStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "typeSwitchGuard"
+          ]
+        },
+        {
+          "symbols": [
+            "eos",
+            "typeSwitchGuard"
+          ]
+        },
+        {
+          "symbols": [
+            "simpleStmt",
+            "eos",
+            "typeSwitchGuard"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "typeSwitchGuard"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "eos"
+              },
+              {
+                "t": "nt",
+                "name": "typeSwitchGuard"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "simpleStmt"
+              },
+              {
+                "t": "nt",
+                "name": "eos"
+              },
+              {
+                "t": "nt",
+                "name": "typeSwitchGuard"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "typeSwitchStmt__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeCaseClause",
+            "typeSwitchStmt__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "nt",
+          "name": "typeCaseClause"
+        }
+      }
+    },
+    {
+      "name": "typeSwitchGuard__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "IDENTIFIER",
+            "DECLARE_ASSIGN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "IDENTIFIER"
+            },
+            {
+              "t": "term",
+              "name": "DECLARE_ASSIGN"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "typeList__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "type_"
+          ]
+        },
+        {
+          "symbols": [
+            "NIL_LIT"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "NIL_LIT"
+          }
+        ]
+      }
+    },
+    {
+      "name": "typeList__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "typeList__3",
+            "typeList__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "type_"
+                },
+                {
+                  "t": "term",
+                  "name": "NIL_LIT"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "typeList__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "type_"
+          ]
+        },
+        {
+          "symbols": [
+            "NIL_LIT"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "type_"
+          },
+          {
+            "t": "term",
+            "name": "NIL_LIT"
+          }
+        ]
+      }
+    },
+    {
+      "name": "selectStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "commClause",
+            "selectStmt__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "nt",
+          "name": "commClause"
+        }
+      }
+    },
+    {
+      "name": "commCase__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "sendStmt"
+          ]
+        },
+        {
+          "symbols": [
+            "recvStmt"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "sendStmt"
+          },
+          {
+            "t": "nt",
+            "name": "recvStmt"
+          }
+        ]
+      }
+    },
+    {
+      "name": "recvStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expressionList",
+            "ASSIGN"
+          ]
+        },
+        {
+          "symbols": [
+            "identifierList",
+            "DECLARE_ASSIGN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "expressionList"
+                },
+                {
+                  "t": "term",
+                  "name": "ASSIGN"
+                }
+              ]
+            },
+            {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "identifierList"
+                },
+                {
+                  "t": "term",
+                  "name": "DECLARE_ASSIGN"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "forStmt__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "condition"
+          ]
+        },
+        {
+          "symbols": [
+            "forClause"
+          ]
+        },
+        {
+          "symbols": [
+            "rangeClause"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "nt",
+              "name": "condition"
+            },
+            {
+              "t": "nt",
+              "name": "forClause"
+            },
+            {
+              "t": "nt",
+              "name": "rangeClause"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "forClause__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "simpleStmt"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "simpleStmt"
+        }
+      }
+    },
+    {
+      "name": "forClause__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "forClause__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "simpleStmt"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "simpleStmt"
+        }
+      }
+    },
+    {
+      "name": "rangeClause__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expressionList",
+            "ASSIGN"
+          ]
+        },
+        {
+          "symbols": [
+            "identifierList",
+            "DECLARE_ASSIGN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "expressionList"
+                },
+                {
+                  "t": "term",
+                  "name": "ASSIGN"
+                }
+              ]
+            },
+            {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "identifierList"
+                },
+                {
+                  "t": "term",
+                  "name": "DECLARE_ASSIGN"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "type___1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeArgs"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeArgs"
+        }
+      }
+    },
+    {
+      "name": "typeArgs__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "COMMA"
+        }
+      }
+    },
+    {
+      "name": "interfaceType__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "interfaceType__2",
+            "eos",
+            "interfaceType__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "nt",
+                  "name": "methodSpec"
+                },
+                {
+                  "t": "nt",
+                  "name": "typeElement"
+                }
+              ]
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "interfaceType__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "methodSpec"
+          ]
+        },
+        {
+          "symbols": [
+            "typeElement"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "methodSpec"
+          },
+          {
+            "t": "nt",
+            "name": "typeElement"
+          }
+        ]
+      }
+    },
+    {
+      "name": "channelType__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "CHAN"
+          ]
+        },
+        {
+          "symbols": [
+            "CHAN",
+            "RECEIVE"
+          ]
+        },
+        {
+          "symbols": [
+            "RECEIVE",
+            "CHAN"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "CHAN"
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "CHAN"
+              },
+              {
+                "t": "term",
+                "name": "RECEIVE"
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "term",
+                "name": "RECEIVE"
+              },
+              {
+                "t": "term",
+                "name": "CHAN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "signature__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "result"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "result"
+        }
+      }
+    },
+    {
+      "name": "parameters__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "parameterDecl",
+            "parameters__2",
+            "parameters__3"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "parameterDecl"
+            },
+            {
+              "t": "star",
+              "item": {
+                "t": "seq",
+                "items": [
+                  {
+                    "t": "term",
+                    "name": "COMMA"
+                  },
+                  {
+                    "t": "nt",
+                    "name": "parameterDecl"
+                  }
+                ]
+              }
+            },
+            {
+              "t": "opt",
+              "item": {
+                "t": "term",
+                "name": "COMMA"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "parameters__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "parameterDecl",
+            "parameters__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "nt",
+              "name": "parameterDecl"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "parameters__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "COMMA"
+        }
+      }
+    },
+    {
+      "name": "parameterDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "identifierList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "identifierList"
+        }
+      }
+    },
+    {
+      "name": "parameterDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "ELLIPSIS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "ELLIPSIS"
+        }
+      }
+    },
+    {
+      "name": "expression__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "PLUS"
+          ]
+        },
+        {
+          "symbols": [
+            "MINUS"
+          ]
+        },
+        {
+          "symbols": [
+            "EXCLAMATION"
+          ]
+        },
+        {
+          "symbols": [
+            "CARET"
+          ]
+        },
+        {
+          "symbols": [
+            "STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "AMPERSAND"
+          ]
+        },
+        {
+          "symbols": [
+            "RECEIVE"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "PLUS"
+          },
+          {
+            "t": "term",
+            "name": "MINUS"
+          },
+          {
+            "t": "term",
+            "name": "EXCLAMATION"
+          },
+          {
+            "t": "term",
+            "name": "CARET"
+          },
+          {
+            "t": "term",
+            "name": "STAR"
+          },
+          {
+            "t": "term",
+            "name": "AMPERSAND"
+          },
+          {
+            "t": "term",
+            "name": "RECEIVE"
+          }
+        ]
+      }
+    },
+    {
+      "name": "expression__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "STAR"
+          ]
+        },
+        {
+          "symbols": [
+            "DIV"
+          ]
+        },
+        {
+          "symbols": [
+            "MOD"
+          ]
+        },
+        {
+          "symbols": [
+            "LSHIFT"
+          ]
+        },
+        {
+          "symbols": [
+            "RSHIFT"
+          ]
+        },
+        {
+          "symbols": [
+            "AMPERSAND"
+          ]
+        },
+        {
+          "symbols": [
+            "BIT_CLEAR"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "STAR"
+          },
+          {
+            "t": "term",
+            "name": "DIV"
+          },
+          {
+            "t": "term",
+            "name": "MOD"
+          },
+          {
+            "t": "term",
+            "name": "LSHIFT"
+          },
+          {
+            "t": "term",
+            "name": "RSHIFT"
+          },
+          {
+            "t": "term",
+            "name": "AMPERSAND"
+          },
+          {
+            "t": "term",
+            "name": "BIT_CLEAR"
+          }
+        ]
+      }
+    },
+    {
+      "name": "expression__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "PLUS"
+          ]
+        },
+        {
+          "symbols": [
+            "MINUS"
+          ]
+        },
+        {
+          "symbols": [
+            "OR"
+          ]
+        },
+        {
+          "symbols": [
+            "CARET"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "PLUS"
+          },
+          {
+            "t": "term",
+            "name": "MINUS"
+          },
+          {
+            "t": "term",
+            "name": "OR"
+          },
+          {
+            "t": "term",
+            "name": "CARET"
+          }
+        ]
+      }
+    },
+    {
+      "name": "expression__4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "EQUALS"
+          ]
+        },
+        {
+          "symbols": [
+            "NOT_EQUALS"
+          ]
+        },
+        {
+          "symbols": [
+            "LESS"
+          ]
+        },
+        {
+          "symbols": [
+            "LESS_OR_EQUALS"
+          ]
+        },
+        {
+          "symbols": [
+            "GREATER"
+          ]
+        },
+        {
+          "symbols": [
+            "GREATER_OR_EQUALS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "term",
+            "name": "EQUALS"
+          },
+          {
+            "t": "term",
+            "name": "NOT_EQUALS"
+          },
+          {
+            "t": "term",
+            "name": "LESS"
+          },
+          {
+            "t": "term",
+            "name": "LESS_OR_EQUALS"
+          },
+          {
+            "t": "term",
+            "name": "GREATER"
+          },
+          {
+            "t": "term",
+            "name": "GREATER_OR_EQUALS"
+          }
+        ]
+      }
+    },
+    {
+      "name": "primaryExpr__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "operand"
+          ]
+        },
+        {
+          "symbols": [
+            "conversion"
+          ]
+        },
+        {
+          "symbols": [
+            "methodExpr"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "nt",
+            "name": "operand"
+          },
+          {
+            "t": "nt",
+            "name": "conversion"
+          },
+          {
+            "t": "nt",
+            "name": "methodExpr"
+          }
+        ]
+      }
+    },
+    {
+      "name": "primaryExpr__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "DOT",
+            "IDENTIFIER",
+            "primaryExpr__2"
+          ]
+        },
+        {
+          "symbols": [
+            "index",
+            "primaryExpr__2"
+          ]
+        },
+        {
+          "symbols": [
+            "slice_",
+            "primaryExpr__2"
+          ]
+        },
+        {
+          "symbols": [
+            "typeAssertion",
+            "primaryExpr__2"
+          ]
+        },
+        {
+          "symbols": [
+            "arguments",
+            "primaryExpr__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "choice",
+          "items": [
+            {
+              "t": "seq",
+              "items": [
+                {
+                  "t": "term",
+                  "name": "DOT"
+                },
+                {
+                  "t": "term",
+                  "name": "IDENTIFIER"
+                }
+              ]
+            },
+            {
+              "t": "nt",
+              "name": "index"
+            },
+            {
+              "t": "nt",
+              "name": "slice_"
+            },
+            {
+              "t": "nt",
+              "name": "typeAssertion"
+            },
+            {
+              "t": "nt",
+              "name": "arguments"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "conversion__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "COMMA"
+        }
+      }
+    },
+    {
+      "name": "operand__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeArgs"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeArgs"
+        }
+      }
+    },
+    {
+      "name": "literalType__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeArgs"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeArgs"
+        }
+      }
+    },
+    {
+      "name": "literalValue__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "elementList",
+            "literalValue__2"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "elementList"
+            },
+            {
+              "t": "opt",
+              "item": {
+                "t": "term",
+                "name": "COMMA"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "literalValue__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "COMMA"
+        }
+      }
+    },
+    {
+      "name": "elementList__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "keyedElement",
+            "elementList__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "nt",
+              "name": "keyedElement"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "keyedElement__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "key",
+            "COLON"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "key"
+            },
+            {
+              "t": "term",
+              "name": "COLON"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "structType__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "fieldDecl",
+            "eos",
+            "structType__1"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "star",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "nt",
+              "name": "fieldDecl"
+            },
+            {
+              "t": "nt",
+              "name": "eos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "fieldDecl__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "identifierList",
+            "type_"
+          ]
+        },
+        {
+          "symbols": [
+            "embeddedField"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "identifierList"
+              },
+              {
+                "t": "nt",
+                "name": "type_"
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "embeddedField"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fieldDecl__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "string_"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "string_"
+        }
+      }
+    },
+    {
+      "name": "embeddedField__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "STAR"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "STAR"
+        }
+      }
+    },
+    {
+      "name": "embeddedField__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "typeArgs"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "typeArgs"
+        }
+      }
+    },
+    {
+      "name": "slice___1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "slice___2",
+            "COLON",
+            "slice___3"
+          ]
+        },
+        {
+          "symbols": [
+            "slice___4",
+            "COLON",
+            "expression",
+            "COLON",
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              },
+              {
+                "t": "term",
+                "name": "COLON"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              }
+            ]
+          },
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "opt",
+                "item": {
+                  "t": "nt",
+                  "name": "expression"
+                }
+              },
+              {
+                "t": "term",
+                "name": "COLON"
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              },
+              {
+                "t": "term",
+                "name": "COLON"
+              },
+              {
+                "t": "nt",
+                "name": "expression"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "slice___2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "slice___3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "slice___4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expression"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "nt",
+          "name": "expression"
+        }
+      }
+    },
+    {
+      "name": "arguments__1",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "arguments__2",
+            "arguments__4",
+            "arguments__5"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "choice",
+              "items": [
+                {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "nt",
+                      "name": "type_"
+                    },
+                    {
+                      "t": "opt",
+                      "item": {
+                        "t": "seq",
+                        "items": [
+                          {
+                            "t": "term",
+                            "name": "COMMA"
+                          },
+                          {
+                            "t": "nt",
+                            "name": "expressionList"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "t": "nt",
+                  "name": "expressionList"
+                }
+              ]
+            },
+            {
+              "t": "opt",
+              "item": {
+                "t": "term",
+                "name": "ELLIPSIS"
+              }
+            },
+            {
+              "t": "opt",
+              "item": {
+                "t": "term",
+                "name": "COMMA"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "arguments__2",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": [
+            "type_",
+            "arguments__3"
+          ]
+        },
+        {
+          "symbols": [
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "choice",
+        "items": [
+          {
+            "t": "seq",
+            "items": [
+              {
+                "t": "nt",
+                "name": "type_"
+              },
+              {
+                "t": "opt",
+                "item": {
+                  "t": "seq",
+                  "items": [
+                    {
+                      "t": "term",
+                      "name": "COMMA"
+                    },
+                    {
+                      "t": "nt",
+                      "name": "expressionList"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "t": "nt",
+            "name": "expressionList"
+          }
+        ]
+      }
+    },
+    {
+      "name": "arguments__3",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA",
+            "expressionList"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "seq",
+          "items": [
+            {
+              "t": "term",
+              "name": "COMMA"
+            },
+            {
+              "t": "nt",
+              "name": "expressionList"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "arguments__4",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "ELLIPSIS"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "ELLIPSIS"
+        }
+      }
+    },
+    {
+      "name": "arguments__5",
+      "kind": "inline",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "COMMA"
+          ]
+        }
+      ],
+      "expr": {
+        "t": "opt",
+        "item": {
+          "t": "term",
+          "name": "COMMA"
+        }
+      }
+    }
+  ]
+}

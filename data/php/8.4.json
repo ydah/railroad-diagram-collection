@@ -1,0 +1,6101 @@
+{
+  "schema": 1,
+  "language": "php",
+  "version": "8.4",
+  "source": {
+    "repo": "https://github.com/php/php-src.git",
+    "ref": "php-8.4.0",
+    "commit": "b437f2b32eb364c9496d24abcc734272e5c9c980",
+    "path": "Zend/zend_language_parser.y",
+    "sha256": "53bf84957214b7d02f62acb8b1f3088c38289377b1a00a0a240ea4f7bb31e5c1",
+    "prepared_sha256": "53bf84957214b7d02f62acb8b1f3088c38289377b1a00a0a240ea4f7bb31e5c1",
+    "committed_at": "2024-11-20T02:13:14+09:00",
+    "license": {
+      "name": "Zend Engine License 2.00",
+      "url": "https://github.com/php/php-src/blob/php-8.5.0/Zend/LICENSE",
+      "path": "Zend/LICENSE"
+    }
+  },
+  "generator": {
+    "frontend": "lrama",
+    "tool_version": "0.8.0",
+    "lrama_revision": "c8317b55850bc6cd9033ddfbf816377b73f6c7bc",
+    "rdc": "1.0.0",
+    "metadata_sha256": "58b02692651a0465e6ab9e33db9255f6ecae7602b5c291c19eb6836193ce8d97"
+  },
+  "start": "start",
+  "terminals": [
+    {
+      "name": "END",
+      "display": "end of file",
+      "kind": "internal",
+      "alias": "\"end of file\""
+    },
+    {
+      "name": "YYerror",
+      "display": "error",
+      "kind": "internal",
+      "alias": "error"
+    },
+    {
+      "name": "YYUNDEF",
+      "display": "invalid token",
+      "kind": "internal",
+      "alias": "\"invalid token\""
+    },
+    {
+      "name": "T_THROW",
+      "display": "T_THROW",
+      "kind": "class"
+    },
+    {
+      "name": "PREC_ARROW_FUNCTION",
+      "display": "PREC_ARROW_FUNCTION",
+      "kind": "class"
+    },
+    {
+      "name": "T_INCLUDE",
+      "display": "T_INCLUDE",
+      "kind": "class"
+    },
+    {
+      "name": "T_INCLUDE_ONCE",
+      "display": "T_INCLUDE_ONCE",
+      "kind": "class"
+    },
+    {
+      "name": "T_REQUIRE",
+      "display": "T_REQUIRE",
+      "kind": "class"
+    },
+    {
+      "name": "T_REQUIRE_ONCE",
+      "display": "T_REQUIRE_ONCE",
+      "kind": "class"
+    },
+    {
+      "name": "T_LOGICAL_OR",
+      "display": "T_LOGICAL_OR",
+      "kind": "class"
+    },
+    {
+      "name": "T_LOGICAL_XOR",
+      "display": "T_LOGICAL_XOR",
+      "kind": "class"
+    },
+    {
+      "name": "T_LOGICAL_AND",
+      "display": "T_LOGICAL_AND",
+      "kind": "class"
+    },
+    {
+      "name": "T_PRINT",
+      "display": "T_PRINT",
+      "kind": "class"
+    },
+    {
+      "name": "T_YIELD",
+      "display": "T_YIELD",
+      "kind": "class"
+    },
+    {
+      "name": "T_DOUBLE_ARROW",
+      "display": "T_DOUBLE_ARROW",
+      "kind": "class"
+    },
+    {
+      "name": "T_YIELD_FROM",
+      "display": "T_YIELD_FROM",
+      "kind": "class"
+    },
+    {
+      "name": "'='",
+      "display": "=",
+      "kind": "punct"
+    },
+    {
+      "name": "T_PLUS_EQUAL",
+      "display": "T_PLUS_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_MINUS_EQUAL",
+      "display": "T_MINUS_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_MUL_EQUAL",
+      "display": "T_MUL_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_DIV_EQUAL",
+      "display": "T_DIV_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_CONCAT_EQUAL",
+      "display": "T_CONCAT_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_MOD_EQUAL",
+      "display": "T_MOD_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_AND_EQUAL",
+      "display": "T_AND_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_OR_EQUAL",
+      "display": "T_OR_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_XOR_EQUAL",
+      "display": "T_XOR_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_SL_EQUAL",
+      "display": "T_SL_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_SR_EQUAL",
+      "display": "T_SR_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_POW_EQUAL",
+      "display": "T_POW_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_COALESCE_EQUAL",
+      "display": "T_COALESCE_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "'?'",
+      "display": "?",
+      "kind": "punct"
+    },
+    {
+      "name": "':'",
+      "display": ":",
+      "kind": "punct"
+    },
+    {
+      "name": "T_COALESCE",
+      "display": "T_COALESCE",
+      "kind": "class"
+    },
+    {
+      "name": "T_BOOLEAN_OR",
+      "display": "T_BOOLEAN_OR",
+      "kind": "class"
+    },
+    {
+      "name": "T_BOOLEAN_AND",
+      "display": "T_BOOLEAN_AND",
+      "kind": "class"
+    },
+    {
+      "name": "'|'",
+      "display": "|",
+      "kind": "punct"
+    },
+    {
+      "name": "'^'",
+      "display": "^",
+      "kind": "punct"
+    },
+    {
+      "name": "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+      "display": "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+      "kind": "class"
+    },
+    {
+      "name": "T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG",
+      "display": "T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG",
+      "kind": "class"
+    },
+    {
+      "name": "T_IS_EQUAL",
+      "display": "T_IS_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_IS_NOT_EQUAL",
+      "display": "T_IS_NOT_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_IS_IDENTICAL",
+      "display": "T_IS_IDENTICAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_IS_NOT_IDENTICAL",
+      "display": "T_IS_NOT_IDENTICAL",
+      "kind": "class"
+    },
+    {
+      "name": "T_SPACESHIP",
+      "display": "T_SPACESHIP",
+      "kind": "class"
+    },
+    {
+      "name": "'<'",
+      "display": "<",
+      "kind": "punct"
+    },
+    {
+      "name": "T_IS_SMALLER_OR_EQUAL",
+      "display": "T_IS_SMALLER_OR_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "'>'",
+      "display": ">",
+      "kind": "punct"
+    },
+    {
+      "name": "T_IS_GREATER_OR_EQUAL",
+      "display": "T_IS_GREATER_OR_EQUAL",
+      "kind": "class"
+    },
+    {
+      "name": "'.'",
+      "display": ".",
+      "kind": "punct"
+    },
+    {
+      "name": "T_SL",
+      "display": "T_SL",
+      "kind": "class"
+    },
+    {
+      "name": "T_SR",
+      "display": "T_SR",
+      "kind": "class"
+    },
+    {
+      "name": "'+'",
+      "display": "+",
+      "kind": "punct"
+    },
+    {
+      "name": "'-'",
+      "display": "-",
+      "kind": "punct"
+    },
+    {
+      "name": "'*'",
+      "display": "*",
+      "kind": "punct"
+    },
+    {
+      "name": "'/'",
+      "display": "/",
+      "kind": "punct"
+    },
+    {
+      "name": "'%'",
+      "display": "%",
+      "kind": "punct"
+    },
+    {
+      "name": "'!'",
+      "display": "!",
+      "kind": "punct"
+    },
+    {
+      "name": "T_INSTANCEOF",
+      "display": "T_INSTANCEOF",
+      "kind": "class"
+    },
+    {
+      "name": "'~'",
+      "display": "~",
+      "kind": "punct"
+    },
+    {
+      "name": "T_INT_CAST",
+      "display": "T_INT_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_DOUBLE_CAST",
+      "display": "T_DOUBLE_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_STRING_CAST",
+      "display": "T_STRING_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_ARRAY_CAST",
+      "display": "T_ARRAY_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_OBJECT_CAST",
+      "display": "T_OBJECT_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_BOOL_CAST",
+      "display": "T_BOOL_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "T_UNSET_CAST",
+      "display": "T_UNSET_CAST",
+      "kind": "class"
+    },
+    {
+      "name": "'@'",
+      "display": "@",
+      "kind": "punct"
+    },
+    {
+      "name": "T_POW",
+      "display": "T_POW",
+      "kind": "class"
+    },
+    {
+      "name": "T_CLONE",
+      "display": "T_CLONE",
+      "kind": "class"
+    },
+    {
+      "name": "T_NOELSE",
+      "display": "T_NOELSE",
+      "kind": "class"
+    },
+    {
+      "name": "T_ELSEIF",
+      "display": "T_ELSEIF",
+      "kind": "class"
+    },
+    {
+      "name": "T_ELSE",
+      "display": "T_ELSE",
+      "kind": "class"
+    },
+    {
+      "name": "T_LNUMBER",
+      "display": "integer",
+      "kind": "class",
+      "alias": "\"integer\""
+    },
+    {
+      "name": "T_DNUMBER",
+      "display": "floating point number",
+      "kind": "class",
+      "alias": "\"floating-point number\""
+    },
+    {
+      "name": "T_STRING",
+      "display": "identifier",
+      "kind": "class",
+      "alias": "\"identifier\""
+    },
+    {
+      "name": "T_NAME_FULLY_QUALIFIED",
+      "display": "fully qualified name",
+      "kind": "class",
+      "alias": "\"fully qualified name\""
+    },
+    {
+      "name": "T_NAME_RELATIVE",
+      "display": "relative name",
+      "kind": "class",
+      "alias": "\"namespace-relative name\""
+    },
+    {
+      "name": "T_NAME_QUALIFIED",
+      "display": "qualified name",
+      "kind": "class",
+      "alias": "\"namespaced name\""
+    },
+    {
+      "name": "T_VARIABLE",
+      "display": "variable",
+      "kind": "class",
+      "alias": "\"variable\""
+    },
+    {
+      "name": "T_INLINE_HTML",
+      "display": "T_INLINE_HTML",
+      "kind": "class"
+    },
+    {
+      "name": "T_ENCAPSED_AND_WHITESPACE",
+      "display": "string content",
+      "kind": "class",
+      "alias": "\"string content\""
+    },
+    {
+      "name": "T_CONSTANT_ENCAPSED_STRING",
+      "display": "quoted string",
+      "kind": "class",
+      "alias": "\"quoted string\""
+    },
+    {
+      "name": "T_STRING_VARNAME",
+      "display": "variable name",
+      "kind": "punct",
+      "alias": "\"variable name\""
+    },
+    {
+      "name": "T_NUM_STRING",
+      "display": "number",
+      "kind": "keyword",
+      "alias": "\"number\""
+    },
+    {
+      "name": "T_EVAL",
+      "display": "eval",
+      "kind": "keyword",
+      "alias": "\"'eval'\""
+    },
+    {
+      "name": "T_NEW",
+      "display": "new",
+      "kind": "keyword",
+      "alias": "\"'new'\""
+    },
+    {
+      "name": "T_EXIT",
+      "display": "exit",
+      "kind": "keyword",
+      "alias": "\"'exit'\""
+    },
+    {
+      "name": "T_IF",
+      "display": "if",
+      "kind": "keyword",
+      "alias": "\"'if'\""
+    },
+    {
+      "name": "T_ENDIF",
+      "display": "endif",
+      "kind": "keyword",
+      "alias": "\"'endif'\""
+    },
+    {
+      "name": "T_ECHO",
+      "display": "echo",
+      "kind": "keyword",
+      "alias": "\"'echo'\""
+    },
+    {
+      "name": "T_DO",
+      "display": "do",
+      "kind": "keyword",
+      "alias": "\"'do'\""
+    },
+    {
+      "name": "T_WHILE",
+      "display": "while",
+      "kind": "keyword",
+      "alias": "\"'while'\""
+    },
+    {
+      "name": "T_ENDWHILE",
+      "display": "endwhile",
+      "kind": "keyword",
+      "alias": "\"'endwhile'\""
+    },
+    {
+      "name": "T_FOR",
+      "display": "for",
+      "kind": "keyword",
+      "alias": "\"'for'\""
+    },
+    {
+      "name": "T_ENDFOR",
+      "display": "endfor",
+      "kind": "keyword",
+      "alias": "\"'endfor'\""
+    },
+    {
+      "name": "T_FOREACH",
+      "display": "foreach",
+      "kind": "keyword",
+      "alias": "\"'foreach'\""
+    },
+    {
+      "name": "T_ENDFOREACH",
+      "display": "endforeach",
+      "kind": "keyword",
+      "alias": "\"'endforeach'\""
+    },
+    {
+      "name": "T_DECLARE",
+      "display": "declare",
+      "kind": "keyword",
+      "alias": "\"'declare'\""
+    },
+    {
+      "name": "T_ENDDECLARE",
+      "display": "enddeclare",
+      "kind": "keyword",
+      "alias": "\"'enddeclare'\""
+    },
+    {
+      "name": "T_AS",
+      "display": "as",
+      "kind": "keyword",
+      "alias": "\"'as'\""
+    },
+    {
+      "name": "T_SWITCH",
+      "display": "switch",
+      "kind": "keyword",
+      "alias": "\"'switch'\""
+    },
+    {
+      "name": "T_ENDSWITCH",
+      "display": "endswitch",
+      "kind": "keyword",
+      "alias": "\"'endswitch'\""
+    },
+    {
+      "name": "T_CASE",
+      "display": "case",
+      "kind": "keyword",
+      "alias": "\"'case'\""
+    },
+    {
+      "name": "T_DEFAULT",
+      "display": "default",
+      "kind": "keyword",
+      "alias": "\"'default'\""
+    },
+    {
+      "name": "T_MATCH",
+      "display": "match",
+      "kind": "keyword",
+      "alias": "\"'match'\""
+    },
+    {
+      "name": "T_BREAK",
+      "display": "break",
+      "kind": "keyword",
+      "alias": "\"'break'\""
+    },
+    {
+      "name": "T_CONTINUE",
+      "display": "continue",
+      "kind": "keyword",
+      "alias": "\"'continue'\""
+    },
+    {
+      "name": "T_GOTO",
+      "display": "goto",
+      "kind": "keyword",
+      "alias": "\"'goto'\""
+    },
+    {
+      "name": "T_FUNCTION",
+      "display": "function",
+      "kind": "keyword",
+      "alias": "\"'function'\""
+    },
+    {
+      "name": "T_FN",
+      "display": "fn",
+      "kind": "keyword",
+      "alias": "\"'fn'\""
+    },
+    {
+      "name": "T_CONST",
+      "display": "const",
+      "kind": "keyword",
+      "alias": "\"'const'\""
+    },
+    {
+      "name": "T_RETURN",
+      "display": "return",
+      "kind": "keyword",
+      "alias": "\"'return'\""
+    },
+    {
+      "name": "T_TRY",
+      "display": "try",
+      "kind": "keyword",
+      "alias": "\"'try'\""
+    },
+    {
+      "name": "T_CATCH",
+      "display": "catch",
+      "kind": "keyword",
+      "alias": "\"'catch'\""
+    },
+    {
+      "name": "T_FINALLY",
+      "display": "finally",
+      "kind": "keyword",
+      "alias": "\"'finally'\""
+    },
+    {
+      "name": "T_USE",
+      "display": "use",
+      "kind": "keyword",
+      "alias": "\"'use'\""
+    },
+    {
+      "name": "T_INSTEADOF",
+      "display": "insteadof",
+      "kind": "keyword",
+      "alias": "\"'insteadof'\""
+    },
+    {
+      "name": "T_GLOBAL",
+      "display": "global",
+      "kind": "keyword",
+      "alias": "\"'global'\""
+    },
+    {
+      "name": "T_STATIC",
+      "display": "static",
+      "kind": "keyword",
+      "alias": "\"'static'\""
+    },
+    {
+      "name": "T_ABSTRACT",
+      "display": "abstract",
+      "kind": "keyword",
+      "alias": "\"'abstract'\""
+    },
+    {
+      "name": "T_FINAL",
+      "display": "final",
+      "kind": "keyword",
+      "alias": "\"'final'\""
+    },
+    {
+      "name": "T_PRIVATE",
+      "display": "private",
+      "kind": "keyword",
+      "alias": "\"'private'\""
+    },
+    {
+      "name": "T_PROTECTED",
+      "display": "protected",
+      "kind": "keyword",
+      "alias": "\"'protected'\""
+    },
+    {
+      "name": "T_PUBLIC",
+      "display": "public",
+      "kind": "keyword",
+      "alias": "\"'public'\""
+    },
+    {
+      "name": "T_PRIVATE_SET",
+      "display": "private(set)",
+      "kind": "punct",
+      "alias": "\"'private(set)'\""
+    },
+    {
+      "name": "T_PROTECTED_SET",
+      "display": "protected(set)",
+      "kind": "punct",
+      "alias": "\"'protected(set)'\""
+    },
+    {
+      "name": "T_PUBLIC_SET",
+      "display": "public(set)",
+      "kind": "punct",
+      "alias": "\"'public(set)'\""
+    },
+    {
+      "name": "T_READONLY",
+      "display": "readonly",
+      "kind": "keyword",
+      "alias": "\"'readonly'\""
+    },
+    {
+      "name": "T_VAR",
+      "display": "var",
+      "kind": "keyword",
+      "alias": "\"'var'\""
+    },
+    {
+      "name": "T_UNSET",
+      "display": "unset",
+      "kind": "keyword",
+      "alias": "\"'unset'\""
+    },
+    {
+      "name": "T_ISSET",
+      "display": "isset",
+      "kind": "keyword",
+      "alias": "\"'isset'\""
+    },
+    {
+      "name": "T_EMPTY",
+      "display": "empty",
+      "kind": "keyword",
+      "alias": "\"'empty'\""
+    },
+    {
+      "name": "T_HALT_COMPILER",
+      "display": "__halt_compiler",
+      "kind": "punct",
+      "alias": "\"'__halt_compiler'\""
+    },
+    {
+      "name": "T_CLASS",
+      "display": "class",
+      "kind": "keyword",
+      "alias": "\"'class'\""
+    },
+    {
+      "name": "T_TRAIT",
+      "display": "trait",
+      "kind": "keyword",
+      "alias": "\"'trait'\""
+    },
+    {
+      "name": "T_INTERFACE",
+      "display": "interface",
+      "kind": "keyword",
+      "alias": "\"'interface'\""
+    },
+    {
+      "name": "T_ENUM",
+      "display": "enum",
+      "kind": "keyword",
+      "alias": "\"'enum'\""
+    },
+    {
+      "name": "T_EXTENDS",
+      "display": "extends",
+      "kind": "keyword",
+      "alias": "\"'extends'\""
+    },
+    {
+      "name": "T_IMPLEMENTS",
+      "display": "implements",
+      "kind": "keyword",
+      "alias": "\"'implements'\""
+    },
+    {
+      "name": "T_NAMESPACE",
+      "display": "namespace",
+      "kind": "keyword",
+      "alias": "\"'namespace'\""
+    },
+    {
+      "name": "T_LIST",
+      "display": "list",
+      "kind": "keyword",
+      "alias": "\"'list'\""
+    },
+    {
+      "name": "T_ARRAY",
+      "display": "array",
+      "kind": "keyword",
+      "alias": "\"'array'\""
+    },
+    {
+      "name": "T_CALLABLE",
+      "display": "callable",
+      "kind": "keyword",
+      "alias": "\"'callable'\""
+    },
+    {
+      "name": "T_LINE",
+      "display": "__LINE__",
+      "kind": "punct",
+      "alias": "\"'__LINE__'\""
+    },
+    {
+      "name": "T_FILE",
+      "display": "__FILE__",
+      "kind": "punct",
+      "alias": "\"'__FILE__'\""
+    },
+    {
+      "name": "T_DIR",
+      "display": "__DIR__",
+      "kind": "punct",
+      "alias": "\"'__DIR__'\""
+    },
+    {
+      "name": "T_CLASS_C",
+      "display": "__CLASS__",
+      "kind": "punct",
+      "alias": "\"'__CLASS__'\""
+    },
+    {
+      "name": "T_TRAIT_C",
+      "display": "__TRAIT__",
+      "kind": "punct",
+      "alias": "\"'__TRAIT__'\""
+    },
+    {
+      "name": "T_METHOD_C",
+      "display": "__METHOD__",
+      "kind": "punct",
+      "alias": "\"'__METHOD__'\""
+    },
+    {
+      "name": "T_FUNC_C",
+      "display": "__FUNCTION__",
+      "kind": "punct",
+      "alias": "\"'__FUNCTION__'\""
+    },
+    {
+      "name": "T_PROPERTY_C",
+      "display": "__PROPERTY__",
+      "kind": "punct",
+      "alias": "\"'__PROPERTY__'\""
+    },
+    {
+      "name": "T_NS_C",
+      "display": "__NAMESPACE__",
+      "kind": "punct",
+      "alias": "\"'__NAMESPACE__'\""
+    },
+    {
+      "name": "T_ATTRIBUTE",
+      "display": "#[",
+      "kind": "punct",
+      "alias": "\"'#['\""
+    },
+    {
+      "name": "T_INC",
+      "display": "++",
+      "kind": "punct",
+      "alias": "\"'++'\""
+    },
+    {
+      "name": "T_DEC",
+      "display": "--",
+      "kind": "punct",
+      "alias": "\"'--'\""
+    },
+    {
+      "name": "T_OBJECT_OPERATOR",
+      "display": "->",
+      "kind": "punct",
+      "alias": "\"'->'\""
+    },
+    {
+      "name": "T_NULLSAFE_OBJECT_OPERATOR",
+      "display": "?->",
+      "kind": "punct",
+      "alias": "\"'?->'\""
+    },
+    {
+      "name": "T_COMMENT",
+      "display": "comment",
+      "kind": "keyword",
+      "alias": "\"comment\""
+    },
+    {
+      "name": "T_DOC_COMMENT",
+      "display": "doc comment",
+      "kind": "punct",
+      "alias": "\"doc comment\""
+    },
+    {
+      "name": "T_OPEN_TAG",
+      "display": "open tag",
+      "kind": "punct",
+      "alias": "\"open tag\""
+    },
+    {
+      "name": "T_OPEN_TAG_WITH_ECHO",
+      "display": "<?=",
+      "kind": "punct",
+      "alias": "\"'<?='\""
+    },
+    {
+      "name": "T_CLOSE_TAG",
+      "display": "?>",
+      "kind": "punct",
+      "alias": "\"'?>'\""
+    },
+    {
+      "name": "T_WHITESPACE",
+      "display": "whitespace",
+      "kind": "keyword",
+      "alias": "\"whitespace\""
+    },
+    {
+      "name": "T_START_HEREDOC",
+      "display": "heredoc start",
+      "kind": "punct",
+      "alias": "\"heredoc start\""
+    },
+    {
+      "name": "T_END_HEREDOC",
+      "display": "heredoc end",
+      "kind": "punct",
+      "alias": "\"heredoc end\""
+    },
+    {
+      "name": "T_DOLLAR_OPEN_CURLY_BRACES",
+      "display": "${",
+      "kind": "punct",
+      "alias": "\"'${'\""
+    },
+    {
+      "name": "T_CURLY_OPEN",
+      "display": "{$",
+      "kind": "punct",
+      "alias": "\"'{$'\""
+    },
+    {
+      "name": "T_PAAMAYIM_NEKUDOTAYIM",
+      "display": "::",
+      "kind": "punct",
+      "alias": "\"'::'\""
+    },
+    {
+      "name": "T_NS_SEPARATOR",
+      "display": "\\\\",
+      "kind": "punct",
+      "alias": "\"'\\\\'\""
+    },
+    {
+      "name": "T_ELLIPSIS",
+      "display": "...",
+      "kind": "punct",
+      "alias": "\"'...'\""
+    },
+    {
+      "name": "T_BAD_CHARACTER",
+      "display": "invalid character",
+      "kind": "punct",
+      "alias": "\"invalid character\""
+    },
+    {
+      "name": "T_ERROR",
+      "display": "T_ERROR",
+      "kind": "class"
+    },
+    {
+      "name": "','",
+      "display": ",",
+      "kind": "punct"
+    },
+    {
+      "name": "']'",
+      "display": "]",
+      "kind": "punct"
+    },
+    {
+      "name": "'('",
+      "display": "(",
+      "kind": "punct"
+    },
+    {
+      "name": "')'",
+      "display": ")",
+      "kind": "punct"
+    },
+    {
+      "name": "';'",
+      "display": ";",
+      "kind": "punct"
+    },
+    {
+      "name": "'{'",
+      "display": "{",
+      "kind": "punct"
+    },
+    {
+      "name": "'}'",
+      "display": "}",
+      "kind": "punct"
+    },
+    {
+      "name": "'['",
+      "display": "[",
+      "kind": "punct"
+    },
+    {
+      "name": "'`'",
+      "display": "`",
+      "kind": "punct"
+    },
+    {
+      "name": "'\"'",
+      "display": "\"",
+      "kind": "punct"
+    },
+    {
+      "name": "'$'",
+      "display": "$",
+      "kind": "punct"
+    }
+  ],
+  "rules": [
+    {
+      "name": "$accept",
+      "kind": "accept",
+      "line": 301,
+      "alternatives": [
+        {
+          "symbols": [
+            "start",
+            "END"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "kind": "normal",
+      "line": 301,
+      "alternatives": [
+        {
+          "symbols": [
+            "top_statement_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reserved_non_modifiers",
+      "kind": "normal",
+      "line": 305,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_INCLUDE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INCLUDE_ONCE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EVAL"
+          ]
+        },
+        {
+          "symbols": [
+            "T_REQUIRE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_REQUIRE_ONCE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LOGICAL_OR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LOGICAL_XOR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LOGICAL_AND"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INSTANCEOF"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NEW"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLONE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EXIT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_IF"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ELSEIF"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ELSE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDIF"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ECHO"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DO"
+          ]
+        },
+        {
+          "symbols": [
+            "T_WHILE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDWHILE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FOR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDFOR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FOREACH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDFOREACH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DECLARE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDDECLARE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_AS"
+          ]
+        },
+        {
+          "symbols": [
+            "T_TRY"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CATCH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FINALLY"
+          ]
+        },
+        {
+          "symbols": [
+            "T_THROW"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INSTEADOF"
+          ]
+        },
+        {
+          "symbols": [
+            "T_GLOBAL"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VAR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_UNSET"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ISSET"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EMPTY"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONTINUE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_GOTO"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FUNCTION"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONST"
+          ]
+        },
+        {
+          "symbols": [
+            "T_RETURN"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PRINT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_YIELD"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LIST"
+          ]
+        },
+        {
+          "symbols": [
+            "T_SWITCH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENDSWITCH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CASE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DEFAULT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_BREAK"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ARRAY"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CALLABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EXTENDS"
+          ]
+        },
+        {
+          "symbols": [
+            "T_IMPLEMENTS"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAMESPACE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_TRAIT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INTERFACE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLASS"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLASS_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_TRAIT_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FUNC_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_METHOD_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LINE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FILE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DIR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NS_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FN"
+          ]
+        },
+        {
+          "symbols": [
+            "T_MATCH"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENUM"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PROPERTY_C"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "semi_reserved",
+      "kind": "normal",
+      "line": 316,
+      "alternatives": [
+        {
+          "symbols": [
+            "reserved_non_modifiers"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STATIC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ABSTRACT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FINAL"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PRIVATE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PROTECTED"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PUBLIC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_READONLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ampersand",
+      "kind": "normal",
+      "line": 321,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG"
+          ]
+        },
+        {
+          "symbols": [
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "identifier",
+      "kind": "normal",
+      "line": 326,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "semi_reserved"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "top_statement_list",
+      "kind": "normal",
+      "line": 335,
+      "alternatives": [
+        {
+          "symbols": [
+            "top_statement_list",
+            "top_statement"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "namespace_declaration_name",
+      "kind": "normal",
+      "line": 341,
+      "alternatives": [
+        {
+          "symbols": [
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_QUALIFIED"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "namespace_name",
+      "kind": "normal",
+      "line": 347,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_QUALIFIED"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "legacy_namespace_name",
+      "kind": "normal",
+      "line": 353,
+      "alternatives": [
+        {
+          "symbols": [
+            "namespace_name"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_FULLY_QUALIFIED"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "kind": "normal",
+      "line": 358,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_QUALIFIED"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_FULLY_QUALIFIED"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAME_RELATIVE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attribute_decl",
+      "kind": "normal",
+      "line": 365,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name"
+          ]
+        },
+        {
+          "symbols": [
+            "class_name",
+            "argument_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attribute_group",
+      "kind": "normal",
+      "line": 372,
+      "alternatives": [
+        {
+          "symbols": [
+            "attribute_decl"
+          ]
+        },
+        {
+          "symbols": [
+            "attribute_group",
+            "','",
+            "attribute_decl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attribute",
+      "kind": "normal",
+      "line": 379,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ATTRIBUTE",
+            "attribute_group",
+            "possible_comma",
+            "']'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attributes",
+      "kind": "normal",
+      "line": 383,
+      "alternatives": [
+        {
+          "symbols": [
+            "attribute"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "attribute"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attributed_statement",
+      "kind": "normal",
+      "line": 388,
+      "alternatives": [
+        {
+          "symbols": [
+            "function_declaration_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "class_declaration_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_declaration_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "interface_declaration_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "enum_declaration_statement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "top_statement",
+      "kind": "normal",
+      "line": 396,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "attributed_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "attributed_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_HALT_COMPILER",
+            "'('",
+            "')'",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAMESPACE",
+            "namespace_declaration_name",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAMESPACE",
+            "namespace_declaration_name",
+            "$@1",
+            "'{'",
+            "top_statement_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NAMESPACE",
+            "$@2",
+            "'{'",
+            "top_statement_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "mixed_group_use_declaration",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "use_type",
+            "group_use_declaration",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "use_declarations",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "use_type",
+            "use_declarations",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONST",
+            "const_list",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@1",
+      "kind": "midrule",
+      "line": 406,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "$@2",
+      "kind": "midrule",
+      "line": 409,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "use_type",
+      "kind": "normal",
+      "line": 420,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_FUNCTION"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONST"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "group_use_declaration",
+      "kind": "normal",
+      "line": 425,
+      "alternatives": [
+        {
+          "symbols": [
+            "legacy_namespace_name",
+            "T_NS_SEPARATOR",
+            "'{'",
+            "unprefixed_use_declarations",
+            "possible_comma",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mixed_group_use_declaration",
+      "kind": "normal",
+      "line": 430,
+      "alternatives": [
+        {
+          "symbols": [
+            "legacy_namespace_name",
+            "T_NS_SEPARATOR",
+            "'{'",
+            "inline_use_declarations",
+            "possible_comma",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "possible_comma",
+      "kind": "normal",
+      "line": 435,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "','"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inline_use_declarations",
+      "kind": "normal",
+      "line": 440,
+      "alternatives": [
+        {
+          "symbols": [
+            "inline_use_declarations",
+            "','",
+            "inline_use_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "inline_use_declaration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unprefixed_use_declarations",
+      "kind": "normal",
+      "line": 447,
+      "alternatives": [
+        {
+          "symbols": [
+            "unprefixed_use_declarations",
+            "','",
+            "unprefixed_use_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "unprefixed_use_declaration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "use_declarations",
+      "kind": "normal",
+      "line": 454,
+      "alternatives": [
+        {
+          "symbols": [
+            "use_declarations",
+            "','",
+            "use_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "use_declaration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inline_use_declaration",
+      "kind": "normal",
+      "line": 461,
+      "alternatives": [
+        {
+          "symbols": [
+            "unprefixed_use_declaration"
+          ]
+        },
+        {
+          "symbols": [
+            "use_type",
+            "unprefixed_use_declaration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unprefixed_use_declaration",
+      "kind": "normal",
+      "line": 466,
+      "alternatives": [
+        {
+          "symbols": [
+            "namespace_name"
+          ]
+        },
+        {
+          "symbols": [
+            "namespace_name",
+            "T_AS",
+            "T_STRING"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "use_declaration",
+      "kind": "normal",
+      "line": 473,
+      "alternatives": [
+        {
+          "symbols": [
+            "legacy_namespace_name"
+          ]
+        },
+        {
+          "symbols": [
+            "legacy_namespace_name",
+            "T_AS",
+            "T_STRING"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "const_list",
+      "kind": "normal",
+      "line": 480,
+      "alternatives": [
+        {
+          "symbols": [
+            "const_list",
+            "','",
+            "const_decl"
+          ]
+        },
+        {
+          "symbols": [
+            "const_decl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inner_statement_list",
+      "kind": "normal",
+      "line": 485,
+      "alternatives": [
+        {
+          "symbols": [
+            "inner_statement_list",
+            "inner_statement"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "inner_statement",
+      "kind": "normal",
+      "line": 493,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "attributed_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "attributed_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_HALT_COMPILER",
+            "'('",
+            "')'",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statement",
+      "kind": "normal",
+      "line": 503,
+      "alternatives": [
+        {
+          "symbols": [
+            "'{'",
+            "inner_statement_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "if_stmt"
+          ]
+        },
+        {
+          "symbols": [
+            "alt_if_stmt"
+          ]
+        },
+        {
+          "symbols": [
+            "T_WHILE",
+            "'('",
+            "expr",
+            "')'",
+            "while_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DO",
+            "statement",
+            "T_WHILE",
+            "'('",
+            "expr",
+            "')'",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FOR",
+            "'('",
+            "for_exprs",
+            "';'",
+            "for_exprs",
+            "';'",
+            "for_exprs",
+            "')'",
+            "for_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_SWITCH",
+            "'('",
+            "expr",
+            "')'",
+            "switch_case_list"
+          ]
+        },
+        {
+          "symbols": [
+            "T_BREAK",
+            "optional_expr",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONTINUE",
+            "optional_expr",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_RETURN",
+            "optional_expr",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_GLOBAL",
+            "global_var_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STATIC",
+            "static_var_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ECHO",
+            "echo_expr_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INLINE_HTML"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_UNSET",
+            "'('",
+            "unset_variables",
+            "possible_comma",
+            "')'",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FOREACH",
+            "'('",
+            "expr",
+            "T_AS",
+            "foreach_variable",
+            "')'",
+            "foreach_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FOREACH",
+            "'('",
+            "expr",
+            "T_AS",
+            "foreach_variable",
+            "T_DOUBLE_ARROW",
+            "foreach_variable",
+            "')'",
+            "foreach_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DECLARE",
+            "'('",
+            "const_list",
+            "')'",
+            "$@3",
+            "declare_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_TRY",
+            "'{'",
+            "inner_statement_list",
+            "'}'",
+            "catch_list",
+            "finally_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_GOTO",
+            "T_STRING",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STRING",
+            "':'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "$@3",
+      "kind": "midrule",
+      "line": 529,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "catch_list",
+      "kind": "normal",
+      "line": 540,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "catch_list",
+            "T_CATCH",
+            "'('",
+            "catch_name_list",
+            "optional_variable",
+            "')'",
+            "'{'",
+            "inner_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "catch_name_list",
+      "kind": "normal",
+      "line": 547,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name"
+          ]
+        },
+        {
+          "symbols": [
+            "catch_name_list",
+            "'|'",
+            "class_name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_variable",
+      "kind": "normal",
+      "line": 552,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finally_statement",
+      "kind": "normal",
+      "line": 557,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_FINALLY",
+            "'{'",
+            "inner_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unset_variables",
+      "kind": "normal",
+      "line": 562,
+      "alternatives": [
+        {
+          "symbols": [
+            "unset_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "unset_variables",
+            "','",
+            "unset_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unset_variable",
+      "kind": "normal",
+      "line": 567,
+      "alternatives": [
+        {
+          "symbols": [
+            "variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "function_name",
+      "kind": "normal",
+      "line": 571,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_READONLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "function_declaration_statement",
+      "kind": "normal",
+      "line": 580,
+      "alternatives": [
+        {
+          "symbols": [
+            "function",
+            "returns_ref",
+            "function_name",
+            "backup_doc_comment",
+            "'('",
+            "parameter_list",
+            "')'",
+            "return_type",
+            "backup_fn_flags",
+            "'{'",
+            "inner_statement_list",
+            "'}'",
+            "backup_fn_flags"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "is_reference",
+      "kind": "normal",
+      "line": 587,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "is_variadic",
+      "kind": "normal",
+      "line": 592,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_ELLIPSIS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@4",
+      "kind": "midrule",
+      "line": 597,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "class_declaration_statement",
+      "kind": "normal",
+      "line": 597,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_modifiers",
+            "T_CLASS",
+            "@4",
+            "T_STRING",
+            "extends_from",
+            "implements_list",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLASS",
+            "@5",
+            "T_STRING",
+            "extends_from",
+            "implements_list",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@5",
+      "kind": "midrule",
+      "line": 600,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "class_modifiers",
+      "kind": "normal",
+      "line": 606,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_modifier"
+          ]
+        },
+        {
+          "symbols": [
+            "class_modifiers",
+            "class_modifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "anonymous_class_modifiers",
+      "kind": "normal",
+      "line": 612,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_modifier"
+          ]
+        },
+        {
+          "symbols": [
+            "anonymous_class_modifiers",
+            "class_modifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "anonymous_class_modifiers_optional",
+      "kind": "normal",
+      "line": 619,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "anonymous_class_modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_modifier",
+      "kind": "normal",
+      "line": 624,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ABSTRACT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FINAL"
+          ]
+        },
+        {
+          "symbols": [
+            "T_READONLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@6",
+      "kind": "midrule",
+      "line": 630,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "trait_declaration_statement",
+      "kind": "normal",
+      "line": 630,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_TRAIT",
+            "@6",
+            "T_STRING",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@7",
+      "kind": "midrule",
+      "line": 636,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "interface_declaration_statement",
+      "kind": "normal",
+      "line": 636,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_INTERFACE",
+            "@7",
+            "T_STRING",
+            "interface_extends_list",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@8",
+      "kind": "midrule",
+      "line": 642,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "enum_declaration_statement",
+      "kind": "normal",
+      "line": 642,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ENUM",
+            "@8",
+            "T_STRING",
+            "enum_backing_type",
+            "implements_list",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "enum_backing_type",
+      "kind": "normal",
+      "line": 648,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "':'",
+            "type_expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "enum_case",
+      "kind": "normal",
+      "line": 653,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_CASE",
+            "backup_doc_comment",
+            "identifier",
+            "enum_case_expr",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "enum_case_expr",
+      "kind": "normal",
+      "line": 658,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'='",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "extends_from",
+      "kind": "normal",
+      "line": 663,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_EXTENDS",
+            "class_name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "interface_extends_list",
+      "kind": "normal",
+      "line": 668,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_EXTENDS",
+            "class_name_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "implements_list",
+      "kind": "normal",
+      "line": 673,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_IMPLEMENTS",
+            "class_name_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreach_variable",
+      "kind": "normal",
+      "line": 678,
+      "alternatives": [
+        {
+          "symbols": [
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "ampersand",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LIST",
+            "'('",
+            "array_pair_list",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "array_pair_list",
+            "']'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "for_statement",
+      "kind": "normal",
+      "line": 685,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "inner_statement_list",
+            "T_ENDFOR",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foreach_statement",
+      "kind": "normal",
+      "line": 690,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "inner_statement_list",
+            "T_ENDFOREACH",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "declare_statement",
+      "kind": "normal",
+      "line": 695,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "inner_statement_list",
+            "T_ENDDECLARE",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "switch_case_list",
+      "kind": "normal",
+      "line": 700,
+      "alternatives": [
+        {
+          "symbols": [
+            "'{'",
+            "case_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "';'",
+            "case_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "case_list",
+            "T_ENDSWITCH",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "';'",
+            "case_list",
+            "T_ENDSWITCH",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "case_list",
+      "kind": "normal",
+      "line": 707,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "case_list",
+            "T_CASE",
+            "expr",
+            "case_separator",
+            "inner_statement_list"
+          ]
+        },
+        {
+          "symbols": [
+            "case_list",
+            "T_DEFAULT",
+            "case_separator",
+            "inner_statement_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "case_separator",
+      "kind": "normal",
+      "line": 715,
+      "alternatives": [
+        {
+          "symbols": [
+            "':'"
+          ]
+        },
+        {
+          "symbols": [
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match",
+      "kind": "normal",
+      "line": 721,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_MATCH",
+            "'('",
+            "expr",
+            "')'",
+            "'{'",
+            "match_arm_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match_arm_list",
+      "kind": "normal",
+      "line": 726,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_match_arm_list",
+            "possible_comma"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "non_empty_match_arm_list",
+      "kind": "normal",
+      "line": 731,
+      "alternatives": [
+        {
+          "symbols": [
+            "match_arm"
+          ]
+        },
+        {
+          "symbols": [
+            "non_empty_match_arm_list",
+            "','",
+            "match_arm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match_arm",
+      "kind": "normal",
+      "line": 736,
+      "alternatives": [
+        {
+          "symbols": [
+            "match_arm_cond_list",
+            "possible_comma",
+            "T_DOUBLE_ARROW",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DEFAULT",
+            "possible_comma",
+            "T_DOUBLE_ARROW",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match_arm_cond_list",
+      "kind": "normal",
+      "line": 743,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "match_arm_cond_list",
+            "','",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "while_statement",
+      "kind": "normal",
+      "line": 749,
+      "alternatives": [
+        {
+          "symbols": [
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "':'",
+            "inner_statement_list",
+            "T_ENDWHILE",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "if_stmt_without_else",
+      "kind": "normal",
+      "line": 755,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_IF",
+            "'('",
+            "expr",
+            "')'",
+            "statement"
+          ]
+        },
+        {
+          "symbols": [
+            "if_stmt_without_else",
+            "T_ELSEIF",
+            "'('",
+            "expr",
+            "')'",
+            "statement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "if_stmt",
+      "kind": "normal",
+      "line": 764,
+      "alternatives": [
+        {
+          "symbols": [
+            "if_stmt_without_else"
+          ]
+        },
+        {
+          "symbols": [
+            "if_stmt_without_else",
+            "T_ELSE",
+            "statement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "alt_if_stmt_without_else",
+      "kind": "normal",
+      "line": 770,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_IF",
+            "'('",
+            "expr",
+            "')'",
+            "':'",
+            "inner_statement_list"
+          ]
+        },
+        {
+          "symbols": [
+            "alt_if_stmt_without_else",
+            "T_ELSEIF",
+            "'('",
+            "expr",
+            "')'",
+            "':'",
+            "inner_statement_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "alt_if_stmt",
+      "kind": "normal",
+      "line": 779,
+      "alternatives": [
+        {
+          "symbols": [
+            "alt_if_stmt_without_else",
+            "T_ENDIF",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "alt_if_stmt_without_else",
+            "T_ELSE",
+            "':'",
+            "inner_statement_list",
+            "T_ENDIF",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parameter_list",
+      "kind": "normal",
+      "line": 786,
+      "alternatives": [
+        {
+          "symbols": [
+            "non_empty_parameter_list",
+            "possible_comma"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "non_empty_parameter_list",
+      "kind": "normal",
+      "line": 792,
+      "alternatives": [
+        {
+          "symbols": [
+            "attributed_parameter"
+          ]
+        },
+        {
+          "symbols": [
+            "non_empty_parameter_list",
+            "','",
+            "attributed_parameter"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attributed_parameter",
+      "kind": "normal",
+      "line": 799,
+      "alternatives": [
+        {
+          "symbols": [
+            "attributes",
+            "parameter"
+          ]
+        },
+        {
+          "symbols": [
+            "parameter"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_cpp_modifiers",
+      "kind": "normal",
+      "line": 804,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_member_modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parameter",
+      "kind": "normal",
+      "line": 812,
+      "alternatives": [
+        {
+          "symbols": [
+            "optional_cpp_modifiers",
+            "optional_type_without_static",
+            "is_reference",
+            "is_variadic",
+            "T_VARIABLE",
+            "backup_doc_comment",
+            "optional_property_hook_list"
+          ]
+        },
+        {
+          "symbols": [
+            "optional_cpp_modifiers",
+            "optional_type_without_static",
+            "is_reference",
+            "is_variadic",
+            "T_VARIABLE",
+            "backup_doc_comment",
+            "'='",
+            "expr",
+            "optional_property_hook_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_type_without_static",
+      "kind": "normal",
+      "line": 823,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "type_expr_without_static"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type_expr",
+      "kind": "normal",
+      "line": 828,
+      "alternatives": [
+        {
+          "symbols": [
+            "type"
+          ]
+        },
+        {
+          "symbols": [
+            "'?'",
+            "type"
+          ]
+        },
+        {
+          "symbols": [
+            "union_type"
+          ]
+        },
+        {
+          "symbols": [
+            "intersection_type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "kind": "normal",
+      "line": 835,
+      "alternatives": [
+        {
+          "symbols": [
+            "type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STATIC"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "union_type_element",
+      "kind": "normal",
+      "line": 840,
+      "alternatives": [
+        {
+          "symbols": [
+            "type"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "intersection_type",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "union_type",
+      "kind": "normal",
+      "line": 845,
+      "alternatives": [
+        {
+          "symbols": [
+            "union_type_element",
+            "'|'",
+            "union_type_element"
+          ]
+        },
+        {
+          "symbols": [
+            "union_type",
+            "'|'",
+            "union_type_element"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intersection_type",
+      "kind": "normal",
+      "line": 852,
+      "alternatives": [
+        {
+          "symbols": [
+            "type",
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+            "type"
+          ]
+        },
+        {
+          "symbols": [
+            "intersection_type",
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+            "type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type_expr_without_static",
+      "kind": "normal",
+      "line": 860,
+      "alternatives": [
+        {
+          "symbols": [
+            "type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "'?'",
+            "type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "union_type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "intersection_type_without_static"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type_without_static",
+      "kind": "normal",
+      "line": 867,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ARRAY"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CALLABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "union_type_without_static_element",
+      "kind": "normal",
+      "line": 873,
+      "alternatives": [
+        {
+          "symbols": [
+            "type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "intersection_type_without_static",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "union_type_without_static",
+      "kind": "normal",
+      "line": 878,
+      "alternatives": [
+        {
+          "symbols": [
+            "union_type_without_static_element",
+            "'|'",
+            "union_type_without_static_element"
+          ]
+        },
+        {
+          "symbols": [
+            "union_type_without_static",
+            "'|'",
+            "union_type_without_static_element"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "intersection_type_without_static",
+      "kind": "normal",
+      "line": 885,
+      "alternatives": [
+        {
+          "symbols": [
+            "type_without_static",
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+            "type_without_static"
+          ]
+        },
+        {
+          "symbols": [
+            "intersection_type_without_static",
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+            "type_without_static"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "return_type",
+      "kind": "normal",
+      "line": 892,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "':'",
+            "type_expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "argument_list",
+      "kind": "normal",
+      "line": 897,
+      "alternatives": [
+        {
+          "symbols": [
+            "'('",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "non_empty_argument_list",
+            "possible_comma",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "T_ELLIPSIS",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "non_empty_argument_list",
+      "kind": "normal",
+      "line": 903,
+      "alternatives": [
+        {
+          "symbols": [
+            "argument"
+          ]
+        },
+        {
+          "symbols": [
+            "non_empty_argument_list",
+            "','",
+            "argument"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "argument",
+      "kind": "normal",
+      "line": 910,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "identifier",
+            "':'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ELLIPSIS",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "global_var_list",
+      "kind": "normal",
+      "line": 917,
+      "alternatives": [
+        {
+          "symbols": [
+            "global_var_list",
+            "','",
+            "global_var"
+          ]
+        },
+        {
+          "symbols": [
+            "global_var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "global_var",
+      "kind": "normal",
+      "line": 922,
+      "alternatives": [
+        {
+          "symbols": [
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "static_var_list",
+      "kind": "normal",
+      "line": 928,
+      "alternatives": [
+        {
+          "symbols": [
+            "static_var_list",
+            "','",
+            "static_var"
+          ]
+        },
+        {
+          "symbols": [
+            "static_var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "static_var",
+      "kind": "normal",
+      "line": 933,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "'='",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_statement_list",
+      "kind": "normal",
+      "line": 938,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_statement_list",
+            "class_statement"
+          ]
+        },
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "attributed_class_statement",
+      "kind": "normal",
+      "line": 946,
+      "alternatives": [
+        {
+          "symbols": [
+            "property_modifiers",
+            "optional_type_without_static",
+            "property_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "property_modifiers",
+            "optional_type_without_static",
+            "hooked_property"
+          ]
+        },
+        {
+          "symbols": [
+            "class_const_modifiers",
+            "T_CONST",
+            "class_const_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "class_const_modifiers",
+            "T_CONST",
+            "type_expr",
+            "class_const_list",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "method_modifiers",
+            "function",
+            "returns_ref",
+            "identifier",
+            "backup_doc_comment",
+            "'('",
+            "parameter_list",
+            "')'",
+            "return_type",
+            "backup_fn_flags",
+            "method_body",
+            "backup_fn_flags"
+          ]
+        },
+        {
+          "symbols": [
+            "enum_case"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_statement",
+      "kind": "normal",
+      "line": 966,
+      "alternatives": [
+        {
+          "symbols": [
+            "attributed_class_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "attributed_class_statement"
+          ]
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "class_name_list",
+            "trait_adaptations"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_name_list",
+      "kind": "normal",
+      "line": 973,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name"
+          ]
+        },
+        {
+          "symbols": [
+            "class_name_list",
+            "','",
+            "class_name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_adaptations",
+      "kind": "normal",
+      "line": 978,
+      "alternatives": [
+        {
+          "symbols": [
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "trait_adaptation_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_adaptation_list",
+      "kind": "normal",
+      "line": 984,
+      "alternatives": [
+        {
+          "symbols": [
+            "trait_adaptation"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_adaptation_list",
+            "trait_adaptation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_adaptation",
+      "kind": "normal",
+      "line": 991,
+      "alternatives": [
+        {
+          "symbols": [
+            "trait_precedence",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_alias",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_precedence",
+      "kind": "normal",
+      "line": 996,
+      "alternatives": [
+        {
+          "symbols": [
+            "absolute_trait_method_reference",
+            "T_INSTEADOF",
+            "class_name_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_alias",
+      "kind": "normal",
+      "line": 1001,
+      "alternatives": [
+        {
+          "symbols": [
+            "trait_method_reference",
+            "T_AS",
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_method_reference",
+            "T_AS",
+            "reserved_non_modifiers"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_method_reference",
+            "T_AS",
+            "member_modifier",
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "trait_method_reference",
+            "T_AS",
+            "member_modifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trait_method_reference",
+      "kind": "normal",
+      "line": 1020,
+      "alternatives": [
+        {
+          "symbols": [
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "absolute_trait_method_reference"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "absolute_trait_method_reference",
+      "kind": "normal",
+      "line": 1026,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "identifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_body",
+      "kind": "normal",
+      "line": 1031,
+      "alternatives": [
+        {
+          "symbols": [
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "inner_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_modifiers",
+      "kind": "normal",
+      "line": 1036,
+      "alternatives": [
+        {
+          "symbols": [
+            "non_empty_member_modifiers"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VAR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "method_modifiers",
+      "kind": "normal",
+      "line": 1044,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_member_modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_const_modifiers",
+      "kind": "normal",
+      "line": 1053,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_member_modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "non_empty_member_modifiers",
+      "kind": "normal",
+      "line": 1062,
+      "alternatives": [
+        {
+          "symbols": [
+            "member_modifier"
+          ]
+        },
+        {
+          "symbols": [
+            "non_empty_member_modifiers",
+            "member_modifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "member_modifier",
+      "kind": "normal",
+      "line": 1069,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_PUBLIC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PROTECTED"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PRIVATE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PUBLIC_SET"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PROTECTED_SET"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PRIVATE_SET"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STATIC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ABSTRACT"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FINAL"
+          ]
+        },
+        {
+          "symbols": [
+            "T_READONLY"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_list",
+      "kind": "normal",
+      "line": 1082,
+      "alternatives": [
+        {
+          "symbols": [
+            "property_list",
+            "','",
+            "property"
+          ]
+        },
+        {
+          "symbols": [
+            "property"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property",
+      "kind": "normal",
+      "line": 1087,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "backup_doc_comment"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "'='",
+            "expr",
+            "backup_doc_comment"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hooked_property",
+      "kind": "normal",
+      "line": 1094,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "backup_doc_comment",
+            "'{'",
+            "property_hook_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "'='",
+            "expr",
+            "backup_doc_comment",
+            "'{'",
+            "property_hook_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_hook_list",
+      "kind": "normal",
+      "line": 1101,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "property_hook_list",
+            "property_hook"
+          ]
+        },
+        {
+          "symbols": [
+            "property_hook_list",
+            "attributes",
+            "property_hook"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_property_hook_list",
+      "kind": "normal",
+      "line": 1109,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'{'",
+            "property_hook_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_hook_modifiers",
+      "kind": "normal",
+      "line": 1114,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_member_modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@9",
+      "kind": "midrule",
+      "line": 1123,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "property_hook",
+      "kind": "normal",
+      "line": 1122,
+      "alternatives": [
+        {
+          "symbols": [
+            "property_hook_modifiers",
+            "returns_ref",
+            "T_STRING",
+            "backup_doc_comment",
+            "@9",
+            "optional_parameter_list",
+            "backup_fn_flags",
+            "property_hook_body",
+            "backup_fn_flags"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_hook_body",
+      "kind": "normal",
+      "line": 1133,
+      "alternatives": [
+        {
+          "symbols": [
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "inner_statement_list",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DOUBLE_ARROW",
+            "expr",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_parameter_list",
+      "kind": "normal",
+      "line": 1140,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'('",
+            "parameter_list",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_const_list",
+      "kind": "normal",
+      "line": 1145,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_const_list",
+            "','",
+            "class_const_decl"
+          ]
+        },
+        {
+          "symbols": [
+            "class_const_decl"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_const_decl",
+      "kind": "normal",
+      "line": 1150,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING",
+            "'='",
+            "expr",
+            "backup_doc_comment"
+          ]
+        },
+        {
+          "symbols": [
+            "semi_reserved",
+            "'='",
+            "expr",
+            "backup_doc_comment"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "const_decl",
+      "kind": "normal",
+      "line": 1159,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING",
+            "'='",
+            "expr",
+            "backup_doc_comment"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "echo_expr_list",
+      "kind": "normal",
+      "line": 1163,
+      "alternatives": [
+        {
+          "symbols": [
+            "echo_expr_list",
+            "','",
+            "echo_expr"
+          ]
+        },
+        {
+          "symbols": [
+            "echo_expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "echo_expr",
+      "kind": "normal",
+      "line": 1167,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "for_exprs",
+      "kind": "normal",
+      "line": 1171,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "non_empty_for_exprs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "non_empty_for_exprs",
+      "kind": "normal",
+      "line": 1176,
+      "alternatives": [
+        {
+          "symbols": [
+            "non_empty_for_exprs",
+            "','",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@10",
+      "kind": "midrule",
+      "line": 1181,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "anonymous_class",
+      "kind": "normal",
+      "line": 1181,
+      "alternatives": [
+        {
+          "symbols": [
+            "anonymous_class_modifiers_optional",
+            "T_CLASS",
+            "@10",
+            "ctor_arguments",
+            "extends_from",
+            "implements_list",
+            "backup_doc_comment",
+            "'{'",
+            "class_statement_list",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "new_dereferenceable",
+      "kind": "normal",
+      "line": 1191,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_NEW",
+            "class_name_reference",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NEW",
+            "anonymous_class"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NEW",
+            "attributes",
+            "anonymous_class"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "new_non_dereferenceable",
+      "kind": "normal",
+      "line": 1200,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_NEW",
+            "class_name_reference"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expr",
+      "kind": "normal",
+      "line": 1205,
+      "alternatives": [
+        {
+          "symbols": [
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LIST",
+            "'('",
+            "array_pair_list",
+            "')'",
+            "'='",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "array_pair_list",
+            "']'",
+            "'='",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "'='",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "'='",
+            "ampersand",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLONE",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_PLUS_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_MINUS_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_MUL_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_POW_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_DIV_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_CONCAT_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_MOD_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_AND_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_OR_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_XOR_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_SL_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_SR_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_COALESCE_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_INC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INC",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "variable",
+            "T_DEC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DEC",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_BOOLEAN_OR",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_BOOLEAN_AND",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_LOGICAL_OR",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_LOGICAL_AND",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_LOGICAL_XOR",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'|'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_AMPERSAND_NOT_FOLLOWED_BY_VAR_OR_VARARG",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_AMPERSAND_FOLLOWED_BY_VAR_OR_VARARG",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'^'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'.'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'+'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'-'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'*'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_POW",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'/'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'%'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_SL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_SR",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'+'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'-'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'!'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'~'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_IDENTICAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_NOT_IDENTICAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_NOT_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'<'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_SMALLER_OR_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'>'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_IS_GREATER_OR_EQUAL",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_SPACESHIP",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_INSTANCEOF",
+            "class_name_reference"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "expr",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "new_dereferenceable"
+          ]
+        },
+        {
+          "symbols": [
+            "new_non_dereferenceable"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'?'",
+            "expr",
+            "':'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "'?'",
+            "':'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_COALESCE",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "internal_functions_in_yacc"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INT_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DOUBLE_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STRING_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ARRAY_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_OBJECT_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_BOOL_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_UNSET_CAST",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EXIT",
+            "ctor_arguments"
+          ]
+        },
+        {
+          "symbols": [
+            "'@'",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "'`'",
+            "backticks_expr",
+            "'`'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PRINT",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_YIELD"
+          ]
+        },
+        {
+          "symbols": [
+            "T_YIELD",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_YIELD",
+            "expr",
+            "T_DOUBLE_ARROW",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_YIELD_FROM",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_THROW",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "inline_function"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "inline_function"
+          ]
+        },
+        {
+          "symbols": [
+            "T_STATIC",
+            "inline_function"
+          ]
+        },
+        {
+          "symbols": [
+            "attributes",
+            "T_STATIC",
+            "inline_function"
+          ]
+        },
+        {
+          "symbols": [
+            "match"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inline_function",
+      "kind": "normal",
+      "line": 1337,
+      "alternatives": [
+        {
+          "symbols": [
+            "function",
+            "returns_ref",
+            "backup_doc_comment",
+            "'('",
+            "parameter_list",
+            "')'",
+            "lexical_vars",
+            "return_type",
+            "backup_fn_flags",
+            "'{'",
+            "inner_statement_list",
+            "'}'",
+            "backup_fn_flags"
+          ]
+        },
+        {
+          "symbols": [
+            "fn",
+            "returns_ref",
+            "backup_doc_comment",
+            "'('",
+            "parameter_list",
+            "')'",
+            "return_type",
+            "T_DOUBLE_ARROW",
+            "backup_fn_flags",
+            "backup_lex_pos",
+            "expr",
+            "backup_fn_flags"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fn",
+      "kind": "normal",
+      "line": 1350,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_FN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "function",
+      "kind": "normal",
+      "line": 1354,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_FUNCTION"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "backup_doc_comment",
+      "kind": "normal",
+      "line": 1358,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "backup_fn_flags",
+      "kind": "normal",
+      "line": 1362,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "backup_lex_pos",
+      "kind": "normal",
+      "line": 1366,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "returns_ref",
+      "kind": "normal",
+      "line": 1370,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "ampersand"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lexical_vars",
+      "kind": "normal",
+      "line": 1375,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_USE",
+            "'('",
+            "lexical_var_list",
+            "possible_comma",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lexical_var_list",
+      "kind": "normal",
+      "line": 1380,
+      "alternatives": [
+        {
+          "symbols": [
+            "lexical_var_list",
+            "','",
+            "lexical_var"
+          ]
+        },
+        {
+          "symbols": [
+            "lexical_var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lexical_var",
+      "kind": "normal",
+      "line": 1385,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "ampersand",
+            "T_VARIABLE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "function_call",
+      "kind": "normal",
+      "line": 1390,
+      "alternatives": [
+        {
+          "symbols": [
+            "name",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "T_READONLY",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "member_name",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "variable_class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "member_name",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "callable_expr",
+            "@11",
+            "argument_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@11",
+      "kind": "midrule",
+      "line": 1401,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "class_name",
+      "kind": "normal",
+      "line": 1408,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STATIC"
+          ]
+        },
+        {
+          "symbols": [
+            "name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_name_reference",
+      "kind": "normal",
+      "line": 1415,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name"
+          ]
+        },
+        {
+          "symbols": [
+            "new_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "expr",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "backticks_expr",
+      "kind": "normal",
+      "line": 1421,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "T_ENCAPSED_AND_WHITESPACE"
+          ]
+        },
+        {
+          "symbols": [
+            "encaps_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ctor_arguments",
+      "kind": "normal",
+      "line": 1429,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "argument_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dereferenceable_scalar",
+      "kind": "normal",
+      "line": 1435,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ARRAY",
+            "'('",
+            "array_pair_list",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "array_pair_list",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CONSTANT_ENCAPSED_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "'\"'",
+            "encaps_list",
+            "'\"'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scalar",
+      "kind": "normal",
+      "line": 1442,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_LNUMBER"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DNUMBER"
+          ]
+        },
+        {
+          "symbols": [
+            "T_START_HEREDOC",
+            "T_ENCAPSED_AND_WHITESPACE",
+            "T_END_HEREDOC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_START_HEREDOC",
+            "T_END_HEREDOC"
+          ]
+        },
+        {
+          "symbols": [
+            "T_START_HEREDOC",
+            "encaps_list",
+            "T_END_HEREDOC"
+          ]
+        },
+        {
+          "symbols": [
+            "dereferenceable_scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "constant"
+          ]
+        },
+        {
+          "symbols": [
+            "class_constant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "constant",
+      "kind": "normal",
+      "line": 1454,
+      "alternatives": [
+        {
+          "symbols": [
+            "name"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LINE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FILE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DIR"
+          ]
+        },
+        {
+          "symbols": [
+            "T_TRAIT_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_METHOD_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_FUNC_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_PROPERTY_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NS_C"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CLASS_C"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "class_constant",
+      "kind": "normal",
+      "line": 1467,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "variable_class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "'{'",
+            "expr",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "variable_class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "'{'",
+            "expr",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "optional_expr",
+      "kind": "normal",
+      "line": 1478,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "variable_class_name",
+      "kind": "normal",
+      "line": 1483,
+      "alternatives": [
+        {
+          "symbols": [
+            "fully_dereferenceable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fully_dereferenceable",
+      "kind": "normal",
+      "line": 1487,
+      "alternatives": [
+        {
+          "symbols": [
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "expr",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "dereferenceable_scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "class_constant"
+          ]
+        },
+        {
+          "symbols": [
+            "new_dereferenceable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "array_object_dereferenceable",
+      "kind": "normal",
+      "line": 1498,
+      "alternatives": [
+        {
+          "symbols": [
+            "fully_dereferenceable"
+          ]
+        },
+        {
+          "symbols": [
+            "constant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "callable_expr",
+      "kind": "normal",
+      "line": 1503,
+      "alternatives": [
+        {
+          "symbols": [
+            "callable_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "expr",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "dereferenceable_scalar"
+          ]
+        },
+        {
+          "symbols": [
+            "new_dereferenceable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "callable_variable",
+      "kind": "normal",
+      "line": 1510,
+      "alternatives": [
+        {
+          "symbols": [
+            "simple_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "array_object_dereferenceable",
+            "'['",
+            "optional_expr",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "array_object_dereferenceable",
+            "T_OBJECT_OPERATOR",
+            "property_name",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "array_object_dereferenceable",
+            "T_NULLSAFE_OBJECT_OPERATOR",
+            "property_name",
+            "argument_list"
+          ]
+        },
+        {
+          "symbols": [
+            "function_call"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "variable",
+      "kind": "normal",
+      "line": 1522,
+      "alternatives": [
+        {
+          "symbols": [
+            "callable_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "static_member"
+          ]
+        },
+        {
+          "symbols": [
+            "array_object_dereferenceable",
+            "T_OBJECT_OPERATOR",
+            "property_name"
+          ]
+        },
+        {
+          "symbols": [
+            "array_object_dereferenceable",
+            "T_NULLSAFE_OBJECT_OPERATOR",
+            "property_name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "simple_variable",
+      "kind": "normal",
+      "line": 1533,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "'$'",
+            "'{'",
+            "expr",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "'$'",
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "static_member",
+      "kind": "normal",
+      "line": 1539,
+      "alternatives": [
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "simple_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "variable_class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "new_variable",
+      "kind": "normal",
+      "line": 1546,
+      "alternatives": [
+        {
+          "symbols": [
+            "simple_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "new_variable",
+            "'['",
+            "optional_expr",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "new_variable",
+            "T_OBJECT_OPERATOR",
+            "property_name"
+          ]
+        },
+        {
+          "symbols": [
+            "new_variable",
+            "T_NULLSAFE_OBJECT_OPERATOR",
+            "property_name"
+          ]
+        },
+        {
+          "symbols": [
+            "class_name",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "simple_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "new_variable",
+            "T_PAAMAYIM_NEKUDOTAYIM",
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "member_name",
+      "kind": "normal",
+      "line": 1561,
+      "alternatives": [
+        {
+          "symbols": [
+            "identifier"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "expr",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "property_name",
+      "kind": "normal",
+      "line": 1567,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "expr",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "simple_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "array_pair_list",
+      "kind": "normal",
+      "line": 1573,
+      "alternatives": [
+        {
+          "symbols": [
+            "non_empty_array_pair_list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "possible_array_pair",
+      "kind": "normal",
+      "line": 1578,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "array_pair"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "non_empty_array_pair_list",
+      "kind": "normal",
+      "line": 1583,
+      "alternatives": [
+        {
+          "symbols": [
+            "non_empty_array_pair_list",
+            "','",
+            "possible_array_pair"
+          ]
+        },
+        {
+          "symbols": [
+            "possible_array_pair"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "array_pair",
+      "kind": "normal",
+      "line": 1590,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr",
+            "T_DOUBLE_ARROW",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_DOUBLE_ARROW",
+            "ampersand",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "ampersand",
+            "variable"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ELLIPSIS",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "expr",
+            "T_DOUBLE_ARROW",
+            "T_LIST",
+            "'('",
+            "array_pair_list",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_LIST",
+            "'('",
+            "array_pair_list",
+            "')'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "encaps_list",
+      "kind": "normal",
+      "line": 1609,
+      "alternatives": [
+        {
+          "symbols": [
+            "encaps_list",
+            "encaps_var"
+          ]
+        },
+        {
+          "symbols": [
+            "encaps_list",
+            "T_ENCAPSED_AND_WHITESPACE"
+          ]
+        },
+        {
+          "symbols": [
+            "encaps_var"
+          ]
+        },
+        {
+          "symbols": [
+            "T_ENCAPSED_AND_WHITESPACE",
+            "encaps_var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "encaps_var",
+      "kind": "normal",
+      "line": 1620,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "'['",
+            "encaps_var_offset",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "T_OBJECT_OPERATOR",
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE",
+            "T_NULLSAFE_OBJECT_OPERATOR",
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DOLLAR_OPEN_CURLY_BRACES",
+            "expr",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DOLLAR_OPEN_CURLY_BRACES",
+            "T_STRING_VARNAME",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_DOLLAR_OPEN_CURLY_BRACES",
+            "T_STRING_VARNAME",
+            "'['",
+            "expr",
+            "']'",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_CURLY_OPEN",
+            "variable",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "encaps_var_offset",
+      "kind": "normal",
+      "line": 1642,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_NUM_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "'-'",
+            "T_NUM_STRING"
+          ]
+        },
+        {
+          "symbols": [
+            "T_VARIABLE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "internal_functions_in_yacc",
+      "kind": "normal",
+      "line": 1650,
+      "alternatives": [
+        {
+          "symbols": [
+            "T_ISSET",
+            "'('",
+            "isset_variables",
+            "possible_comma",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EMPTY",
+            "'('",
+            "expr",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INCLUDE",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_INCLUDE_ONCE",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_EVAL",
+            "'('",
+            "expr",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "T_REQUIRE",
+            "expr"
+          ]
+        },
+        {
+          "symbols": [
+            "T_REQUIRE_ONCE",
+            "expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isset_variables",
+      "kind": "normal",
+      "line": 1665,
+      "alternatives": [
+        {
+          "symbols": [
+            "isset_variable"
+          ]
+        },
+        {
+          "symbols": [
+            "isset_variables",
+            "','",
+            "isset_variable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isset_variable",
+      "kind": "normal",
+      "line": 1671,
+      "alternatives": [
+        {
+          "symbols": [
+            "expr"
+          ]
+        }
+      ]
+    }
+  ]
+}

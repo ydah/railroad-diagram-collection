@@ -1,0 +1,1504 @@
+---
+display_name: PostgreSQL
+description:
+  en: PostgreSQL SQL parser grammar.
+  ja: PostgreSQL の SQL パーサ文法です。
+epsilon_rules: []
+hide_rules: []
+token_display:
+  ABORT_P:
+    display: abort
+    kind: keyword
+  ABSENT:
+    display: absent
+    kind: keyword
+  ABSOLUTE_P:
+    display: absolute
+    kind: keyword
+  ACCESS:
+    display: access
+    kind: keyword
+  ACTION:
+    display: action
+    kind: keyword
+  ADD_P:
+    display: add
+    kind: keyword
+  ADMIN:
+    display: admin
+    kind: keyword
+  AFTER:
+    display: after
+    kind: keyword
+  AGGREGATE:
+    display: aggregate
+    kind: keyword
+  ALL:
+    display: all
+    kind: keyword
+  ALSO:
+    display: also
+    kind: keyword
+  ALTER:
+    display: alter
+    kind: keyword
+  ALWAYS:
+    display: always
+    kind: keyword
+  ANALYSE:
+    display: analyse
+    kind: keyword
+  ANALYZE:
+    display: analyze
+    kind: keyword
+  AND:
+    display: and
+    kind: keyword
+  ANY:
+    display: any
+    kind: keyword
+  ARRAY:
+    display: array
+    kind: keyword
+  AS:
+    display: as
+    kind: keyword
+  ASC:
+    display: asc
+    kind: keyword
+  ASENSITIVE:
+    display: asensitive
+    kind: keyword
+  ASSERTION:
+    display: assertion
+    kind: keyword
+  ASSIGNMENT:
+    display: assignment
+    kind: keyword
+  ASYMMETRIC:
+    display: asymmetric
+    kind: keyword
+  AT:
+    display: at
+    kind: keyword
+  ATOMIC:
+    display: atomic
+    kind: keyword
+  ATTACH:
+    display: attach
+    kind: keyword
+  ATTRIBUTE:
+    display: attribute
+    kind: keyword
+  AUTHORIZATION:
+    display: authorization
+    kind: keyword
+  BACKWARD:
+    display: backward
+    kind: keyword
+  BEFORE:
+    display: before
+    kind: keyword
+  BEGIN_P:
+    display: begin
+    kind: keyword
+  BETWEEN:
+    display: between
+    kind: keyword
+  BIGINT:
+    display: bigint
+    kind: keyword
+  BINARY:
+    display: binary
+    kind: keyword
+  BIT:
+    display: bit
+    kind: keyword
+  BOOLEAN_P:
+    display: boolean
+    kind: keyword
+  BOTH:
+    display: both
+    kind: keyword
+  BREADTH:
+    display: breadth
+    kind: keyword
+  BY:
+    display: by
+    kind: keyword
+  CACHE:
+    display: cache
+    kind: keyword
+  CALL:
+    display: call
+    kind: keyword
+  CALLED:
+    display: called
+    kind: keyword
+  CASCADE:
+    display: cascade
+    kind: keyword
+  CASCADED:
+    display: cascaded
+    kind: keyword
+  CASE:
+    display: case
+    kind: keyword
+  CAST:
+    display: cast
+    kind: keyword
+  CATALOG_P:
+    display: catalog
+    kind: keyword
+  CHAIN:
+    display: chain
+    kind: keyword
+  CHAR_P:
+    display: char
+    kind: keyword
+  CHARACTER:
+    display: character
+    kind: keyword
+  CHARACTERISTICS:
+    display: characteristics
+    kind: keyword
+  CHECK:
+    display: check
+    kind: keyword
+  CHECKPOINT:
+    display: checkpoint
+    kind: keyword
+  CLASS:
+    display: class
+    kind: keyword
+  CLOSE:
+    display: close
+    kind: keyword
+  CLUSTER:
+    display: cluster
+    kind: keyword
+  COALESCE:
+    display: coalesce
+    kind: keyword
+  COLLATE:
+    display: collate
+    kind: keyword
+  COLLATION:
+    display: collation
+    kind: keyword
+  COLUMN:
+    display: column
+    kind: keyword
+  COLUMNS:
+    display: columns
+    kind: keyword
+  COMMENT:
+    display: comment
+    kind: keyword
+  COMMENTS:
+    display: comments
+    kind: keyword
+  COMMIT:
+    display: commit
+    kind: keyword
+  COMMITTED:
+    display: committed
+    kind: keyword
+  COMPRESSION:
+    display: compression
+    kind: keyword
+  CONCURRENTLY:
+    display: concurrently
+    kind: keyword
+  CONDITIONAL:
+    display: conditional
+    kind: keyword
+  CONFIGURATION:
+    display: configuration
+    kind: keyword
+  CONFLICT:
+    display: conflict
+    kind: keyword
+  CONNECTION:
+    display: connection
+    kind: keyword
+  CONSTRAINT:
+    display: constraint
+    kind: keyword
+  CONSTRAINTS:
+    display: constraints
+    kind: keyword
+  CONTENT_P:
+    display: content
+    kind: keyword
+  CONTINUE_P:
+    display: continue
+    kind: keyword
+  CONVERSION_P:
+    display: conversion
+    kind: keyword
+  COPY:
+    display: copy
+    kind: keyword
+  COST:
+    display: cost
+    kind: keyword
+  CREATE:
+    display: create
+    kind: keyword
+  CROSS:
+    display: cross
+    kind: keyword
+  CSV:
+    display: csv
+    kind: keyword
+  CUBE:
+    display: cube
+    kind: keyword
+  CURRENT_P:
+    display: current
+    kind: keyword
+  CURRENT_CATALOG:
+    display: current_catalog
+    kind: keyword
+  CURRENT_DATE:
+    display: current_date
+    kind: keyword
+  CURRENT_ROLE:
+    display: current_role
+    kind: keyword
+  CURRENT_SCHEMA:
+    display: current_schema
+    kind: keyword
+  CURRENT_TIME:
+    display: current_time
+    kind: keyword
+  CURRENT_TIMESTAMP:
+    display: current_timestamp
+    kind: keyword
+  CURRENT_USER:
+    display: current_user
+    kind: keyword
+  CURSOR:
+    display: cursor
+    kind: keyword
+  CYCLE:
+    display: cycle
+    kind: keyword
+  DATA_P:
+    display: data
+    kind: keyword
+  DATABASE:
+    display: database
+    kind: keyword
+  DAY_P:
+    display: day
+    kind: keyword
+  DEALLOCATE:
+    display: deallocate
+    kind: keyword
+  DEC:
+    display: dec
+    kind: keyword
+  DECIMAL_P:
+    display: decimal
+    kind: keyword
+  DECLARE:
+    display: declare
+    kind: keyword
+  DEFAULT:
+    display: default
+    kind: keyword
+  DEFAULTS:
+    display: defaults
+    kind: keyword
+  DEFERRABLE:
+    display: deferrable
+    kind: keyword
+  DEFERRED:
+    display: deferred
+    kind: keyword
+  DEFINER:
+    display: definer
+    kind: keyword
+  DELETE_P:
+    display: delete
+    kind: keyword
+  DELIMITER:
+    display: delimiter
+    kind: keyword
+  DELIMITERS:
+    display: delimiters
+    kind: keyword
+  DEPENDS:
+    display: depends
+    kind: keyword
+  DEPTH:
+    display: depth
+    kind: keyword
+  DESC:
+    display: desc
+    kind: keyword
+  DETACH:
+    display: detach
+    kind: keyword
+  DICTIONARY:
+    display: dictionary
+    kind: keyword
+  DISABLE_P:
+    display: disable
+    kind: keyword
+  DISCARD:
+    display: discard
+    kind: keyword
+  DISTINCT:
+    display: distinct
+    kind: keyword
+  DO:
+    display: do
+    kind: keyword
+  DOCUMENT_P:
+    display: document
+    kind: keyword
+  DOMAIN_P:
+    display: domain
+    kind: keyword
+  DOUBLE_P:
+    display: double
+    kind: keyword
+  DROP:
+    display: drop
+    kind: keyword
+  EACH:
+    display: each
+    kind: keyword
+  ELSE:
+    display: else
+    kind: keyword
+  EMPTY_P:
+    display: empty
+    kind: keyword
+  ENABLE_P:
+    display: enable
+    kind: keyword
+  ENCODING:
+    display: encoding
+    kind: keyword
+  ENCRYPTED:
+    display: encrypted
+    kind: keyword
+  END_P:
+    display: end
+    kind: keyword
+  ENFORCED:
+    display: enforced
+    kind: keyword
+  ENUM_P:
+    display: enum
+    kind: keyword
+  ERROR_P:
+    display: error
+    kind: keyword
+  ESCAPE:
+    display: escape
+    kind: keyword
+  EVENT:
+    display: event
+    kind: keyword
+  EXCEPT:
+    display: except
+    kind: keyword
+  EXCLUDE:
+    display: exclude
+    kind: keyword
+  EXCLUDING:
+    display: excluding
+    kind: keyword
+  EXCLUSIVE:
+    display: exclusive
+    kind: keyword
+  EXECUTE:
+    display: execute
+    kind: keyword
+  EXISTS:
+    display: exists
+    kind: keyword
+  EXPLAIN:
+    display: explain
+    kind: keyword
+  EXPRESSION:
+    display: expression
+    kind: keyword
+  EXTENSION:
+    display: extension
+    kind: keyword
+  EXTERNAL:
+    display: external
+    kind: keyword
+  EXTRACT:
+    display: extract
+    kind: keyword
+  FALSE_P:
+    display: 'false'
+    kind: keyword
+  FAMILY:
+    display: family
+    kind: keyword
+  FETCH:
+    display: fetch
+    kind: keyword
+  FILTER:
+    display: filter
+    kind: keyword
+  FINALIZE:
+    display: finalize
+    kind: keyword
+  FIRST_P:
+    display: first
+    kind: keyword
+  FLOAT_P:
+    display: float
+    kind: keyword
+  FOLLOWING:
+    display: following
+    kind: keyword
+  FOR:
+    display: for
+    kind: keyword
+  FORCE:
+    display: force
+    kind: keyword
+  FOREIGN:
+    display: foreign
+    kind: keyword
+  FORMAT:
+    display: format
+    kind: keyword
+  FORWARD:
+    display: forward
+    kind: keyword
+  FREEZE:
+    display: freeze
+    kind: keyword
+  FROM:
+    display: from
+    kind: keyword
+  FULL:
+    display: full
+    kind: keyword
+  FUNCTION:
+    display: function
+    kind: keyword
+  FUNCTIONS:
+    display: functions
+    kind: keyword
+  GENERATED:
+    display: generated
+    kind: keyword
+  GLOBAL:
+    display: global
+    kind: keyword
+  GRANT:
+    display: grant
+    kind: keyword
+  GRANTED:
+    display: granted
+    kind: keyword
+  GREATEST:
+    display: greatest
+    kind: keyword
+  GROUP_P:
+    display: group
+    kind: keyword
+  GROUPING:
+    display: grouping
+    kind: keyword
+  GROUPS:
+    display: groups
+    kind: keyword
+  HANDLER:
+    display: handler
+    kind: keyword
+  HAVING:
+    display: having
+    kind: keyword
+  HEADER_P:
+    display: header
+    kind: keyword
+  HOLD:
+    display: hold
+    kind: keyword
+  HOUR_P:
+    display: hour
+    kind: keyword
+  IDENTITY_P:
+    display: identity
+    kind: keyword
+  IF_P:
+    display: if
+    kind: keyword
+  ILIKE:
+    display: ilike
+    kind: keyword
+  IMMEDIATE:
+    display: immediate
+    kind: keyword
+  IMMUTABLE:
+    display: immutable
+    kind: keyword
+  IMPLICIT_P:
+    display: implicit
+    kind: keyword
+  IMPORT_P:
+    display: import
+    kind: keyword
+  IN_P:
+    display: in
+    kind: keyword
+  INCLUDE:
+    display: include
+    kind: keyword
+  INCLUDING:
+    display: including
+    kind: keyword
+  INCREMENT:
+    display: increment
+    kind: keyword
+  INDENT:
+    display: indent
+    kind: keyword
+  INDEX:
+    display: index
+    kind: keyword
+  INDEXES:
+    display: indexes
+    kind: keyword
+  INHERIT:
+    display: inherit
+    kind: keyword
+  INHERITS:
+    display: inherits
+    kind: keyword
+  INITIALLY:
+    display: initially
+    kind: keyword
+  INLINE_P:
+    display: inline
+    kind: keyword
+  INNER_P:
+    display: inner
+    kind: keyword
+  INOUT:
+    display: inout
+    kind: keyword
+  INPUT_P:
+    display: input
+    kind: keyword
+  INSENSITIVE:
+    display: insensitive
+    kind: keyword
+  INSERT:
+    display: insert
+    kind: keyword
+  INSTEAD:
+    display: instead
+    kind: keyword
+  INT_P:
+    display: int
+    kind: keyword
+  INTEGER:
+    display: integer
+    kind: keyword
+  INTERSECT:
+    display: intersect
+    kind: keyword
+  INTERVAL:
+    display: interval
+    kind: keyword
+  INTO:
+    display: into
+    kind: keyword
+  INVOKER:
+    display: invoker
+    kind: keyword
+  IS:
+    display: is
+    kind: keyword
+  ISNULL:
+    display: isnull
+    kind: keyword
+  ISOLATION:
+    display: isolation
+    kind: keyword
+  JOIN:
+    display: join
+    kind: keyword
+  JSON:
+    display: json
+    kind: keyword
+  JSON_ARRAY:
+    display: json_array
+    kind: keyword
+  JSON_ARRAYAGG:
+    display: json_arrayagg
+    kind: keyword
+  JSON_EXISTS:
+    display: json_exists
+    kind: keyword
+  JSON_OBJECT:
+    display: json_object
+    kind: keyword
+  JSON_OBJECTAGG:
+    display: json_objectagg
+    kind: keyword
+  JSON_QUERY:
+    display: json_query
+    kind: keyword
+  JSON_SCALAR:
+    display: json_scalar
+    kind: keyword
+  JSON_SERIALIZE:
+    display: json_serialize
+    kind: keyword
+  JSON_TABLE:
+    display: json_table
+    kind: keyword
+  JSON_VALUE:
+    display: json_value
+    kind: keyword
+  KEEP:
+    display: keep
+    kind: keyword
+  KEY:
+    display: key
+    kind: keyword
+  KEYS:
+    display: keys
+    kind: keyword
+  LABEL:
+    display: label
+    kind: keyword
+  LANGUAGE:
+    display: language
+    kind: keyword
+  LARGE_P:
+    display: large
+    kind: keyword
+  LAST_P:
+    display: last
+    kind: keyword
+  LATERAL_P:
+    display: lateral
+    kind: keyword
+  LEADING:
+    display: leading
+    kind: keyword
+  LEAKPROOF:
+    display: leakproof
+    kind: keyword
+  LEAST:
+    display: least
+    kind: keyword
+  LEFT:
+    display: left
+    kind: keyword
+  LEVEL:
+    display: level
+    kind: keyword
+  LIKE:
+    display: like
+    kind: keyword
+  LIMIT:
+    display: limit
+    kind: keyword
+  LISTEN:
+    display: listen
+    kind: keyword
+  LOAD:
+    display: load
+    kind: keyword
+  LOCAL:
+    display: local
+    kind: keyword
+  LOCALTIME:
+    display: localtime
+    kind: keyword
+  LOCALTIMESTAMP:
+    display: localtimestamp
+    kind: keyword
+  LOCATION:
+    display: location
+    kind: keyword
+  LOCK_P:
+    display: lock
+    kind: keyword
+  LOCKED:
+    display: locked
+    kind: keyword
+  LOGGED:
+    display: logged
+    kind: keyword
+  MAPPING:
+    display: mapping
+    kind: keyword
+  MATCH:
+    display: match
+    kind: keyword
+  MATCHED:
+    display: matched
+    kind: keyword
+  MATERIALIZED:
+    display: materialized
+    kind: keyword
+  MAXVALUE:
+    display: maxvalue
+    kind: keyword
+  MERGE:
+    display: merge
+    kind: keyword
+  MERGE_ACTION:
+    display: merge_action
+    kind: keyword
+  METHOD:
+    display: method
+    kind: keyword
+  MINUTE_P:
+    display: minute
+    kind: keyword
+  MINVALUE:
+    display: minvalue
+    kind: keyword
+  MODE:
+    display: mode
+    kind: keyword
+  MONTH_P:
+    display: month
+    kind: keyword
+  MOVE:
+    display: move
+    kind: keyword
+  NAME_P:
+    display: name
+    kind: keyword
+  NAMES:
+    display: names
+    kind: keyword
+  NATIONAL:
+    display: national
+    kind: keyword
+  NATURAL:
+    display: natural
+    kind: keyword
+  NCHAR:
+    display: nchar
+    kind: keyword
+  NESTED:
+    display: nested
+    kind: keyword
+  NEW:
+    display: new
+    kind: keyword
+  NEXT:
+    display: next
+    kind: keyword
+  NFC:
+    display: nfc
+    kind: keyword
+  NFD:
+    display: nfd
+    kind: keyword
+  NFKC:
+    display: nfkc
+    kind: keyword
+  NFKD:
+    display: nfkd
+    kind: keyword
+  'NO':
+    display: 'no'
+    kind: keyword
+  NONE:
+    display: none
+    kind: keyword
+  NORMALIZE:
+    display: normalize
+    kind: keyword
+  NORMALIZED:
+    display: normalized
+    kind: keyword
+  NOT:
+    display: not
+    kind: keyword
+  NOTHING:
+    display: nothing
+    kind: keyword
+  NOTIFY:
+    display: notify
+    kind: keyword
+  NOTNULL:
+    display: notnull
+    kind: keyword
+  NOWAIT:
+    display: nowait
+    kind: keyword
+  NULL_P:
+    display: 'null'
+    kind: keyword
+  NULLIF:
+    display: nullif
+    kind: keyword
+  NULLS_P:
+    display: nulls
+    kind: keyword
+  NUMERIC:
+    display: numeric
+    kind: keyword
+  OBJECT_P:
+    display: object
+    kind: keyword
+  OBJECTS_P:
+    display: objects
+    kind: keyword
+  OF:
+    display: of
+    kind: keyword
+  'OFF':
+    display: 'off'
+    kind: keyword
+  OFFSET:
+    display: offset
+    kind: keyword
+  OIDS:
+    display: oids
+    kind: keyword
+  OLD:
+    display: old
+    kind: keyword
+  OMIT:
+    display: omit
+    kind: keyword
+  'ON':
+    display: 'on'
+    kind: keyword
+  ONLY:
+    display: only
+    kind: keyword
+  OPERATOR:
+    display: operator
+    kind: keyword
+  OPTION:
+    display: option
+    kind: keyword
+  OPTIONS:
+    display: options
+    kind: keyword
+  OR:
+    display: or
+    kind: keyword
+  ORDER:
+    display: order
+    kind: keyword
+  ORDINALITY:
+    display: ordinality
+    kind: keyword
+  OTHERS:
+    display: others
+    kind: keyword
+  OUT_P:
+    display: out
+    kind: keyword
+  OUTER_P:
+    display: outer
+    kind: keyword
+  OVER:
+    display: over
+    kind: keyword
+  OVERLAPS:
+    display: overlaps
+    kind: keyword
+  OVERLAY:
+    display: overlay
+    kind: keyword
+  OVERRIDING:
+    display: overriding
+    kind: keyword
+  OWNED:
+    display: owned
+    kind: keyword
+  OWNER:
+    display: owner
+    kind: keyword
+  PARALLEL:
+    display: parallel
+    kind: keyword
+  PARAMETER:
+    display: parameter
+    kind: keyword
+  PARSER:
+    display: parser
+    kind: keyword
+  PARTIAL:
+    display: partial
+    kind: keyword
+  PARTITION:
+    display: partition
+    kind: keyword
+  PASSING:
+    display: passing
+    kind: keyword
+  PASSWORD:
+    display: password
+    kind: keyword
+  PATH:
+    display: path
+    kind: keyword
+  PERIOD:
+    display: period
+    kind: keyword
+  PLACING:
+    display: placing
+    kind: keyword
+  PLAN:
+    display: plan
+    kind: keyword
+  PLANS:
+    display: plans
+    kind: keyword
+  POLICY:
+    display: policy
+    kind: keyword
+  POSITION:
+    display: position
+    kind: keyword
+  PRECEDING:
+    display: preceding
+    kind: keyword
+  PRECISION:
+    display: precision
+    kind: keyword
+  PREPARE:
+    display: prepare
+    kind: keyword
+  PREPARED:
+    display: prepared
+    kind: keyword
+  PRESERVE:
+    display: preserve
+    kind: keyword
+  PRIMARY:
+    display: primary
+    kind: keyword
+  PRIOR:
+    display: prior
+    kind: keyword
+  PRIVILEGES:
+    display: privileges
+    kind: keyword
+  PROCEDURAL:
+    display: procedural
+    kind: keyword
+  PROCEDURE:
+    display: procedure
+    kind: keyword
+  PROCEDURES:
+    display: procedures
+    kind: keyword
+  PROGRAM:
+    display: program
+    kind: keyword
+  PUBLICATION:
+    display: publication
+    kind: keyword
+  QUOTE:
+    display: quote
+    kind: keyword
+  QUOTES:
+    display: quotes
+    kind: keyword
+  RANGE:
+    display: range
+    kind: keyword
+  READ:
+    display: read
+    kind: keyword
+  REAL:
+    display: real
+    kind: keyword
+  REASSIGN:
+    display: reassign
+    kind: keyword
+  RECURSIVE:
+    display: recursive
+    kind: keyword
+  REF_P:
+    display: ref
+    kind: keyword
+  REFERENCES:
+    display: references
+    kind: keyword
+  REFERENCING:
+    display: referencing
+    kind: keyword
+  REFRESH:
+    display: refresh
+    kind: keyword
+  REINDEX:
+    display: reindex
+    kind: keyword
+  RELATIVE_P:
+    display: relative
+    kind: keyword
+  RELEASE:
+    display: release
+    kind: keyword
+  RENAME:
+    display: rename
+    kind: keyword
+  REPEATABLE:
+    display: repeatable
+    kind: keyword
+  REPLACE:
+    display: replace
+    kind: keyword
+  REPLICA:
+    display: replica
+    kind: keyword
+  RESET:
+    display: reset
+    kind: keyword
+  RESTART:
+    display: restart
+    kind: keyword
+  RESTRICT:
+    display: restrict
+    kind: keyword
+  RETURN:
+    display: return
+    kind: keyword
+  RETURNING:
+    display: returning
+    kind: keyword
+  RETURNS:
+    display: returns
+    kind: keyword
+  REVOKE:
+    display: revoke
+    kind: keyword
+  RIGHT:
+    display: right
+    kind: keyword
+  ROLE:
+    display: role
+    kind: keyword
+  ROLLBACK:
+    display: rollback
+    kind: keyword
+  ROLLUP:
+    display: rollup
+    kind: keyword
+  ROUTINE:
+    display: routine
+    kind: keyword
+  ROUTINES:
+    display: routines
+    kind: keyword
+  ROW:
+    display: row
+    kind: keyword
+  ROWS:
+    display: rows
+    kind: keyword
+  RULE:
+    display: rule
+    kind: keyword
+  SAVEPOINT:
+    display: savepoint
+    kind: keyword
+  SCALAR:
+    display: scalar
+    kind: keyword
+  SCHEMA:
+    display: schema
+    kind: keyword
+  SCHEMAS:
+    display: schemas
+    kind: keyword
+  SCROLL:
+    display: scroll
+    kind: keyword
+  SEARCH:
+    display: search
+    kind: keyword
+  SECOND_P:
+    display: second
+    kind: keyword
+  SECURITY:
+    display: security
+    kind: keyword
+  SELECT:
+    display: select
+    kind: keyword
+  SEQUENCE:
+    display: sequence
+    kind: keyword
+  SEQUENCES:
+    display: sequences
+    kind: keyword
+  SERIALIZABLE:
+    display: serializable
+    kind: keyword
+  SERVER:
+    display: server
+    kind: keyword
+  SESSION:
+    display: session
+    kind: keyword
+  SESSION_USER:
+    display: session_user
+    kind: keyword
+  SET:
+    display: set
+    kind: keyword
+  SETOF:
+    display: setof
+    kind: keyword
+  SETS:
+    display: sets
+    kind: keyword
+  SHARE:
+    display: share
+    kind: keyword
+  SHOW:
+    display: show
+    kind: keyword
+  SIMILAR:
+    display: similar
+    kind: keyword
+  SIMPLE:
+    display: simple
+    kind: keyword
+  SKIP:
+    display: skip
+    kind: keyword
+  SMALLINT:
+    display: smallint
+    kind: keyword
+  SNAPSHOT:
+    display: snapshot
+    kind: keyword
+  SOME:
+    display: some
+    kind: keyword
+  SOURCE:
+    display: source
+    kind: keyword
+  SQL_P:
+    display: sql
+    kind: keyword
+  STABLE:
+    display: stable
+    kind: keyword
+  STANDALONE_P:
+    display: standalone
+    kind: keyword
+  START:
+    display: start
+    kind: keyword
+  STATEMENT:
+    display: statement
+    kind: keyword
+  STATISTICS:
+    display: statistics
+    kind: keyword
+  STDIN:
+    display: stdin
+    kind: keyword
+  STDOUT:
+    display: stdout
+    kind: keyword
+  STORAGE:
+    display: storage
+    kind: keyword
+  STORED:
+    display: stored
+    kind: keyword
+  STRICT_P:
+    display: strict
+    kind: keyword
+  STRING_P:
+    display: string
+    kind: keyword
+  STRIP_P:
+    display: strip
+    kind: keyword
+  SUBSCRIPTION:
+    display: subscription
+    kind: keyword
+  SUBSTRING:
+    display: substring
+    kind: keyword
+  SUPPORT:
+    display: support
+    kind: keyword
+  SYMMETRIC:
+    display: symmetric
+    kind: keyword
+  SYSID:
+    display: sysid
+    kind: keyword
+  SYSTEM_P:
+    display: system
+    kind: keyword
+  SYSTEM_USER:
+    display: system_user
+    kind: keyword
+  TABLE:
+    display: table
+    kind: keyword
+  TABLES:
+    display: tables
+    kind: keyword
+  TABLESAMPLE:
+    display: tablesample
+    kind: keyword
+  TABLESPACE:
+    display: tablespace
+    kind: keyword
+  TARGET:
+    display: target
+    kind: keyword
+  TEMP:
+    display: temp
+    kind: keyword
+  TEMPLATE:
+    display: template
+    kind: keyword
+  TEMPORARY:
+    display: temporary
+    kind: keyword
+  TEXT_P:
+    display: text
+    kind: keyword
+  THEN:
+    display: then
+    kind: keyword
+  TIES:
+    display: ties
+    kind: keyword
+  TIME:
+    display: time
+    kind: keyword
+  TIMESTAMP:
+    display: timestamp
+    kind: keyword
+  TO:
+    display: to
+    kind: keyword
+  TRAILING:
+    display: trailing
+    kind: keyword
+  TRANSACTION:
+    display: transaction
+    kind: keyword
+  TRANSFORM:
+    display: transform
+    kind: keyword
+  TREAT:
+    display: treat
+    kind: keyword
+  TRIGGER:
+    display: trigger
+    kind: keyword
+  TRIM:
+    display: trim
+    kind: keyword
+  TRUE_P:
+    display: 'true'
+    kind: keyword
+  TRUNCATE:
+    display: truncate
+    kind: keyword
+  TRUSTED:
+    display: trusted
+    kind: keyword
+  TYPE_P:
+    display: type
+    kind: keyword
+  TYPES_P:
+    display: types
+    kind: keyword
+  UESCAPE:
+    display: uescape
+    kind: keyword
+  UNBOUNDED:
+    display: unbounded
+    kind: keyword
+  UNCOMMITTED:
+    display: uncommitted
+    kind: keyword
+  UNCONDITIONAL:
+    display: unconditional
+    kind: keyword
+  UNENCRYPTED:
+    display: unencrypted
+    kind: keyword
+  UNION:
+    display: union
+    kind: keyword
+  UNIQUE:
+    display: unique
+    kind: keyword
+  UNKNOWN:
+    display: unknown
+    kind: keyword
+  UNLISTEN:
+    display: unlisten
+    kind: keyword
+  UNLOGGED:
+    display: unlogged
+    kind: keyword
+  UNTIL:
+    display: until
+    kind: keyword
+  UPDATE:
+    display: update
+    kind: keyword
+  USER:
+    display: user
+    kind: keyword
+  USING:
+    display: using
+    kind: keyword
+  VACUUM:
+    display: vacuum
+    kind: keyword
+  VALID:
+    display: valid
+    kind: keyword
+  VALIDATE:
+    display: validate
+    kind: keyword
+  VALIDATOR:
+    display: validator
+    kind: keyword
+  VALUE_P:
+    display: value
+    kind: keyword
+  VALUES:
+    display: values
+    kind: keyword
+  VARCHAR:
+    display: varchar
+    kind: keyword
+  VARIADIC:
+    display: variadic
+    kind: keyword
+  VARYING:
+    display: varying
+    kind: keyword
+  VERBOSE:
+    display: verbose
+    kind: keyword
+  VERSION_P:
+    display: version
+    kind: keyword
+  VIEW:
+    display: view
+    kind: keyword
+  VIEWS:
+    display: views
+    kind: keyword
+  VIRTUAL:
+    display: virtual
+    kind: keyword
+  VOLATILE:
+    display: volatile
+    kind: keyword
+  WHEN:
+    display: when
+    kind: keyword
+  WHERE:
+    display: where
+    kind: keyword
+  WHITESPACE_P:
+    display: whitespace
+    kind: keyword
+  WINDOW:
+    display: window
+    kind: keyword
+  WITH:
+    display: with
+    kind: keyword
+  WITHIN:
+    display: within
+    kind: keyword
+  WITHOUT:
+    display: without
+    kind: keyword
+  WORK:
+    display: work
+    kind: keyword
+  WRAPPER:
+    display: wrapper
+    kind: keyword
+  WRITE:
+    display: write
+    kind: keyword
+  XML_P:
+    display: xml
+    kind: keyword
+  XMLATTRIBUTES:
+    display: xmlattributes
+    kind: keyword
+  XMLCONCAT:
+    display: xmlconcat
+    kind: keyword
+  XMLELEMENT:
+    display: xmlelement
+    kind: keyword
+  XMLEXISTS:
+    display: xmlexists
+    kind: keyword
+  XMLFOREST:
+    display: xmlforest
+    kind: keyword
+  XMLNAMESPACES:
+    display: xmlnamespaces
+    kind: keyword
+  XMLPARSE:
+    display: xmlparse
+    kind: keyword
+  XMLPI:
+    display: xmlpi
+    kind: keyword
+  XMLROOT:
+    display: xmlroot
+    kind: keyword
+  XMLSERIALIZE:
+    display: xmlserialize
+    kind: keyword
+  XMLTABLE:
+    display: xmltable
+    kind: keyword
+  YEAR_P:
+    display: year
+    kind: keyword
+  YES_P:
+    display: 'yes'
+    kind: keyword
+  ZONE:
+    display: zone
+    kind: keyword
+categories:
+  statements:
+  - stmt
+  - SelectStmt
+  - InsertStmt
+  - UpdateStmt
+  - DeleteStmt
+  expressions:
+  - a_expr
+  - b_expr
+  - c_expr
+simplify:
+  factor_prefix: true
+  inline_trivial: false

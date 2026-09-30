@@ -1,0 +1,1704 @@
+{
+  "schema": 1,
+  "language": "jq",
+  "version": "1.8.2",
+  "source": {
+    "repo": "https://github.com/jqlang/jq.git",
+    "ref": "jq-1.8.2",
+    "commit": "34f7186b86743a083a589741b6cea95293524108",
+    "path": "src/parser.y",
+    "sha256": "803aa7c0b1acba2228e52d1de392fb51e60a7bbe23e42870aea1d62c43360c60",
+    "prepared_sha256": "0af933378ad8d93add9a2965b3cd767a2a0459cdab179a0f5f7d6476edec26d9",
+    "committed_at": "2026-06-20T20:58:06+09:00",
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/jqlang/jq/blob/jq-1.8.1/COPYING",
+      "path": "COPYING"
+    }
+  },
+  "generator": {
+    "frontend": "bison_report",
+    "tool_version": "bison (GNU Bison) 3.8.2",
+    "lrama_revision": "c8317b55850bc6cd9033ddfbf816377b73f6c7bc",
+    "rdc": "1.0.0",
+    "metadata_sha256": "2a940332d6564f919f9f2653fb15d6f8d978c848b7dedf521363e235ff3f6bb1"
+  },
+  "start": "TopLevel",
+  "terminals": [
+    {
+      "name": "$end",
+      "display": "$end",
+      "kind": "internal"
+    },
+    {
+      "name": "'$'",
+      "display": "$",
+      "kind": "punct"
+    },
+    {
+      "name": "'%'",
+      "display": "%",
+      "kind": "punct"
+    },
+    {
+      "name": "'('",
+      "display": "(",
+      "kind": "punct"
+    },
+    {
+      "name": "')'",
+      "display": ")",
+      "kind": "punct"
+    },
+    {
+      "name": "'*'",
+      "display": "*",
+      "kind": "punct"
+    },
+    {
+      "name": "'+'",
+      "display": "+",
+      "kind": "punct"
+    },
+    {
+      "name": "','",
+      "display": ",",
+      "kind": "punct"
+    },
+    {
+      "name": "'-'",
+      "display": "-",
+      "kind": "punct"
+    },
+    {
+      "name": "'.'",
+      "display": ".",
+      "kind": "punct"
+    },
+    {
+      "name": "'/'",
+      "display": "/",
+      "kind": "punct"
+    },
+    {
+      "name": "':'",
+      "display": ":",
+      "kind": "punct"
+    },
+    {
+      "name": "';'",
+      "display": ";",
+      "kind": "punct"
+    },
+    {
+      "name": "'<'",
+      "display": "<",
+      "kind": "punct"
+    },
+    {
+      "name": "'='",
+      "display": "=",
+      "kind": "punct"
+    },
+    {
+      "name": "'>'",
+      "display": ">",
+      "kind": "punct"
+    },
+    {
+      "name": "'?'",
+      "display": "?",
+      "kind": "punct"
+    },
+    {
+      "name": "'['",
+      "display": "[",
+      "kind": "punct"
+    },
+    {
+      "name": "']'",
+      "display": "]",
+      "kind": "punct"
+    },
+    {
+      "name": "'{'",
+      "display": "{",
+      "kind": "punct"
+    },
+    {
+      "name": "'|'",
+      "display": "|",
+      "kind": "punct"
+    },
+    {
+      "name": "'}'",
+      "display": "}",
+      "kind": "punct"
+    },
+    {
+      "name": "error",
+      "display": "error",
+      "kind": "internal"
+    },
+    {
+      "name": "INVALID_CHARACTER",
+      "display": "INVALID_CHARACTER",
+      "kind": "class"
+    },
+    {
+      "name": "REC",
+      "display": "..",
+      "kind": "punct",
+      "alias": "\"..\""
+    },
+    {
+      "name": "SETMOD",
+      "display": "%=",
+      "kind": "punct",
+      "alias": "\"%=\""
+    },
+    {
+      "name": "EQ",
+      "display": "==",
+      "kind": "punct",
+      "alias": "\"==\""
+    },
+    {
+      "name": "NEQ",
+      "display": "!=",
+      "kind": "punct",
+      "alias": "\"!=\""
+    },
+    {
+      "name": "DEFINEDOR",
+      "display": "//",
+      "kind": "punct",
+      "alias": "\"//\""
+    },
+    {
+      "name": "AS",
+      "display": "as",
+      "kind": "keyword",
+      "alias": "\"as\""
+    },
+    {
+      "name": "DEF",
+      "display": "def",
+      "kind": "keyword",
+      "alias": "\"def\""
+    },
+    {
+      "name": "MODULE",
+      "display": "module",
+      "kind": "keyword",
+      "alias": "\"module\""
+    },
+    {
+      "name": "IMPORT",
+      "display": "import",
+      "kind": "keyword",
+      "alias": "\"import\""
+    },
+    {
+      "name": "INCLUDE",
+      "display": "include",
+      "kind": "keyword",
+      "alias": "\"include\""
+    },
+    {
+      "name": "IF",
+      "display": "if",
+      "kind": "keyword",
+      "alias": "\"if\""
+    },
+    {
+      "name": "THEN",
+      "display": "then",
+      "kind": "keyword",
+      "alias": "\"then\""
+    },
+    {
+      "name": "ELSE",
+      "display": "else",
+      "kind": "keyword",
+      "alias": "\"else\""
+    },
+    {
+      "name": "ELSE_IF",
+      "display": "elif",
+      "kind": "keyword",
+      "alias": "\"elif\""
+    },
+    {
+      "name": "REDUCE",
+      "display": "reduce",
+      "kind": "keyword",
+      "alias": "\"reduce\""
+    },
+    {
+      "name": "FOREACH",
+      "display": "foreach",
+      "kind": "keyword",
+      "alias": "\"foreach\""
+    },
+    {
+      "name": "END",
+      "display": "end",
+      "kind": "keyword",
+      "alias": "\"end\""
+    },
+    {
+      "name": "AND",
+      "display": "and",
+      "kind": "keyword",
+      "alias": "\"and\""
+    },
+    {
+      "name": "OR",
+      "display": "or",
+      "kind": "keyword",
+      "alias": "\"or\""
+    },
+    {
+      "name": "TRY",
+      "display": "try",
+      "kind": "keyword",
+      "alias": "\"try\""
+    },
+    {
+      "name": "CATCH",
+      "display": "catch",
+      "kind": "keyword",
+      "alias": "\"catch\""
+    },
+    {
+      "name": "LABEL",
+      "display": "label",
+      "kind": "keyword",
+      "alias": "\"label\""
+    },
+    {
+      "name": "BREAK",
+      "display": "break",
+      "kind": "keyword",
+      "alias": "\"break\""
+    },
+    {
+      "name": "LOC",
+      "display": "$__loc__",
+      "kind": "punct",
+      "alias": "\"$__loc__\""
+    },
+    {
+      "name": "SETPIPE",
+      "display": "|=",
+      "kind": "punct",
+      "alias": "\"|=\""
+    },
+    {
+      "name": "SETPLUS",
+      "display": "+=",
+      "kind": "punct",
+      "alias": "\"+=\""
+    },
+    {
+      "name": "SETMINUS",
+      "display": "-=",
+      "kind": "punct",
+      "alias": "\"-=\""
+    },
+    {
+      "name": "SETMULT",
+      "display": "*=",
+      "kind": "punct",
+      "alias": "\"*=\""
+    },
+    {
+      "name": "SETDIV",
+      "display": "/=",
+      "kind": "punct",
+      "alias": "\"/=\""
+    },
+    {
+      "name": "SETDEFINEDOR",
+      "display": "//=",
+      "kind": "punct",
+      "alias": "\"//=\""
+    },
+    {
+      "name": "LESSEQ",
+      "display": "<=",
+      "kind": "punct",
+      "alias": "\"<=\""
+    },
+    {
+      "name": "GREATEREQ",
+      "display": ">=",
+      "kind": "punct",
+      "alias": "\">=\""
+    },
+    {
+      "name": "ALTERNATION",
+      "display": "?//",
+      "kind": "punct",
+      "alias": "\"?//\""
+    },
+    {
+      "name": "QQSTRING_START",
+      "display": "QQSTRING_START",
+      "kind": "class"
+    },
+    {
+      "name": "QQSTRING_INTERP_START",
+      "display": "QQSTRING_INTERP_START",
+      "kind": "class"
+    },
+    {
+      "name": "QQSTRING_INTERP_END",
+      "display": "QQSTRING_INTERP_END",
+      "kind": "class"
+    },
+    {
+      "name": "QQSTRING_END",
+      "display": "QQSTRING_END",
+      "kind": "class"
+    },
+    {
+      "name": "FUNCDEF",
+      "display": "FUNCDEF",
+      "kind": "class"
+    },
+    {
+      "name": "NONOPT",
+      "display": "NONOPT",
+      "kind": "class"
+    },
+    {
+      "name": "BINDING",
+      "display": "BINDING",
+      "kind": "class"
+    },
+    {
+      "name": "IDENT",
+      "display": "IDENT",
+      "kind": "class"
+    },
+    {
+      "name": "FORMAT",
+      "display": "FORMAT",
+      "kind": "class"
+    },
+    {
+      "name": "QQSTRING_TEXT",
+      "display": "QQSTRING_TEXT",
+      "kind": "class"
+    },
+    {
+      "name": "FIELD",
+      "display": "FIELD",
+      "kind": "class"
+    },
+    {
+      "name": "LITERAL",
+      "display": "LITERAL",
+      "kind": "class"
+    }
+  ],
+  "rules": [
+    {
+      "name": "$accept",
+      "kind": "accept",
+      "alternatives": [
+        {
+          "symbols": [
+            "TopLevel",
+            "$end"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TopLevel",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Module",
+            "Imports",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "Module",
+            "Imports",
+            "FuncDefs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Module",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "MODULE",
+            "Query",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Imports",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "Import",
+            "Imports"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FuncDefs",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "FuncDef",
+            "FuncDefs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Query",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "FuncDef",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "AS",
+            "Patterns",
+            "'|'",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "LABEL",
+            "BINDING",
+            "'|'",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "Query",
+            "'|'",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "Query",
+            "','",
+            "Query"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Expr",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Expr",
+            "DEFINEDOR",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'='",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "OR",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "AND",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETDEFINEDOR",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETPIPE",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'+'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETPLUS",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'-'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETMINUS",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'*'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETMULT",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'/'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'%'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETDIV",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "SETMOD",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "EQ",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "NEQ",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'<'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "'>'",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "LESSEQ",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr",
+            "GREATEREQ",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "Term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Import",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "ImportWhat",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "ImportWhat",
+            "Query",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ImportWhat",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "IMPORT",
+            "ImportFrom",
+            "AS",
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "IMPORT",
+            "ImportFrom",
+            "AS",
+            "IDENT"
+          ]
+        },
+        {
+          "symbols": [
+            "INCLUDE",
+            "ImportFrom"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ImportFrom",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "String"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FuncDef",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "DEF",
+            "IDENT",
+            "':'",
+            "Query",
+            "';'"
+          ]
+        },
+        {
+          "symbols": [
+            "DEF",
+            "IDENT",
+            "'('",
+            "Params",
+            "')'",
+            "':'",
+            "Query",
+            "';'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Params",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Param"
+          ]
+        },
+        {
+          "symbols": [
+            "Params",
+            "';'",
+            "Param"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Param",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StringStart",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "FORMAT",
+            "QQSTRING_START"
+          ]
+        },
+        {
+          "symbols": [
+            "QQSTRING_START"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "String",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "StringStart",
+            "QQString",
+            "QQSTRING_END"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "QQString",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "QQString",
+            "QQSTRING_TEXT"
+          ]
+        },
+        {
+          "symbols": [
+            "QQString",
+            "QQSTRING_INTERP_START",
+            "Query",
+            "QQSTRING_INTERP_END"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ElseBody",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "ELSE_IF",
+            "Query",
+            "THEN",
+            "Query",
+            "ElseBody"
+          ]
+        },
+        {
+          "symbols": [
+            "ELSE",
+            "Query",
+            "END"
+          ]
+        },
+        {
+          "symbols": [
+            "END"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Term",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "'.'"
+          ]
+        },
+        {
+          "symbols": [
+            "REC"
+          ]
+        },
+        {
+          "symbols": [
+            "BREAK",
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "BREAK",
+            "error"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "FIELD",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "FIELD",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "String",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "'.'",
+            "String",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "FIELD"
+          ]
+        },
+        {
+          "symbols": [
+            "FIELD"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "String"
+          ]
+        },
+        {
+          "symbols": [
+            "'.'",
+            "String"
+          ]
+        },
+        {
+          "symbols": [
+            "'.'",
+            "error"
+          ]
+        },
+        {
+          "symbols": [
+            "'.'",
+            "IDENT",
+            "error"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "'['",
+            "Query",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "'['",
+            "Query",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "'['",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'.'",
+            "'['",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "':'",
+            "Query",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "':'",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "':'",
+            "Query",
+            "']'",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "':'",
+            "Query",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "Query",
+            "':'",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "':'",
+            "Query",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'?'"
+          ]
+        },
+        {
+          "symbols": [
+            "LITERAL"
+          ]
+        },
+        {
+          "symbols": [
+            "String"
+          ]
+        },
+        {
+          "symbols": [
+            "FORMAT"
+          ]
+        },
+        {
+          "symbols": [
+            "'-'",
+            "Term"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "Query",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "Query",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "DictPairs",
+            "'}'"
+          ]
+        },
+        {
+          "symbols": [
+            "REDUCE",
+            "Expr",
+            "AS",
+            "Patterns",
+            "'('",
+            "Query",
+            "';'",
+            "Query",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "FOREACH",
+            "Expr",
+            "AS",
+            "Patterns",
+            "'('",
+            "Query",
+            "';'",
+            "Query",
+            "';'",
+            "Query",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "FOREACH",
+            "Expr",
+            "AS",
+            "Patterns",
+            "'('",
+            "Query",
+            "';'",
+            "Query",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "IF",
+            "Query",
+            "THEN",
+            "Query",
+            "ElseBody"
+          ]
+        },
+        {
+          "symbols": [
+            "IF",
+            "Query",
+            "THEN",
+            "error"
+          ]
+        },
+        {
+          "symbols": [
+            "TRY",
+            "Expr",
+            "CATCH",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "TRY",
+            "Expr",
+            "CATCH",
+            "error"
+          ]
+        },
+        {
+          "symbols": [
+            "TRY",
+            "Expr"
+          ]
+        },
+        {
+          "symbols": [
+            "'$'",
+            "'$'",
+            "'$'",
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "LOC"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENT"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENT",
+            "'('",
+            "Args",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "error",
+            "')'"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "error",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "Term",
+            "'['",
+            "error",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "error",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Args",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Arg"
+          ]
+        },
+        {
+          "symbols": [
+            "Args",
+            "';'",
+            "Arg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arg",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Query"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RepPatterns",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "RepPatterns",
+            "ALTERNATION",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "Pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Patterns",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "RepPatterns",
+            "ALTERNATION",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "Pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pattern",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "'['",
+            "ArrayPats",
+            "']'"
+          ]
+        },
+        {
+          "symbols": [
+            "'{'",
+            "ObjPats",
+            "'}'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ArrayPats",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "ArrayPats",
+            "','",
+            "Pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ObjPats",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "ObjPat"
+          ]
+        },
+        {
+          "symbols": [
+            "ObjPats",
+            "','",
+            "ObjPat"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ObjPat",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "BINDING",
+            "':'",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENT",
+            "':'",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "Keyword",
+            "':'",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "String",
+            "':'",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "Query",
+            "')'",
+            "':'",
+            "Pattern"
+          ]
+        },
+        {
+          "symbols": [
+            "error",
+            "':'",
+            "Pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Keyword",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "AS"
+          ]
+        },
+        {
+          "symbols": [
+            "DEF"
+          ]
+        },
+        {
+          "symbols": [
+            "MODULE"
+          ]
+        },
+        {
+          "symbols": [
+            "IMPORT"
+          ]
+        },
+        {
+          "symbols": [
+            "INCLUDE"
+          ]
+        },
+        {
+          "symbols": [
+            "IF"
+          ]
+        },
+        {
+          "symbols": [
+            "THEN"
+          ]
+        },
+        {
+          "symbols": [
+            "ELSE"
+          ]
+        },
+        {
+          "symbols": [
+            "ELSE_IF"
+          ]
+        },
+        {
+          "symbols": [
+            "REDUCE"
+          ]
+        },
+        {
+          "symbols": [
+            "FOREACH"
+          ]
+        },
+        {
+          "symbols": [
+            "END"
+          ]
+        },
+        {
+          "symbols": [
+            "AND"
+          ]
+        },
+        {
+          "symbols": [
+            "OR"
+          ]
+        },
+        {
+          "symbols": [
+            "TRY"
+          ]
+        },
+        {
+          "symbols": [
+            "CATCH"
+          ]
+        },
+        {
+          "symbols": [
+            "LABEL"
+          ]
+        },
+        {
+          "symbols": [
+            "BREAK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DictPairs",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "DictPair"
+          ]
+        },
+        {
+          "symbols": [
+            "DictPair",
+            "','",
+            "DictPairs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DictPair",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "IDENT",
+            "':'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "Keyword",
+            "':'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "String",
+            "':'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "String"
+          ]
+        },
+        {
+          "symbols": [
+            "BINDING",
+            "':'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "BINDING"
+          ]
+        },
+        {
+          "symbols": [
+            "IDENT"
+          ]
+        },
+        {
+          "symbols": [
+            "LOC"
+          ]
+        },
+        {
+          "symbols": [
+            "Keyword"
+          ]
+        },
+        {
+          "symbols": [
+            "'('",
+            "Query",
+            "')'",
+            "':'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "error",
+            "':'",
+            "DictExpr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DictExpr",
+      "kind": "normal",
+      "alternatives": [
+        {
+          "symbols": [
+            "DictExpr",
+            "'|'",
+            "DictExpr"
+          ]
+        },
+        {
+          "symbols": [
+            "Expr"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "start": "start",
+  "rules": [
+    {
+      "name": "$accept",
+      "kind": "accept",
+      "line": 5,
+      "alternatives": [
+        {
+          "symbols": [
+            "start",
+            "YYEOF"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "option_'\\n'",
+      "kind": "parameterized",
+      "line": 5,
+      "alternatives": [
+        {
+          "symbols": []
+        },
+        {
+          "symbols": [
+            "'\\n'"
+          ]
+        }
+      ],
+      "origin": {
+        "template": "option",
+        "args": [
+          "'\\n'"
+        ]
+      }
+    },
+    {
+      "name": "$@1",
+      "kind": "midrule",
+      "line": 5,
+      "alternatives": [
+        {
+          "symbols": []
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "kind": "normal",
+      "line": 5,
+      "alternatives": [
+        {
+          "symbols": [
+            "option_'\\n'",
+            "$@1",
+            "items",
+            "'>'"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "items",
+      "kind": "normal",
+      "line": 6,
+      "alternatives": [
+        {
+          "symbols": [
+            "WORD"
+          ]
+        },
+        {
+          "symbols": [
+            "items",
+            "','",
+            "WORD"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "option_user_named",
+      "kind": "normal",
+      "line": 7,
+      "alternatives": [
+        {
+          "symbols": [
+            "WORD"
+          ]
+        }
+      ]
+    }
+  ],
+  "terminals": [
+    {
+      "name": "YYEOF",
+      "display": "end of file",
+      "kind": "internal",
+      "alias": "\"end of file\""
+    },
+    {
+      "name": "YYerror",
+      "display": "error",
+      "kind": "internal",
+      "alias": "error"
+    },
+    {
+      "name": "YYUNDEF",
+      "display": "invalid token",
+      "kind": "internal",
+      "alias": "\"invalid token\""
+    },
+    {
+      "name": "WORD",
+      "display": "word",
+      "kind": "keyword",
+      "alias": "\"`word'\""
+    },
+    {
+      "name": "LT",
+      "display": "<",
+      "kind": "punct",
+      "alias": "\"<\""
+    },
+    {
+      "name": "CLASS",
+      "display": "class",
+      "kind": "keyword",
+      "alias": "\"'class'\""
+    },
+    {
+      "name": "'\\n'",
+      "display": "\\n",
+      "kind": "punct"
+    },
+    {
+      "name": "'>'",
+      "display": ">",
+      "kind": "punct"
+    },
+    {
+      "name": "','",
+      "display": ",",
+      "kind": "punct"
+    }
+  ]
+}
