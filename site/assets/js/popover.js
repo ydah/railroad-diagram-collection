@@ -1,3 +1,5 @@
+import { renderDiagram } from "./diagrams.js";
+
 export function initPopover() {
   const popover = document.createElement("div");
   popover.id = "rule-preview";
@@ -33,7 +35,7 @@ export function initPopover() {
   };
   const show = (link) => {
     const section = document.getElementById(link.getAttribute("href")?.slice(1));
-    const svg = section?.querySelector(".diagram-scroll > svg");
+    const svg = renderDiagram(section);
     if (!svg) return;
     hide();
     trigger = link;

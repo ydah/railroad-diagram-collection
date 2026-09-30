@@ -2,6 +2,7 @@ import { initHighlight } from "./highlight.js";
 import { initToc } from "./toc.js";
 import { initViewOptions } from "./view-options.js";
 import { initShortcuts } from "./shortcuts.js";
+import { initDiagrams, renderDiagram } from "./diagrams.js";
 
 document.documentElement.dataset.js = "true";
 initViewOptions();
@@ -19,10 +20,11 @@ function announce(message) {
 
 let popover;
 const loadPopover = () => popover ??= import("./popover.js").then(({ initPopover }) => initPopover());
-initHighlight(document.querySelector("main"), (target, entered, event) => {
+const invalidateHighlight = initHighlight(document.querySelector("main"), (target, entered, event) => {
   loadPopover().then((view) => view.reference(target, entered, event)).catch(() => {});
 });
-if (document.querySelector("a.rr-nt")) {
+initDiagrams(invalidateHighlight);
+if (document.querySelector("a.rr-nt, svg[data-placeholder]")) {
   if ("requestIdleCallback" in window) requestIdleCallback(loadPopover, { timeout: 2000 });
   else setTimeout(loadPopover, 1000);
 }
@@ -56,7 +58,7 @@ document.addEventListener("click", async (event) => {
   const rule = button?.closest("section.rule");
   if (!rule) return;
   const action = button.dataset.action;
-  const svg = rule.querySelector(".diagram-scroll > svg");
+  const svg = renderDiagram(rule);
   if (action === "copy-link") {
     const url = new URL(location.href);
     url.hash = rule.id;

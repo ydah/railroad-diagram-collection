@@ -1,7 +1,7 @@
 const TARGET = "a.rr-nt, .rule-title";
 
 export function initHighlight(root = document.querySelector("main"), onReference = () => {}) {
-  if (!root) return;
+  if (!root) return () => {};
   let index;
   let active = [];
   const clear = () => {
@@ -38,4 +38,5 @@ export function initHighlight(root = document.querySelector("main"), onReference
   root.addEventListener("pointerout", leave);
   root.addEventListener("focusin", enter);
   root.addEventListener("focusout", leave);
+  return () => { index = undefined; };
 }

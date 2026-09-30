@@ -54,6 +54,13 @@ module Rdc
         output.gsub('href="#', 'href="' + h(link_base) + '#')
       end
 
+      def lazy_svg(page, name, **options)
+        output = svg(page, name, **options)
+        root = Nokogiri::XML(output).root
+        size = %w[width height viewBox].map { |attribute| %(#{attribute}="#{h(root[attribute])}") }.join(" ")
+        %(<svg xmlns="http://www.w3.org/2000/svg" class="rr railroad-diagram" data-placeholder aria-hidden="true" #{size}></svg><noscript>#{output}</noscript>)
+      end
+
       def diff_classes(rule, symbols, kind, epsilon_rules)
         normalized = symbols.map { |values| IR::Normalize.symbols(values, epsilon_rules) }
         rule.fetch("alternatives").map do |alternative|

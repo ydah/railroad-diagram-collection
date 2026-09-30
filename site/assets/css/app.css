@@ -102,7 +102,9 @@ section.rule:target { border-top-color: var(--focus); }
 .rule-path a { display: inline-flex; align-items: center; min-width: 24px; min-height: 24px; padding: .1rem .15rem; font-family: var(--mono); }
 .rule-figure { margin: .5rem 0 1rem; min-width: 0; }
 .diagram-scroll { max-width: 100%; overflow: auto; padding: .2rem; border-radius: 3px; background: var(--bg); }
-.diagram-scroll > svg { display: block; max-width: none; height: auto; margin: 0; }
+.diagram-scroll > svg, .diagram-scroll > noscript > svg { display: block; max-width: none; height: auto; margin: 0; }
+.diagram-scroll > svg[data-placeholder] { display: none; }
+:root[data-js] .diagram-scroll > svg[data-placeholder] { display: block; }
 :root[data-width="fit"] .diagram-scroll > svg { width: 100%; height: auto; }
 .rr, .railroad-diagram { background: var(--bg); }
 :is(.rr, .railroad-diagram) path { stroke: var(--rr-line); stroke-width: 3; fill: none; }
@@ -211,6 +213,6 @@ kbd { font: .9rem var(--mono); border: 1px solid var(--border); border-bottom-wi
   main { padding: 0; }
   section.rule { content-visibility: visible; break-inside: avoid; }
   .diagram-scroll { overflow: visible; }
-  .diagram-scroll > svg { max-width: 100%; height: auto; }
+  .diagram-scroll > svg, .diagram-scroll > noscript > svg { max-width: 100%; height: auto; }
   a { color: black; }
 }
