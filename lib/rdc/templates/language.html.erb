@@ -38,7 +38,7 @@
     <header class="rule-head">
       <h2 class="rule-title" id="h-<%= id %>"><%= rule_link(name) %></h2>
     </header>
-    <figure class="rule-figure" data-placeholder><div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= h(t('diagram_of') + ' ' + (index + 1).to_s + ': ' + name) %>"><%= svg_placeholder(diagram) %></div></figure>
+    <figure class="rule-figure" data-placeholder aria-hidden="true"><div class="diagram-scroll"><%= svg_placeholder(diagram) %></div></figure>
     <noscript>
     <details class="rule-tools-menu js-only"><summary><%= t('tools') %></summary><div class="rule-tools">
         <% %w[copy-link svg png bnf copy-bnf zoom-in zoom-out zoom-reset fullscreen].each do |action| %><button type="button" data-action="<%= action %>" aria-label="<%= h(t(action)) %>: <%= h(name) %>"><%= h(t(action)) %></button> <% end %>
