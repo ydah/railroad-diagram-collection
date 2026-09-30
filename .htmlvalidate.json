@@ -1,0 +1,11 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "valid-id": ["error", {"relaxed": true}],
+    "void-style": "off",
+    "svg-focusable": "off",
+    "no-trailing-whitespace": "off",
+    "wcag/h32": "off",
+    "prefer-native-element": "off"
+  }
+}

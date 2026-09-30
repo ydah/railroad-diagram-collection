@@ -1,0 +1,5 @@
+<div class="search js-only">
+  <label for="search"><%= t('search') %></label>
+  <input id="search" type="search" role="combobox" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list" autocomplete="off" data-index="<%= api(@page ? "search/#{@page.language.id}-#{@page.version.id}.json" : 'search/index.json') %>" data-base="<%= url %>" placeholder="<%= t('search_placeholder') %>">
+  <ul id="search-results" role="listbox" hidden></ul>
+</div>

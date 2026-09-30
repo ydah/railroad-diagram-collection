@@ -1,0 +1,13 @@
+<main id="main" class="home">
+  <h1><%= t('sources_licenses') %></h1>
+  <p><%= t('license_note') %></p>
+  <% @builder.pages.group_by { |page| page.language.id }.each_value do |group| page = group.first %>
+  <section>
+    <h2><%= h(page.language.name) %></h2>
+    <p><a href="<%= h(page.language.license['url']) %>"><%= h(page.language.license['name']) %></a> / <a href="<%= @root %>licenses/<%= page.language.id %>.txt"><%= t('license_text') %></a></p>
+    <ul><% group.each do |entry| %><li><a href="<%= h(source_url(entry)) %>"><%= h(entry.version.ref) %> (<%= entry.ir.dig('source', 'commit')[0, 7] %>)</a></li><% end %></ul>
+    <% if page.language.id == 'php' %><p>This product includes the Zend Engine, freely available at http://www.zend.com</p><p>The Zend Engine is freely available at http://www.zend.com</p><% end %>
+    <details><summary><%= t('license_text') %></summary><pre tabindex="0"><%= h(File.read(File.join(ROOT, 'grammars', page.language.id, 'LICENSE.upstream'), encoding: 'UTF-8')) %></pre></details>
+  </section>
+  <% end %>
+</main>

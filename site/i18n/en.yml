@@ -1,0 +1,89 @@
+description: Explore versioned parser grammars with linked railroad diagrams, readable syntax, BNF and grammar changes.
+home_title: Programming language railroad diagrams
+diagrams: railroad diagrams
+languages: Languages
+licenses: Licenses
+sources_licenses: Sources and licenses
+license_note: Site code is MIT licensed. Diagrams and grammar data retain the terms and attribution of their upstream sources.
+license_text: License text and attribution
+skip: Skip to content
+site_navigation: Site navigation
+theme: Theme
+system: System
+light: Light
+dark: Dark
+rules: Rules
+terminals: Tokens
+versions: Versions
+source: Source
+changelog: Grammar changes
+parser_grammar: These diagrams describe a parser grammar, rather than the complete language specification. Lexer state and semantic checks may impose additional restrictions.
+parse_y_vs_prism: Ruby uses Prism by default since 3.4. These diagrams describe parse.y (--parser=parse.y); accepted syntax can differ from Prism.
+grammar_snapshot: This is an upstream ANTLR grammar snapshot. Its date identifies the grammar revision, rather than a language release.
+search: Search rules and tokens
+search_placeholder: Rule, keyword or operator
+filter: Filter rules
+readable: Readable
+raw: Original grammar
+width: Diagram width
+actual_size: Actual size
+fit: Fit to width
+internal_rules: Show internal rules
+shortcuts: Keyboard shortcuts
+shortcut_keys: '/ focuses search. j and k move between rules. ? opens this help. Escape closes it.'
+enable_shortcuts: Enable single key shortcuts
+close: Close
+tools: Diagram tools
+copy-link: Copy link
+copy-bnf: Copy BNF
+svg: Save SVG
+png: Save PNG
+bnf: Show BNF
+zoom-in: Zoom in
+zoom-out: Zoom out
+zoom-reset: Reset zoom
+fullscreen: Full screen
+path: Path from start symbol
+diagram_of: Diagram of
+used_by: Used by
+references: References
+unreachable: Unreachable
+nonproductive: No finite derivation
+shortest: Shortest derivation
+derivation_note: This is a token sequence derived from the grammar. It may require lexer context or semantic checks to be valid code.
+example: Code example
+added_in: Added in
+alternatives_added_in: alternatives added in
+reading_title: How to read the diagrams
+reading_description: Follow a path from left to right. Rounded boxes are tokens; square boxes link to other rules. Bypasses make a part optional and loops repeat it.
+required: Required element
+optional: Optional element
+repetition: Repetition
+choice: Alternative paths
+all: All changes
+added: Added
+removed: Removed
+changed: Changed
+reordered: Reordered
+not_found: Page not found
+copied: Copied
+copy_failed: Copy unavailable. Select the BNF text to copy it.
+search_empty: No matching rules or tokens
+search_failed: Search unavailable. Use the rule list.
+search_count: '{count} results'
+preview: Rule preview
+go_to_rule: Go to rule
+close_preview: Close preview
+export_failed: Image export failed
+fullscreen_failed: Full screen unavailable
+categories:
+  statements: Statements
+  expressions: Expressions
+  literals: Literals
+  patterns: Patterns
+  declarations: Declarations
+kinds:
+  accept: Start wrapper
+  midrule: Midrule action
+  parameterized: Parameterized rule
+  inline: Inline rule

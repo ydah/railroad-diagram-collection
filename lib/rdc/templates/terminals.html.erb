@@ -1,0 +1,11 @@
+<main id="main" class="home">
+  <h1><%= h(@page.language.name) %> <%= h(@page.version.id) %>: <%= t('terminals') %></h1>
+  <p><a href="<%= url("#{@page.language.id}/#{@page.version.id}/") %>"><%= t('rules') %></a></p>
+  <% @page.ir['terminals'].each do |terminal| %>
+  <section id="<%= term_slug(terminal['name']) %>">
+    <h2><a href="#<%= term_slug(terminal['name']) %>"><%= h(terminal['display']) %></a></h2>
+    <p><code><%= h(terminal['name']) %></code> / <%= h(terminal['kind']) %></p>
+    <ul><% @page.analysis.terminal_uses.fetch(terminal['name'], []).each do |name| %><li><%= rule_link(name, url("#{@page.language.id}/#{@page.version.id}/")) %></li><% end %></ul>
+  </section>
+  <% end %>
+</main>

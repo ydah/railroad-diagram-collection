@@ -1,0 +1,8 @@
+<main id="main" class="home">
+  <h1><%= h(@group.first.language.name) %>: <%= t('changelog') %></h1>
+  <% @comparisons.each do |before, after| diff = after.changes %>
+  <section><h2><a href="<%= url("#{after.language.id}/diff/#{before.version.id}...#{after.version.id}/") %>"><%= h(before.version.id) %> → <%= h(after.version.id) %></a></h2>
+  <p>+<%= diff['added'].size %> / −<%= diff['removed'].size %> / <%= diff['changed'].size %> <%= t('changed') %></p>
+  <ul><% diff['changed'].each do |change| %><li><%= rule_link(change['name'], url("#{after.language.id}/#{after.version.id}/")) %></li><% end %></ul></section>
+  <% end %>
+</main>

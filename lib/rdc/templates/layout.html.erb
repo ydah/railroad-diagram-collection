@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="<%= @locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' <%= script_hash(THEME_INIT) %> <%= script_hash(structured_data) %>; object-src 'none'; base-uri 'self'; connect-src 'self'">
+  <title><%= h(@title) %> | Railroad Diagrams</title>
+  <meta name="description" content="<%= h(@description) %>">
+  <link rel="canonical" href="<%= h(canonical) %>">
+  <meta property="og:title" content="<%= h(@title) %>">
+  <meta property="og:description" content="<%= h(@description) %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= h(canonical) %>">
+  <meta property="og:image" content="<%= SITE_URL %>/assets/ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json"><%= structured_data %></script>
+  <link rel="icon" href="<%= asset('favicon.svg') %>" type="image/svg+xml">
+  <link rel="alternate" hreflang="en" href="<%= SITE_URL %>/<%= @logical_path %>">
+  <link rel="alternate" hreflang="ja" href="<%= SITE_URL %>/ja/<%= @logical_path %>">
+  <link rel="stylesheet" href="<%= asset('css/app.css') %>">
+  <script><%= THEME_INIT %></script>
+  <script type="module" src="<%= asset('js/app.js') %>"></script>
+</head>
+<body data-copied="<%= h(t('copied')) %>" data-copy-failed="<%= h(t('copy_failed')) %>" data-search-empty="<%= h(t('search_empty')) %>" data-search-failed="<%= h(t('search_failed')) %>" data-search-count="<%= h(t('search_count')) %>" data-preview-label="<%= h(t('preview')) %>" data-preview-open="<%= h(t('go_to_rule')) %>" data-preview-close="<%= h(t('close_preview')) %>" data-export-failed="<%= h(t('export_failed')) %>" data-fullscreen-failed="<%= h(t('fullscreen_failed')) %>">
+<a class="skip" href="#main"><%= t('skip') %></a>
+<header class="site-header">
+  <a class="brand" href="<%= url %>">Railroad Diagrams</a>
+  <nav class="site-nav" aria-label="<%= t('site_navigation') %>">
+    <a href="<%= url %>"><%= t('languages') %></a>
+    <a href="<%= url('licenses/') %>"><%= t('licenses') %></a>
+    <a href="https://github.com/ydah/railroad-diagram-collection">GitHub</a>
+    <a href="<%= @root + (@locale == 'ja' ? '' : 'ja/') + @logical_path %>" lang="<%= @locale == 'ja' ? 'en' : 'ja' %>" data-preserve-hash><%= @locale == 'ja' ? 'English' : '日本語' %></a>
+  </nav>
+  <label class="js-only" for="theme"><%= t('theme') %></label>
+  <select class="js-only" id="theme"><option value="system"><%= t('system') %></option><option value="light"><%= t('light') %></option><option value="dark"><%= t('dark') %></option></select>
+  <% if @page %><button class="js-only" id="toc-toggle" type="button" aria-controls="toc" aria-expanded="false" data-close="<%= t('close') %>"><%= t('rules') %></button><% end %>
+</header>
+<%= @content %>
+<footer class="site-footer">
+  <p><a href="<%= url('licenses/') %>"><%= t('sources_licenses') %></a> / <a href="https://github.com/ydah/railroad-diagram-collection/blob/main/LICENSE">MIT</a> / © 2025–<%= Time.now.year %></p>
+  <p><%= t('parser_grammar') %></p>
+</footer>
+<div class="js-only" id="status" role="status" aria-live="polite"></div>
+<dialog id="shortcut-help" aria-labelledby="shortcut-title">
+  <h2 id="shortcut-title"><%= t('shortcuts') %></h2>
+  <p><%= t('shortcut_keys') %></p>
+  <label><input id="shortcuts-enabled" type="checkbox" checked><%= t('enable_shortcuts') %></label>
+  <button type="button" data-action="close-help"><%= t('close') %></button>
+</dialog>
+</body>
+</html>

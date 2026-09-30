@@ -1,0 +1,89 @@
+description: バージョンごとのパーサ文法を、規則間リンク付きの構文図、BNF、変更履歴から調べられます。
+home_title: プログラミング言語の構文図
+diagrams: 構文図
+languages: 言語一覧
+licenses: ライセンス
+sources_licenses: 出典とライセンス
+license_note: サイトのコードはMITライセンスです。構文図と文法データには、元の文法のライセンスと著作権表示が適用されます。
+license_text: ライセンス本文と著作権表示
+skip: 本文へ移動
+site_navigation: サイト内の移動
+theme: 配色
+system: OSに合わせる
+light: ライト
+dark: ダーク
+rules: 規則
+terminals: トークン
+versions: バージョン
+source: 出典
+changelog: 文法の変更履歴
+parser_grammar: この図はパーサ向けの文法を表しています。言語仕様そのものではなく、字句解析器の状態や意味検査による制約は図に表れません。
+parse_y_vs_prism: Ruby 3.4以降の既定パーサはPrismです。この図はparse.y（--parser=parse.y）の文法であり、Prismと受理する構文が異なる場合があります。
+grammar_snapshot: 上流のANTLR文法を収録しています。日付は文法の更新時期であり、言語のリリース日ではありません。
+search: 規則とトークンを検索
+search_placeholder: 規則名・キーワード・演算子
+filter: 規則を絞り込む
+readable: 読みやすい表示
+raw: 原文どおり
+width: 図の幅
+actual_size: 原寸
+fit: 幅に合わせる
+internal_rules: 内部規則を表示
+shortcuts: キーボード操作
+shortcut_keys: /で検索、jとkで前後の規則へ移動、?でこのヘルプを表示します。Escapeで閉じます。
+enable_shortcuts: 1文字のショートカットを有効にする
+close: 閉じる
+tools: 図の操作
+copy-link: リンクをコピー
+copy-bnf: BNFをコピー
+svg: SVGを保存
+png: PNGを保存
+bnf: BNFを表示
+zoom-in: 拡大
+zoom-out: 縮小
+zoom-reset: 原寸に戻す
+fullscreen: 全画面
+path: 開始記号からの経路
+diagram_of: 構文図
+used_by: この規則を参照する規則
+references: 参照先
+unreachable: 開始記号から到達できない規則
+nonproductive: 有限の記号列を導出できない規則
+shortest: 最短の導出例
+derivation_note: 文法から導出したトークン列です。実際のコードとして成立するには、字句解析や意味検査の条件を満たす必要があります。
+example: コード例
+added_in: 追加された版
+alternatives_added_in: 選択肢の追加された版
+reading_title: 構文図の読み方
+reading_description: 左から右へ線をたどります。角の丸い箱はトークン、四角い箱は別の規則へのリンクです。迂回路は省略、ループは繰り返しを表します。
+required: 必須の要素
+optional: 省略できる要素
+repetition: 繰り返し
+choice: 選択肢
+all: すべての変更
+added: 追加
+removed: 削除
+changed: 変更
+reordered: 並び替え
+not_found: ページが見つかりません
+copied: コピーしました
+copy_failed: コピーできません。BNFのテキストを選択してコピーしてください。
+search_empty: 一致する規則やトークンがありません
+search_failed: 検索できません。規則一覧から探してください。
+search_count: '{count}件'
+preview: 規則のプレビュー
+go_to_rule: 規則へ移動
+close_preview: プレビューを閉じる
+export_failed: 画像を保存できませんでした
+fullscreen_failed: 全画面表示を利用できません
+categories:
+  statements: 文
+  expressions: 式
+  literals: リテラル
+  patterns: パターン
+  declarations: 宣言
+kinds:
+  accept: 開始記号の補助規則
+  midrule: 中間アクション
+  parameterized: パラメータ化規則
+  inline: インライン規則

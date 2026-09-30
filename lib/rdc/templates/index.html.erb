@@ -1,0 +1,30 @@
+<main id="main" class="home">
+  <h1><%= t('home_title') %></h1>
+  <p class="intro"><%= t('description') %></p>
+  <%= template('search') %>
+  <section aria-labelledby="languages-title">
+    <h2 id="languages-title"><%= t('languages') %></h2>
+    <div class="language-grid">
+    <% @builder.pages.group_by { |page| page.language.id }.each_value do |group| page = group.find { |entry| entry.version.default } || group.first %>
+      <article class="language-card">
+        <h3><a href="<%= url("#{page.language.id}/#{page.version.default ? '' : page.version.id + '/'}") %>"><%= h(page.language.name) %></a></h3>
+        <p><%= h(page.meta.dig('description', @locale) || '') %></p>
+        <p><%= page.ir['rules'].size %> <%= t('rules') %> / <%= page.ir['terminals'].size %> <%= t('terminals') %></p>
+        <p><%= group.map { |entry| %(<a href="#{url("#{entry.language.id}/#{entry.version.id}/")}">#{h(entry.version.id)}</a>) }.join(' / ') %></p>
+        <p class="source"><a href="<%= h(source_url(page)) %>"><%= h(page.version.ref) %></a> / <%= h(page.ir.dig('source', 'committed_at').to_s[0, 10]) %></p>
+      </article>
+    <% end %>
+    </div>
+  </section>
+  <section aria-labelledby="reading-title" class="legend">
+    <h2 id="reading-title"><%= t('reading_title') %></h2>
+    <p><%= t('reading_description') %></p>
+    <% terminal = { 'name' => 'item', 'display' => 'item', 'kind' => 'class' }; legend_ir = { 'terminals' => [terminal], 'rules' => [] }
+       { 'required' => { 't' => 'term', 'name' => 'item' }, 'optional' => { 't' => 'opt', 'item' => { 't' => 'term', 'name' => 'item' } },
+         'repetition' => { 't' => 'plus', 'item' => { 't' => 'term', 'name' => 'item' } },
+         'choice' => { 't' => 'choice', 'items' => [{ 't' => 'term', 'name' => 'item' }, { 't' => 'eps' }] } }.each do |key, expression| %>
+    <h3 id="legend-<%= key %>"><%= t(key) %></h3>
+    <div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= t(key) %>"><%= Render::SVG.new(legend_ir).render(expression, heading_id: "legend-#{key}") %></div>
+    <% end %>
+  </section>
+</main>

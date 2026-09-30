@@ -1,0 +1,17 @@
+{
+  "name": "railroad-diagram-collection",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/ui_test.mjs",
+    "test:e2e": "playwright test",
+    "validate": "node scripts/validate_html.mjs",
+    "lighthouse": "node scripts/check_performance.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "html-validate": "11.16.1",
+    "lighthouse": "13.5.0"
+  }
+}

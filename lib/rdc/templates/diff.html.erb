@@ -1,0 +1,26 @@
+<main id="main" class="diff-page">
+  <h1><%= h(@after.language.name) %>: <%= h(@before.version.id) %> → <%= h(@after.version.id) %></h1>
+  <p>+<%= @diff['added'].size %> / −<%= @diff['removed'].size %> / <%= @diff['changed'].size %> <%= t('changed') %></p>
+  <p><a href="diff.json">JSON</a> / <a href="<%= url("#{@after.language.id}/changelog/") %>"><%= t('changelog') %></a></p>
+  <label class="js-only" for="diff-filter"><%= t('filter') %></label><select class="js-only" id="diff-filter"><% %w[all added removed changed reordered].each do |kind| %><option value="<%= kind %>"><%= t(kind) %></option><% end %></select>
+  <h2><%= t('terminals') %></h2><p>+ <%= h(@diff['terminals']['added'].join(', ')) %></p><p>− <%= h(@diff['terminals']['removed'].join(', ')) %></p>
+  <% @diff['added'].map { |name| ['added', name] }.concat(@diff['removed'].map { |name| ['removed', name] }).concat(@diff['changed'].map { |change| ['changed', change['name']] }).concat(@diff['reordered'].map { |name| ['reordered', name] }).each do |kind, name| %>
+  <section data-change="<%= kind %>" class="diff-rule">
+    <h2 id="diff-<%= slug(name) %>"><%= h(name) %> <span class="badge"><%= kind == 'added' ? '+' : kind == 'removed' ? '−' : '±' %> <%= t(kind) %></span></h2>
+    <div class="diff-pair">
+    <% change = @diff['changed'].find { |entry| entry['name'] == name }
+       [@before, @after].each_with_index do |page, index| rule = page.ir['rules'].find { |entry| entry['name'] == name }; next unless rule; heading = "#{index}-h-#{slug(name)}"
+         classes = if change
+           diff_classes(rule, change[index.zero? ? 'removed' : 'added'], index.zero? ? 'removed' : 'added', Array(page.meta['epsilon_rules']))
+         elsif %w[added removed].include?(kind)
+           Array.new(rule['alternatives'].size, "alt-#{kind}")
+         end %>
+      <div><h3 id="<%= heading %>"><a href="<%= url("#{page.language.id}/#{page.version.id}/raw/") %>#<%= slug(name) %>"><%= h(page.version.id) %></a></h3>
+      <div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= h(name + ' ' + page.version.id) %>"><%= svg(page, name, raw: true, heading: heading, alt_classes: classes, link_base: url("#{page.language.id}/#{page.version.id}/raw/")) %></div>
+      <pre tabindex="0" class="<%= index.zero? ? 'removed' : 'added' %>"><code><%= h(bnf(rule).lines.map { |line| (index.zero? ? '− ' : '+ ') + line }.join) %></code></pre></div>
+    <% end %>
+    </div>
+    <% if change %><details><summary>BNF diff</summary><pre tabindex="0"><code><%= h(unified_diff(name)) %></code></pre></details><% end %>
+  </section>
+  <% end %>
+</main>
