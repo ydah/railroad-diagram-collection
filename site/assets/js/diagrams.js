@@ -1,24 +1,32 @@
 let onRender = () => {};
 
 export function renderDiagram(containerOrRule) {
-  const container = containerOrRule?.matches(".diagram-scroll") ? containerOrRule : containerOrRule?.querySelector(".diagram-scroll");
-  const placeholder = container?.querySelector(":scope > svg");
-  if (!placeholder?.hasAttribute("data-placeholder")) return placeholder;
-  const source = container.querySelector(":scope > noscript");
-  if (!source) return placeholder;
-  const parsed = new DOMParser().parseFromString(source.textContent, "image/svg+xml");
-  if (parsed.documentElement.localName !== "svg" || parsed.documentElement.namespaceURI !== "http://www.w3.org/2000/svg" || parsed.querySelector("parsererror")) throw new Error("Invalid diagram SVG");
-  const svg = document.importNode(parsed.documentElement, true);
-  placeholder.replaceWith(svg);
+  const rule = containerOrRule?.closest("section.rule");
+  const placeholder = rule?.querySelector(":scope > figure[data-placeholder]");
+  if (!placeholder) return rule?.querySelector(".diagram-scroll > svg");
+  const source = rule.querySelector(":scope > noscript");
+  if (!source) return placeholder.querySelector("svg");
+  const template = document.createElement("template");
+  template.innerHTML = source.textContent;
+  const svg = template.content.querySelector(".diagram-scroll > svg");
+  if (!svg || svg.namespaceURI !== "http://www.w3.org/2000/svg") throw new Error("Invalid diagram SVG");
+  const menu = template.content.querySelector(".rule-tools-menu");
+  if (menu) {
+    menu.open = !matchMedia("(max-width: 767px)").matches;
+    rule.querySelector(":scope > .rule-head").append(menu);
+  }
+  const focused = placeholder.contains(document.activeElement);
+  placeholder.replaceWith(template.content);
   source.remove();
   onRender();
+  if (focused) svg.parentElement.focus({ preventScroll: true });
   return svg;
 }
 
 export function initDiagrams(afterRender = () => {}) {
   onRender = afterRender;
-  const containers = [...document.querySelectorAll(".diagram-scroll > svg[data-placeholder]")].map((svg) => svg.parentElement);
-  const renderAll = () => containers.forEach(renderDiagram);
+  const rules = [...document.querySelectorAll("section.rule > figure[data-placeholder]")].map((figure) => figure.parentElement);
+  const renderAll = () => rules.forEach(renderDiagram);
   const renderHash = () => {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
@@ -36,5 +44,5 @@ export function initDiagrams(afterRender = () => {}) {
       observer.unobserve(entry.target);
     }
   }, { rootMargin: "200px" });
-  containers.forEach((container) => observer.observe(container));
+  rules.forEach((rule) => observer.observe(rule));
 }

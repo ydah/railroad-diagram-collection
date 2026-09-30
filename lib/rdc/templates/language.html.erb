@@ -33,25 +33,29 @@
     <button class="js-only" type="button" data-action="help"><%= t('shortcuts') %></button>
   </div>
   <% @page.ir['rules'].each_with_index do |rule, index| name = rule['name']; id = slug(name); change = Array(@page.changes['changed']).find { |entry| entry['name'] == name } %>
+  <% diagram = svg(@page, name, alt_classes: @raw && change ? diff_classes(rule, change['added'], 'added', Array(@page.meta['epsilon_rules'])) : nil) %>
   <section class="rule" id="<%= id %>" data-kind="<%= h(rule['kind']) %>">
     <header class="rule-head">
       <h2 class="rule-title" id="h-<%= id %>"><%= rule_link(name) %></h2>
-      <details class="rule-tools-menu js-only"><summary><%= t('tools') %></summary><div class="rule-tools">
-        <% %w[copy-link svg png bnf copy-bnf zoom-in zoom-out zoom-reset fullscreen].each do |action| %><button type="button" data-action="<%= action %>" aria-label="<%= h(t(action)) %>: <%= h(name) %>"><%= h(t(action)) %></button> <% end %>
-      </div></details>
     </header>
+    <figure class="rule-figure" data-placeholder><div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= h(t('diagram_of') + ' ' + (index + 1).to_s + ': ' + name) %>"><%= svg_placeholder(diagram) %></div></figure>
+    <noscript>
+    <details class="rule-tools-menu js-only"><summary><%= t('tools') %></summary><div class="rule-tools">
+        <% %w[copy-link svg png bnf copy-bnf zoom-in zoom-out zoom-reset fullscreen].each do |action| %><button type="button" data-action="<%= action %>" aria-label="<%= h(t(action)) %>: <%= h(name) %>"><%= h(t(action)) %></button> <% end %>
+    </div></details>
     <% if rule['kind'] != 'normal' %><span class="badge"><%= h(t('kinds').fetch(rule['kind'], rule['kind'])) %></span><% end %>
     <% if Array(@page.changes['added']).include?(name) %><span class="badge added">+ <%= t('added_in') %> <%= h(@page.version.id) %></span><% end %>
     <% if change && !change['added'].empty? %><span class="badge added">+<%= change['added'].size %> <%= t('alternatives_added_in') %> <%= h(@page.version.id) %></span><% end %>
     <% unless @page.analysis.paths.key?(name) %><span class="badge"><%= t('unreachable') %></span><% end %>
     <% unless @page.analysis.shortest.key?(name) %><span class="badge"><%= t('nonproductive') %></span><% end %>
     <% if (path = @page.analysis.paths[name]) && path.size > 1 %><nav class="rule-path" aria-label="<%= h(t('path') + ' ' + (index + 1).to_s + ': ' + name) %>"><%= links(path) %></nav><% end %>
-    <figure class="rule-figure"><div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= h(t('diagram_of') + ' ' + (index + 1).to_s + ': ' + name) %>"><%= lazy_svg(@page, name, alt_classes: @raw && change ? diff_classes(rule, change['added'], 'added', Array(@page.meta['epsilon_rules'])) : nil) %></div></figure>
+    <figure class="rule-figure"><div class="diagram-scroll" tabindex="0" role="region" aria-label="<%= h(t('diagram_of') + ' ' + (index + 1).to_s + ': ' + name) %>"><%= diagram %></div></figure>
     <details class="rule-bnf"><summary>BNF</summary><pre tabindex="0"><code><%= h(bnf(rule)) %></code></pre><% if change && !change['added'].empty? %><p>+ <%= t('alternatives_added_in') %> <%= h(@page.version.id) %></p><pre tabindex="0"><code><%= h(change['added'].map { |symbols| '+ ' + (symbols.empty? ? 'ε' : symbols.join(' ')) }.join("\n")) %></code></pre><% end %></details>
     <details class="rule-usedby"><summary><%= t('used_by') %> (<%= @page.analysis.used_by.fetch(name, []).size %>)</summary><ul><% @page.analysis.used_by.fetch(name, []).each do |reference| %><li><%= rule_link(reference) %></li><% end %></ul></details>
     <details class="rule-refs"><summary><%= t('references') %> (<%= @page.analysis.refs.fetch(name, []).size %>)</summary><ul><% @page.analysis.refs.fetch(name, []).each do |reference| %><li><%= rule_link(reference) %></li><% end %></ul></details>
     <% if (shortest = @page.analysis.shortest[name]) %><details><summary><%= t('shortest') %></summary><p><%= t('derivation_note') %></p><pre tabindex="0"><code><%= h(shortest.empty? ? 'ε' : shortest.map { |symbol| terminal_display(@page, symbol) }.join(' ')) %></code></pre></details><% end %>
     <% if (example = @page.examples[name]) %><details><summary><%= t('example') %></summary><pre tabindex="0"><code><%= h(example.is_a?(Hash) ? example['code'] : example) %></code></pre></details><% end %>
+    </noscript>
   </section>
   <% end %>
 </main>

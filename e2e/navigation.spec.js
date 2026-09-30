@@ -58,7 +58,7 @@ test("no scripts required for rule navigation and internal deep links", async ({
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:4173/ruby/4.0/#r-~24accept");
-  expect(await page.locator("section.rule noscript > svg").count()).toBe(await page.locator("section.rule").count());
+  expect(await page.locator("section.rule noscript svg:not([data-placeholder])").count()).toBe(await page.locator("section.rule").count());
   await expect(page.locator("svg[data-placeholder]:visible")).toHaveCount(0);
   await expect(page.locator('#r-\\~24accept')).toBeVisible();
   await page.locator('#r-program a.rr-nt').first().click();
@@ -68,6 +68,7 @@ test("no scripts required for rule navigation and internal deep links", async ({
 
 test("large grammars render nearby diagrams, deep links and all diagrams for printing", async ({ page }) => {
   await page.goto("/postgresql/18/");
+  await expect(page.locator("section.rule > noscript").first()).toBeHidden();
   await expect(page.locator(".diagram-scroll > svg:not([data-placeholder])").first()).toBeVisible();
   expect(await page.locator(".diagram-scroll > svg:not([data-placeholder])").count()).toBeLessThan(20);
   const link = page.locator('.toc-rules li[data-kind="normal"] a').last();

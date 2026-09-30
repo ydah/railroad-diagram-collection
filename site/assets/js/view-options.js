@@ -72,8 +72,7 @@ export function initViewOptions() {
     document.querySelectorAll("[data-change]").forEach((section) => { section.hidden = diffFilter.value !== "all" && section.dataset.change !== diffFilter.value; });
   });
   const mobile = matchMedia("(max-width: 767px)");
-  const toolbarMenus = [...document.querySelectorAll(".rule-tools-menu")];
-  const updateMenus = () => toolbarMenus.forEach((menu) => { menu.open = !mobile.matches; });
+  const updateMenus = () => document.querySelectorAll(".rule-tools-menu").forEach((menu) => { menu.open = !mobile.matches; });
   updateMenus();
   mobile.addEventListener("change", updateMenus);
 }
