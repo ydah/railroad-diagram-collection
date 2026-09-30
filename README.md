@@ -1,68 +1,59 @@
-# Programming Language Railroad Diagrams
+# Railroad Diagram Collection
 
-A collection of railroad diagrams (syntax diagrams) for various programming languages to serve as a visual reference for developers.
+[Browse the diagrams](https://ydah.github.io/railroad-diagram-collection/) · [日本語](https://ydah.github.io/railroad-diagram-collection/ja/)
 
-## Overview
+A searchable, bilingual reference for parser grammars, with native rule links, readable and original diagrams, BNF, terminal indexes, examples, and version comparisons. Every grammar records source tags, commits, hashes, and licenses.
 
-This repository contains a website that compiles railroad diagrams for different programming languages. Railroad diagrams provide a visual representation of language syntax, making it easier to understand grammar rules compared to traditional BNF notation.
+| Language | Versions | Source format |
+|---|---|---|
+| Ruby | 4.0, 3.4 | Lrama / `parse.y` |
+| PHP | 8.5, 8.4 | Lrama / `zend_language_parser.y` |
+| Perl | 5.44, 5.42 | Lrama / `perly.y` |
+| jq | 1.8.2, 1.8.1, 1.7.1 | GNU Bison report |
+| PostgreSQL | 18, 17 | GNU Bison report |
+| mruby | 4.0, 3.4 | Lrama / `parse.y` |
+| Java | September and July 2026 snapshots | ANTLR4 / grammars-v4 |
+| Go | June and February 2026 snapshots | ANTLR4 / grammars-v4 |
 
-## Current Languages
+Java/Go dates identify grammar snapshots, not language releases. Parser productions are not the complete language specification: lexical state, semantic checks, and embedded actions also affect accepted programs. Ruby diagrams describe `parse.y`; the default Prism parser can differ.
 
-The collection currently includes railroad diagrams for:
+## Build and preview
 
-- **Ruby** - A dynamic, object-oriented language known for its elegant syntax
-- **PHP** - A widely-used scripting language especially suited for web development
-- **Perl** - A family of programming languages known for text processing capabilities
+Use Ruby 3.4+, Bundler, and Git. Node.js 24 is needed for browser checks, GNU Bison 3 for regenerating jq/PostgreSQL IR, and Docker for checking examples.
 
-## Repository Structure
-
+```sh
+bundle install
+bundle exec exe/rdc build
+bundle exec exe/rdc serve --port 8000
 ```
-.
-├── index.html         # Main landing page
-├── ruby.html          # Ruby railroad diagrams
-├── php.html           # PHP railroad diagrams
-├── perl.html          # Perl railroad diagrams
-└── README.md          # This file
+
+Open `http://127.0.0.1:8000`. Builds use committed IR without fetching upstream sources. GitHub Actions validates and publishes the generated `dist/` directory to Pages.
+
+To refresh pinned sources and regenerate IR:
+
+```sh
+bundle exec exe/rdc fetch
+bundle exec exe/rdc ir
+bundle exec exe/rdc build
 ```
 
-## Purpose
+Limit `fetch`/`ir` with `ruby` or `php@8.4`; `build --only php` builds both PHP versions. Existing output directories must carry the generated `.rdc-site` marker before replacement.
 
-Railroad diagrams help developers:
-- Quickly understand language syntax
-- Visualize complex grammar rules
-- See valid code structures at a glance
-- Learn new languages more intuitively
+```sh
+bundle exec exe/rdc diff php 8.4 8.5
+bundle exec exe/rdc diff ruby 3.4 4.0 --format json
+bundle exec exe/rdc check-updates
+bundle exec exe/rdc doctor
+```
 
-## Contributing
+## Data and development
 
-Want to contribute railroad diagrams for other programming languages? Follow these steps:
+`grammars/manifest.yml` records sources, frontends, preparation commands, and versions; `grammars/lock.yml` pins resolved commits and hashes. `data/<language>/<version>.json` is the IR, validated against [schema/ir-v1.json](schema/ir-v1.json). `lib/rdc/` contains extraction, analysis, simplification, rendering, and site generation. `site/` contains browser assets and translations.
 
-1. Fork the repository
-2. Create a new HTML file for your language used by [Lrama](https://github.com/ruby/lrama) (e.g., `python.html`)
-3. Follow the existing format used in other language files
-4. Add your language to the main page (`index.html`)
-5. Submit a pull request
+The static API starts at [`/api/v1/index.json`](https://ydah.github.io/railroad-diagram-collection/api/v1/index.json), with IR, search indexes, and metrics. Bison/Yacc, ANTLR4, EBNF, and PEG adapters have fixtures. EBNF/PEG support a documented subset and reject unsupported notation.
 
-## Requirements for Contributions
-
-When creating railroad diagrams for new languages:
-
-- Ensure diagrams are accurate and reflect the current language specification
-- Include references to official language documentation
-- Follow the established style guidelines
-- Ensure the page is accessible and works across different browsers
-
-## Future Plans
-
-- Add more programming languages (Python, JavaScript, Go, etc.)
-- Improve mobile responsiveness
-- Add search functionality
-- Create a consistent style guide for all diagrams
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [source notes](docs/SOURCES.md), [Lrama master verification](docs/LRAMA_MASTER.md), and the [implementation record](docs/IMPLEMENTATION.md). Python and JavaScript need suitable grammar sources and frontend validation before inclusion; Lrama cannot read arbitrary language specifications.
 
 ## License
 
-This project is licensed under the MIT License - [see the LICENSE file for details](./MIT).
-
-## Contact
-
-For questions, suggestions, or contributions, please open an issue in this repository.
+Site code is [MIT](LICENSE). Grammar data retains upstream licenses; attributed copies are kept in `grammars/<language>/LICENSE.upstream` and published on the licenses page.

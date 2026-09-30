@@ -1,0 +1,15 @@
+name: Language or version request
+description: Suggest a pinned grammar source.
+body:
+  - type: input
+    id: language
+    attributes: {label: Language and version}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: Upstream grammar URL, description: Link a tag or immutable commit.}
+    validations: {required: true}
+  - type: textarea
+    id: license
+    attributes: {label: Format and license, description: Identify the grammar format and its file-level license.}
+    validations: {required: true}

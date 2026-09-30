@@ -1,0 +1,19 @@
+name: External links
+on:
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.4', bundler-cache: true}
+      - run: bundle exec exe/rdc build
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 4 --accept 200,429 dist/**/*.html
+          fail: true

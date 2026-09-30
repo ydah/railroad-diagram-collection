@@ -1,0 +1,70 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - run: bundle exec rake test
+      - run: bundle exec exe/rdc build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist
+          include-hidden-files: true
+  checks:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with: {name: dist, path: dist}
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.4', bundler-cache: true}
+      - uses: actions/setup-node@v7
+        with: {node-version: '24', cache: npm}
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate
+      - run: bundle exec ruby scripts/check_links.rb dist
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with: {name: browser-failures, path: test-results}
+  performance:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with: {name: dist, path: dist}
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.4', bundler-cache: true}
+      - uses: actions/setup-node@v7
+        with: {node-version: '24', cache: npm}
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lighthouse
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with: {name: lighthouse, path: .lighthouseci/reports, include-hidden-files: true}
+  examples:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - uses: actions/checkout@v7
+        with: {persist-credentials: false}
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.4'}
+      - run: ruby scripts/check_examples.rb

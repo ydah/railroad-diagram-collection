@@ -1,0 +1,47 @@
+name: Upstream watch
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.4', bundler-cache: true}
+      - id: check
+        run: bundle exec exe/rdc check-updates --write-manifest --summary tmp/summary.md
+      - if: steps.check.outputs.updated == 'true'
+        run: |
+          bundle exec exe/rdc ir
+          bundle exec ruby scripts/update_summary.rb tmp/summary.md
+          bundle exec rake test
+          bundle exec exe/rdc build
+      - id: app-token
+        if: steps.check.outputs.updated == 'true' && vars.BOT_APP_ID != ''
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+      - id: pr
+        if: steps.check.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ steps.app-token.outputs.token || github.token }}
+          branch: bot/upstream-update
+          title: 'Update grammars from upstream'
+          commit-message: 'chore: update upstream grammars'
+          body-path: tmp/summary.md
+          add-paths: |
+            grammars/manifest.yml
+            grammars/lock.yml
+            data/
+      - if: steps.pr.outputs.pull-request-operation == 'created' || steps.pr.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+        run: gh workflow run ci.yml --ref bot/upstream-update

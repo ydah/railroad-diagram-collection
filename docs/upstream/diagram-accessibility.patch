@@ -1,0 +1,176 @@
+diff --git a/lib/lrama/diagram.rb b/lib/lrama/diagram.rb
+index 9858089..42faa6e 100644
+--- a/lib/lrama/diagram.rb
++++ b/lib/lrama/diagram.rb
+@@ -4,6 +4,12 @@
+ module Lrama
+   class Diagram
+     class << self
++      def rule_id(name)
++        'r-' + name.encode(Encoding::UTF_8).bytes.map do |byte|
++          byte.chr.match?(/[A-Za-z0-9_]/) ? byte.chr : '~%02X' % byte
++        end.join
++      end
++
+       # @rbs (IO out, Grammar grammar, String template_name) -> void
+       def render(out:, grammar:, template_name: 'diagram/diagram.html')
+         return unless require_railroad_diagrams
+@@ -69,9 +75,20 @@ module Lrama
+
+     # @rbs (String name, RailroadDiagrams::Diagram diagram, String result) -> void
+     def add_diagram(name, diagram, result)
+-      result << "\n<h2 class=\"diagram-header\">#{RailroadDiagrams.escape_html(name)}</h2>"
+-      diagram.write_svg(result.method(:<<))
+-      result << "\n"
++      id = self.class.rule_id(name)
++      label = RailroadDiagrams.escape_html(name)
++      result << "\n<h2 class=\"diagram-header\" id=\"#{id}\">#{label}</h2>"
++      result << "\n<div class=\"diagram-scroll\" tabindex=\"0\" role=\"region\" aria-label=\"Diagram for #{label}\">"
++      diagram.attrs['role'] = 'group'
++      diagram.attrs['aria-labelledby'] = id
++      svg = +''
++      diagram.write_svg(svg.method(:<<))
++      result << svg.gsub(/<path\b([^>]*\bd=")([^"]*)("[^>]*\/>)/) do
++        prefix, data, suffix = Regexp.last_match(1), Regexp.last_match(2), Regexp.last_match(3)
++        data = data.gsub(/[hv]-?0(?:\.0+)?(?=[A-Za-z\s]|$)/, '')
++        data.match?(/[hlvaqcszt]/i) ? '<path' + prefix + data + suffix : ''
++      end
++      result << "</div>\n"
+     end
+   end
+ end
+diff --git a/lib/lrama/grammar/rule.rb b/lib/lrama/grammar/rule.rb
+index b023b0e..eb009ac 100644
+--- a/lib/lrama/grammar/rule.rb
++++ b/lib/lrama/grammar/rule.rb
+@@ -126,7 +126,14 @@ module Lrama
+           if r.term
+             RailroadDiagrams::Terminal.new(r.id.s_value)
+           else
+-            RailroadDiagrams::NonTerminal.new(r.id.s_value)
++            item = RailroadDiagrams::NonTerminal.new(r.id.s_value)
++            href = "##{Lrama::Diagram.rule_id(r.id.s_value)}"
++            item.define_singleton_method(:write_svg) do |write|
++              write.call("<a href=\"#{href}\">")
++              super(write)
++              write.call('</a>')
++            end
++            item
+           end
+         end
+       end
+diff --git a/spec/lrama/diagram_spec.rb b/spec/lrama/diagram_spec.rb
+index 10f532d..90004bd 100644
+--- a/spec/lrama/diagram_spec.rb
++++ b/spec/lrama/diagram_spec.rb
+@@ -21,8 +21,8 @@ RSpec.describe Lrama::Diagram do
+   describe ".render" do
+     it "renders a diagram" do
+       expect { Lrama::Diagram.render(out: out, grammar: grammar) }.not_to raise_error
+-      expect(out.string).to include('<h2 class="diagram-header">$accept</h2>')
+-      expect(out.string).to include('<h2 class="diagram-header">unused</h2>')
++      expect(out.string).to include('<h2 class="diagram-header" id="r-~24accept">$accept</h2>')
++      expect(out.string).to include('<h2 class="diagram-header" id="r-unused">unused</h2>')
+       expect(out.string).to include("<svg")
+     end
+   end
+@@ -52,8 +52,8 @@ RSpec.describe Lrama::Diagram do
+
+     it "renders a diagram" do
+       expect { diagram.render }.not_to raise_error
+-      expect(out.string).to include('<h2 class="diagram-header">$accept</h2>')
+-      expect(out.string).to include('<h2 class="diagram-header">unused</h2>')
++      expect(out.string).to include('<h2 class="diagram-header" id="r-~24accept">$accept</h2>')
++      expect(out.string).to include('<h2 class="diagram-header" id="r-unused">unused</h2>')
+       expect(out.string).to include("<svg")
+     end
+   end
+@@ -74,8 +74,8 @@ RSpec.describe Lrama::Diagram do
+     end
+
+     it "returns diagrams" do
+-      expect(diagram.diagrams).to include('<h2 class="diagram-header">$accept</h2>')
+-      expect(diagram.diagrams).to include('<h2 class="diagram-header">unused</h2>')
++      expect(diagram.diagrams).to include('<h2 class="diagram-header" id="r-~24accept">$accept</h2>')
++      expect(diagram.diagrams).to include('<h2 class="diagram-header" id="r-unused">unused</h2>')
+       expect(diagram.diagrams).to include("<svg")
+     end
+   end
+diff --git a/template/diagram/diagram.html b/template/diagram/diagram.html
+index 3e87e6e..08a934b 100644
+--- a/template/diagram/diagram.html
++++ b/template/diagram/diagram.html
+@@ -1,6 +1,8 @@
+ <!DOCTYPE html>
+-<html>
++<html lang="en">
+ <head>
++  <meta charset="utf-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Lrama syntax diagrams</title>
+
+   <style>
+@@ -13,9 +15,11 @@
+         text-align: center;
+     }
+
+-    svg {
+-        width: 100%;
+-    }
++    body { margin: 1rem; text-align: center; }
++    .diagram-scroll { max-width: 100%; overflow: auto; }
++    .diagram-scroll svg { width: auto; height: auto; max-width: none; }
++    .diagram-header { scroll-margin-top: 1rem; }
++    svg a:focus-visible rect { stroke-width: 5; }
+
+     svg.railroad-diagram g.non-terminal text {
+         cursor: pointer;
+@@ -27,17 +31,17 @@
+
+     svg.railroad-diagram g.non-terminal.hover-g rect {
+         fill: #eded91;
+-        stroke: 5;
++        stroke-width: 5;
+     }
+
+     svg.railroad-diagram g.terminal.hover-g rect {
+         fill: #eded91;
+-        stroke: 5;
++        stroke-width: 5;
+     }
+   </style>
+ </head>
+
+-<body align="center">
++<body>
+   <%= output.diagrams %>
+   <script>
+     document.addEventListener("DOMContentLoaded", () => {
+@@ -75,27 +79,11 @@
+         );
+       }
+
+-      function scrollToMatchingHeader() {
+-        document.querySelectorAll("g.non-terminal").forEach(element => {
+-          element.addEventListener("click", () => {
+-            const textElements = [...element.querySelectorAll("text")];
+-            for (const textEl of textElements) {
+-              const targetHeader = getElementsByText("h2", textEl.textContent)[0];
+-              if (targetHeader) {
+-                targetHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+-                break;
+-              }
+-            }
+-          });
+-        });
+-      }
+-
+       addHoverEffect("h2", "hover-header", "g.non-terminal", "hover-g", element => [element]);
+       addHoverEffect("g.non-terminal", "hover-g", "h2", "hover-header",
+         element => [...element.querySelectorAll("text")]
+       );
+       addHoverEffect("g.terminal", "hover-g", "", "", element => [element]);
+-      scrollToMatchingHeader();
+     });
+   </script>
+ </body>
