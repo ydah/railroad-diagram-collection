@@ -33,6 +33,14 @@ php:
     prepared_sha256: 53bf84957214b7d02f62acb8b1f3088c38289377b1a00a0a240ea4f7bb31e5c1
     committed_at: '2024-11-20T02:13:14+09:00'
     fetched_at: '2026-09-30T05:58:53Z'
+  '8.6':
+    repo: https://github.com/php/php-src.git
+    ref: php-8.6.0
+    commit: 8aaada3f9605d81a38b8240f93c7389dfbc77ef9
+    sha256: 2daed30b2d5d3286c72d4b4794950a977263201213f876f5761dc4a068bd8235
+    prepared_sha256: 2daed30b2d5d3286c72d4b4794950a977263201213f876f5761dc4a068bd8235
+    committed_at: '2026-11-17T14:21:54Z'
+    fetched_at: '2026-11-23T06:11:49Z'
 perl:
   '5.44':
     repo: https://github.com/Perl/perl5.git
@@ -92,6 +100,14 @@ postgresql:
     prepared_sha256: 8e0d972264b1486f84a019897cf4b5d05bbe1a8c737a2d4ad95210c1a90d7951
     committed_at: '2024-09-23T16:02:53-04:00'
     fetched_at: '2026-09-30T05:59:24Z'
+  '19':
+    repo: https://github.com/postgres/postgres.git
+    ref: REL_19_0
+    commit: 5c839a2a08b9b87a349be97371fac6c5a2873b10
+    sha256: ee8ab3f804c51e03723d7132a64d327caefed3e77137204ffb75b73166dc9137
+    prepared_sha256: c188c5aa24da255106357035b4d61fa09b47d6548ca15c765094cd485da6021a
+    committed_at: '2026-11-16T15:02:58-05:00'
+    fetched_at: '2026-11-23T06:12:19Z'
 mruby:
   '4.0':
     repo: https://github.com/mruby/mruby.git

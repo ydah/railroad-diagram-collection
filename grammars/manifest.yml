@@ -47,9 +47,11 @@ languages:
       url: https://github.com/php/php-src/blob/php-8.5.0/Zend/LICENSE
       path: Zend/LICENSE
     versions:
+    - id: '8.6'
+      ref: php-8.6.0
+      default: true
     - id: '8.5'
       ref: php-8.5.0
-      default: true
     - id: '8.4'
       ref: php-8.4.0
   perl:
@@ -121,9 +123,11 @@ languages:
       url: https://github.com/postgres/postgres/blob/REL_18_0/COPYRIGHT
       path: COPYRIGHT
     versions:
+    - id: '19'
+      ref: REL_19_0
+      default: true
     - id: '18'
       ref: REL_18_0
-      default: true
     - id: '17'
       ref: REL_17_0
   mruby:
